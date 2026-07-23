@@ -119,6 +119,30 @@ export function CrisisBanner({ crisis }: { crisis: Crisis }) {
   )
 }
 
+// 국운 그래프 — 시뮬 중엔 series가 자라며 오른쪽으로 그려지고(관전의 서사), 결과에선 전체.
+// series=[시작지지율, ...누적 supportAfter], total=전체 포인트 수(x축 고정 → 자라는 효과).
+export function SupportGraph({ series, total }: { series: number[]; total: number }) {
+  const n = Math.max(total, 2)
+  const pts = series.map((s, i) => `${(i / (n - 1)) * 100},${100 - s}`).join(' ')
+  const cur = series.length ? Math.round(series[series.length - 1]) : 0
+  const lastX = series.length ? ((series.length - 1) / (n - 1)) * 100 : 0
+  const lastY = 100 - cur
+  return (
+    <div className="support-graph hard-shadow">
+      <div className="graph-head">
+        <span className="graph-title">국운 그래프</span>
+        <span className="graph-cur">{cur}</span>
+      </div>
+      <div className="graph-body">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="graph-svg">
+          <polyline points={pts} fill="none" stroke="var(--accent)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+        </svg>
+        {series.length > 0 && <span className="graph-marker" style={{ left: `${lastX}%`, top: `${lastY}%` }} />}
+      </div>
+    </div>
+  )
+}
+
 const DIFF_LABEL: Record<Difficulty, string> = { low: '하', mid: '중', high: '상' }
 
 // 목표구배 진행바 (Kivetz) — 위기 3개 저지 현황을 라이브로. "2/3 저지! 마지막 하나"로

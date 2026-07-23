@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AXIS_LABEL, SLOTS, type SlotId } from '../lib/types'
 import { pickVerdict, FLEX_HERO, MVP_LABEL, GOAT_LABEL } from '../data/verdicts'
-import { MiniPortrait, CrisisTracker } from '../ui/shared'
+import { MiniPortrait, CrisisTracker, SupportGraph } from '../ui/shared'
+import { BALANCE as B } from '../lib/balance'
 import { play } from '../lib/sfx'
 import type { Action, GameState } from '../game/gameState'
 
@@ -43,11 +44,14 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
   // 목표구배: 지금까지 드러난 위기 판정만 반영 (crisis 이벤트는 result.crises와 같은 연차순)
   const shownCrises = result.timeline.slice(0, shown).filter((e) => e.kind === 'crisis')
   const outcomes = result.crises.map((_, i) => (i < shownCrises.length ? shownCrises[i].success! : null))
+  // 국운 그래프: 드러난 이벤트만큼 series가 자람 → 선이 오른쪽으로 그려짐 (관전의 서사)
+  const series = [B.SUPPORT_START, ...result.timeline.slice(0, shown).map((e) => e.supportAfter)]
 
   return (
     <div className="sim-screen">
       <header className="sim-header">집권 실록</header>
       <CrisisTracker crises={result.crises} outcomes={outcomes} />
+      <SupportGraph series={series} total={result.timeline.length + 1} />
       <div className="sim-log">
         {result.timeline.slice(0, shown).map((e, i) => {
           if (e.kind === 'minor') {

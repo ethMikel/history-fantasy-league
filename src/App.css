@@ -270,8 +270,22 @@
 .board-years { width: 56px; color: var(--accent); }
 .board-cab { flex: 1; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .support-graph { background: var(--panel); padding: var(--sp-3); width: 100%; }
-.graph-title { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-2); }
-.graph-svg { width: 100%; height: 120px; background: var(--ink-900); }
+.graph-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-2); }
+.graph-title { font-size: var(--fs-sm); color: var(--text-dim); }
+.graph-cur { font-size: var(--fs-lg); color: var(--accent); }
+.graph-body { position: relative; }
+.graph-svg {
+  width: 100%; height: 120px; display: block;
+  background:
+    repeating-linear-gradient(0deg, rgba(232,181,58,.06) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(232,181,58,.06) 0 1px, transparent 1px 40px),
+    var(--ink-900);
+}
+/* 현재 국운 위치 픽셀 마커 (자라는 선 끝) */
+.graph-marker {
+  position: absolute; width: 8px; height: 8px; background: var(--accent);
+  transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--ink-900);
+}
 .result-cabinet { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-1) var(--sp-4); width: 100%; }
 .result-slot { display: flex; justify-content: space-between; align-items: center; font-size: var(--fs-sm); border-bottom: 1px solid var(--ink-700); padding: 2px 0; }
 .result-slot > span { color: var(--text-dim); }

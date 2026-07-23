@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BALANCE as B } from '../lib/balance'
 import { SLOTS, type Character, type SlotId } from '../lib/types'
-import { MiniPortrait, fitScore } from '../ui/shared'
+import { MiniPortrait, fitScore, SupportGraph } from '../ui/shared'
 import { nextGoal } from '../lib/simulate'
 import { play } from '../lib/sfx'
 import { record, top } from '../game/localScores'
@@ -15,7 +15,6 @@ const GRADE_COLOR: Record<string, string> = {
 export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   const r = state.result!
   const support = [B.SUPPORT_START, ...r.timeline.map((e) => e.supportAfter)]
-  const path = support.map((s, i) => `${(i / (support.length - 1)) * 100},${100 - s}`).join(' ')
 
   // 이번 판을 로컬 기록에 저장 (마운트 시 1회) → 순위·신기록 + 역대 TOP
   const [meta] = useState(() => record({
@@ -62,12 +61,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
           : <span className="rank-normal">이번 판 역대 <b>{meta.rank}위</b> / {meta.total}판</span>}
       </div>
 
-      <div className="support-graph hard-shadow">
-        <div className="graph-title">국운 그래프</div>
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="graph-svg">
-          <polyline points={path} fill="none" stroke="var(--accent)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
-        </svg>
-      </div>
+      <SupportGraph series={support} total={support.length} />
 
       {/* 내 역대 기록 TOP 5 (로컬) — Phase 3에서 전역 리더보드로 확장 */}
       {board.length > 1 && (
