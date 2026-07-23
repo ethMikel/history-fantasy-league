@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BALANCE as B } from '../lib/balance'
 import { SLOTS, type Character, type SlotId } from '../lib/types'
 import { MiniPortrait, fitScore } from '../ui/shared'
@@ -25,6 +25,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
   const [sharing, setSharing] = useState(false)
   const [shareMsg, setShareMsg] = useState('')
   const goal = nextGoal(r) // 목표구배/near-miss — "한 끗" 근접치로 재도전 유도
+  const shownYears = useCountUp(r.years) // 집권연수 카운트업 (juice)
 
   return (
     <div className="result-screen">
@@ -45,7 +46,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
         )}
         <div className="result-metrics">
           <span className="grade-badge" style={{ color: GRADE_COLOR[r.grade], borderColor: GRADE_COLOR[r.grade] }}>{r.grade}</span>
-          <span className="years-metric"><b>{r.years}</b>년 집권</span>
+          <span className="years-metric"><b>{shownYears}</b>년 집권</span>
         </div>
       </div>
 
@@ -107,6 +108,27 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
       </div>
     </div>
   )
+}
+
+// 집권연수 카운트업 — 기본은 최종값(숨김/reduced-motion 안전), 화면 보일 때만 0→N 애니.
+function useCountUp(target: number, ms = 700): number {
+  const [n, setN] = useState(target)
+  useEffect(() => {
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (document.hidden || reduce) { setN(target); return }
+    let raf = 0
+    let start = 0
+    setN(0)
+    const step = (t: number) => {
+      if (!start) start = t
+      const p = Math.min(1, (t - start) / ms)
+      setN(Math.round(target * (1 - Math.pow(1 - p, 3)))) // easeOutCubic
+      if (p < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [target, ms])
+  return n
 }
 
 // 새 판 시드 — 엔트로피 소스로만 Math.random 허용 (게임 로직 아님, CLAUDE.md 규칙 1)

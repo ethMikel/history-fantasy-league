@@ -31,6 +31,20 @@
 }
 .btn-respin:disabled { opacity: 0.35; cursor: not-allowed; }
 
+/* ── juice: 눌림 피드백 (모든 탭에 촉감) ── */
+.btn-secondary:active, .btn-respin:active, .btn-skip:active { transform: translate(2px, 2px); }
+.char-card:active { transform: translate(1px, 1px); }
+.char-card.selected:active { transform: translate(-1px, -3px); }
+/* 멸망(정권 교체) 셰이크 — 결과 진입 시 1회 (transform만, 이징) */
+.result-verdict.lose { animation: loseShake 0.5s ease-out 1; }
+@keyframes loseShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+
 /* ── 타이틀 ── */
 .title-screen {
   min-height: 100dvh; display: flex; flex-direction: column;
@@ -233,3 +247,12 @@
 .result-slot > span { color: var(--text-dim); }
 .result-slot-who { display: flex; align-items: center; gap: var(--sp-1); }
 .result-actions { display: flex; gap: var(--sp-3); margin-top: var(--sp-4); }
+
+/* ── 접근성: 모션 최소화 선호 시 애니메이션·전환 제거 ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
