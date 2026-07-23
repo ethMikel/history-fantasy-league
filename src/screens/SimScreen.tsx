@@ -1,15 +1,32 @@
-import { useEffect, useState } from 'react'
-import { AXIS_LABEL } from '../lib/types'
+import { useEffect, useMemo, useState } from 'react'
+import { AXIS_LABEL, SLOTS, type SlotId } from '../lib/types'
+import { pickVerdict, FLEX_HERO, MVP_LABEL, GOAT_LABEL } from '../data/verdicts'
+import { MiniPortrait } from '../ui/shared'
 import type { Action, GameState } from '../game/gameState'
 
-// walking skeleton: 텍스트 로그가 한 줄씩 등장 (지지율 그래프 연출은 Phase 2 juice pass).
+// 관전의 서사: 위기 판정을 밈 코멘트 + 담당자 초상 + 구국공신/역적 라벨로 (11_CRISIS_NARRATIVE)
 export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   const result = state.result!
   const [shown, setShown] = useState(0)
 
+  // 담당자 이름 → 캐릭터(초상용) 매핑
+  const byName = useMemo(() => {
+    const m: Record<string, (typeof state.slots)[SlotId]> = {}
+    for (const s of SLOTS) { const c = state.slots[s.id]; if (c) m[c.name] = c }
+    return m
+  }, [state.slots])
+
+  // 구국공신(최고 마진 성공) / 역적(최악 실패) 1명씩
+  const { mvp, goat } = useMemo(() => {
+    const cr = result.timeline.filter((e) => e.kind === 'crisis')
+    const ok = cr.filter((e) => e.success).sort((a, b) => (b.margin ?? 0) - (a.margin ?? 0))
+    const bad = cr.filter((e) => !e.success).sort((a, b) => (a.margin ?? 0) - (b.margin ?? 0))
+    return { mvp: ok[0]?.responder, goat: bad[0]?.responder }
+  }, [result])
+
   useEffect(() => {
     if (shown >= result.timeline.length) return
-    const t = setTimeout(() => setShown((n) => n + 1), 550)
+    const t = setTimeout(() => setShown((n) => n + 1), 900)
     return () => clearTimeout(t)
   }, [shown, result.timeline.length])
 
@@ -17,18 +34,31 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
 
   return (
     <div className="sim-screen">
-      <header className="sim-header">집권 시뮬레이션</header>
+      <header className="sim-header">집권 실록</header>
       <div className="sim-log">
         {result.timeline.slice(0, shown).map((e, i) => {
           if (e.kind === 'minor') {
             return <div key={i} className="log-line minor">· {e.year}년차 — 소소한 정사 ({e.deltaYears >= 0 ? '+' : ''}{e.deltaYears}년)</div>
           }
-          const tone = e.success ? 'ok' : 'fail'
+          const who = e.responder!
+          const c = byName[who]
+          const verdict = pickVerdict(e.axis!, e.success!, who, e.title ?? '', e.year)
+          const badge = who === mvp && e.success ? MVP_LABEL : who === goat && !e.success ? GOAT_LABEL : null
           return (
-            <div key={i} className={`log-line crisis ${tone}`}>
-              <b>{e.year}년차 · {AXIS_LABEL[e.axis!]} 위기</b> — {e.responder}
-              {e.viaFlex ? '(무임소 구원등판)' : ''} {e.success ? '✅ 극복' : '❌ 실패'}
-              <span className="log-delta">{e.deltaYears >= 0 ? '+' : ''}{e.deltaYears.toFixed(1)}년</span>
+            <div key={i} className={`log-line crisis ${e.success ? 'ok' : 'fail'}`}>
+              <div className="log-head">
+                <span className="log-year">{e.year}년차</span>
+                <span className="log-crisis-name">{e.title}</span>
+                <span className="log-axis" data-axis={e.axis}>{AXIS_LABEL[e.axis!]}</span>
+                <span className="log-delta">{e.deltaYears >= 0 ? '+' : ''}{e.deltaYears.toFixed(0)}년</span>
+              </div>
+              <div className="log-verdict">
+                {c && <MiniPortrait c={c} size={28} />}
+                <span className="log-text">
+                  {e.viaFlex && e.success ? FLEX_HERO : ''}{verdict}
+                  {badge && <b className="log-badge">{badge}</b>}
+                </span>
+              </div>
             </div>
           )
         })}

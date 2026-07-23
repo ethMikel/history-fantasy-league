@@ -92,10 +92,14 @@ function pct(sorted: number[], q: number) { return sorted[Math.min(sorted.length
 function run(policy: Policy) {
   const years: number[] = []
   const crisisStats: Record<string, { n: number; ok: number }> = { low: { n: 0, ok: 0 }, mid: { n: 0, ok: 0 }, high: { n: 0, ok: 0 } }
+  let allClearN = 0
+  const grades: Record<string, number> = { S: 0, A: 0, B: 0, C: 0, D: 0 }
   for (let seed = 1; seed <= N_GAMES; seed++) {
     const cab = draft(seed, policy)
     const r = simulate(seed, cab)
     years.push(r.years)
+    if (r.allClear) allClearN++
+    grades[r.grade]++
     for (const e of r.timeline) if (e.kind === 'crisis') {
       crisisStats[e.difficulty!].n++
       if (e.success) crisisStats[e.difficulty!].ok++
@@ -108,6 +112,8 @@ function run(policy: Policy) {
     median: pct(years, 0.5), p5: pct(years, 0.05), p95: pct(years, 0.95),
     p99: pct(years, 0.99), max: years[years.length - 1],
     trimmedSpan: pct(years, 0.975) - pct(years, 0.025),
+    allClear: (100 * allClearN / N_GAMES).toFixed(0) + '%',
+    grades,
     success: Object.fromEntries(Object.entries(crisisStats).map(([k, v]) => [k, (100 * v.ok / Math.max(1, v.n)).toFixed(0) + '%'])),
   }
 }
@@ -115,7 +121,8 @@ function run(policy: Policy) {
 console.log(`히스토리 판타지 리그 — 봇 밸런스 러너 (${N_GAMES}판 × 3정책, 동일 시드셋)\n`)
 const results = (['random', 'greedy', 'oracle'] as Policy[]).map(run)
 for (const r of results) {
-  console.log(`[${r.policy.padEnd(6)}] median ${String(r.median).padStart(3)}년 | mean ${r.mean.toFixed(1)} | p5 ${r.p5} | p95 ${r.p95} | p99 ${r.p99} | max ${r.max} | 성공률 하${r.success.low} 중${r.success.mid} 상${r.success.high}`)
+  console.log(`[${r.policy.padEnd(6)}] median ${String(r.median).padStart(3)}년 | mean ${r.mean.toFixed(1)} | p95 ${r.p95} | max ${r.max} | 성공률 하${r.success.low} 중${r.success.mid} 상${r.success.high}`)
+  console.log(`         🏆우승률 ${r.allClear} | 등급 S${r.grades.S} A${r.grades.A} B${r.grades.B} C${r.grades.C} D${r.grades.D}`)
 }
 const [rand, greedy, oracle] = results
 const K = greedy.mean - rand.mean

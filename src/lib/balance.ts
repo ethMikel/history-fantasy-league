@@ -17,10 +17,11 @@ export const BALANCE = {
   PRES_MIN: 0.92, // 대통령 배수 하한
   PRES_RANGE: 0.16, // 배수 = PRES_MIN + PRES_RANGE × (통솔지수/99)
 
-  // §6 점수 (집권 연수, 가산 + 마진 연속형)
-  Y_BASE: 4, // 기본 임기
-  G_MAX: { low: 8, mid: 16, high: 32 }, // 성공 보상 상한 — v0.2: 상위 분포 목표(p99 ~85년) 방향 상향
-  L_FAIL: { low: 2, mid: 5, high: 10 }, // 실패 페널티
+  // §6 점수 (집권 연수 = 성취 지표) — v0.4: 실패=못 버는 것(작은 dip), 성공=버는 것
+  // 실패 대폭차감→1년 붕괴 문제 해결. 연수는 그라데이션(리더보드 경쟁), 지지율은 드라마 별도 축
+  Y_BASE: 10, // 기본 임기 (아무것도 못해도 최소 임기)
+  G_MAX: { low: 10, mid: 20, high: 38 }, // 성공 보상 상한 (극복 수·난이도가 연수를 가름)
+  L_FAIL: { low: 0, mid: 1, high: 2 }, // 실패 = 연수를 '못 버는' 것 (붕괴 대신 정체)
   MARGIN_SOFTCAP_S: 15, // Δ = G_MAX × (1 − e^(−margin/s))
   HARD_CAP_YEARS: 100, // "한 세기 집권" 완주
   ALL_CLEAR_BONUS: 10, // 위기 3개 전부 성공 시 (04_FORMULA_STUDY §6 올클리어 보너스)

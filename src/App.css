@@ -126,19 +126,43 @@
 .sim-screen { max-width: 700px; margin: 0 auto; padding: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-3); }
 .sim-header { font-size: var(--fs-lg); color: var(--accent); text-align: center; }
 .sim-log { display: flex; flex-direction: column; gap: var(--sp-2); min-height: 300px; }
-.log-line { font-size: var(--fs-md); padding: var(--sp-2); background: var(--panel); border-left: 3px solid var(--ink-500); }
+.log-line { font-size: var(--fs-md); padding: var(--sp-2) var(--sp-3); background: var(--panel); border-left: 4px solid var(--ink-500); animation: logIn 0.35s ease-out; }
+@keyframes logIn { from { opacity: 0; transform: translateX(-8px); } }
 .log-line.minor { color: var(--text-dim); font-size: var(--fs-sm); }
 .log-line.crisis.ok { border-left-color: var(--green-400); }
 .log-line.crisis.fail { border-left-color: var(--red-400); }
-.log-delta { float: right; color: var(--text-dim); }
+.log-head { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-1); }
+.log-year { font-size: var(--fs-sm); color: var(--ink-900); background: var(--paper-300); padding: 0 var(--sp-1); }
+.log-crisis-name { font-size: var(--fs-md); font-weight: bold; flex: 1; }
+.log-axis { font-size: 11px; padding: 1px var(--sp-2); border: 1px solid; }
+.log-axis[data-axis='mil'] { color: var(--stat-military); border-color: var(--stat-military); }
+.log-axis[data-axis='str'] { color: var(--stat-strategy); border-color: var(--stat-strategy); }
+.log-axis[data-axis='dom'] { color: var(--stat-domestic); border-color: var(--stat-domestic); }
+.log-axis[data-axis='dip'] { color: var(--stat-diplomacy); border-color: var(--stat-diplomacy); }
+.log-axis[data-axis='sci'] { color: var(--stat-science); border-color: var(--stat-science); }
+.log-axis[data-axis='cul'] { color: var(--stat-culture); border-color: var(--stat-culture); }
+.log-delta { font-size: var(--fs-md); font-weight: bold; }
+.log-line.ok .log-delta { color: var(--green-400); }
+.log-line.fail .log-delta { color: var(--red-400); }
+.log-verdict { display: flex; align-items: center; gap: var(--sp-2); }
+.log-text { font-size: var(--fs-sm); color: var(--text); line-height: 1.4; }
+.log-badge { margin-left: var(--sp-2); font-size: 11px; padding: 1px var(--sp-2); background: var(--ink-900); }
 .sim-footer { display: flex; justify-content: center; gap: var(--sp-3); }
 
 /* ── 결과 ── */
 .result-screen { max-width: 700px; margin: 0 auto; padding: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-4); align-items: center; }
-.result-verdict { background: var(--panel); padding: var(--sp-6) var(--sp-8); display: flex; flex-direction: column; align-items: center; gap: var(--sp-1); width: 100%; }
+.result-verdict { background: var(--panel); padding: var(--sp-6) var(--sp-8); display: flex; flex-direction: column; align-items: center; gap: var(--sp-1); width: 100%; border: 3px solid var(--ink-500); }
+.result-verdict.win { border-color: var(--gold-400); background: linear-gradient(var(--panel), #2a2410); }
+.result-verdict.lose { border-color: var(--ink-500); }
+.win-crown { font-size: var(--fs-hero); }
+.win-title { font-size: var(--fs-xl); color: var(--gold-400); font-weight: bold; }
+.lose-title { font-size: var(--fs-xl); color: var(--text-dim); font-weight: bold; }
 .verdict-label { font-size: var(--fs-md); color: var(--text-dim); }
-.verdict-years { font-size: var(--fs-hero); color: var(--accent); }
-.verdict-sub { font-size: var(--fs-md); color: var(--text-dim); }
+.verdict-sub { font-size: var(--fs-sm); color: var(--text-dim); }
+.result-metrics { display: flex; align-items: center; gap: var(--sp-4); margin-top: var(--sp-3); }
+.grade-badge { font-size: var(--fs-hero); font-weight: bold; border: 3px solid; padding: 0 var(--sp-4); line-height: 1.1; }
+.years-metric { font-size: var(--fs-md); color: var(--text-dim); }
+.years-metric b { font-size: var(--fs-xl); color: var(--text); }
 .support-graph { background: var(--panel); padding: var(--sp-3); width: 100%; }
 .graph-title { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-2); }
 .graph-svg { width: 100%; height: 120px; background: var(--ink-900); }

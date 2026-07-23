@@ -59,6 +59,7 @@ export interface TimelineEvent {
   kind: 'crisis' | 'minor'
   axis?: Axis
   difficulty?: Difficulty
+  title?: string // 위기 이벤트명 (판정 코멘트용)
   success?: boolean
   margin?: number
   deltaYears: number
@@ -67,9 +68,14 @@ export interface TimelineEvent {
   viaFlex?: boolean // 무임소 구원 등판 여부
 }
 
+export type Grade = 'S' | 'A' | 'B' | 'C' | 'D'
+
 export interface SimResult {
   years: number
   timeline: TimelineEvent[]
   crises: Crisis[]
   finalSupport: number
+  cleared: number // 극복한 위기 수 (0~3)
+  allClear: boolean // 🏆 우승 = 3개 전부 극복
+  grade: Grade // 등급 (극복 수 + 집권연수)
 }

@@ -21,7 +21,7 @@ function App() {
           <button className="btn-primary hard-shadow start-btn" onClick={() => dispatch({ type: 'NEW_GAME', seed: newSeed() })}>
             ▶ 시작
           </button>
-          <p className="build-note">Phase 1 — walking skeleton (더미 인물 30명)</p>
+          <p className="build-note">위기 3개를 모두 막아 완전 집권에 도전하라 · 실존 인물 156명</p>
         </div>
       )}
       {state.screen === 'draft' && <DraftScreen state={state} dispatch={dispatch} />}

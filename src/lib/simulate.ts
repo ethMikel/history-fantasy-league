@@ -114,7 +114,7 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
           : -(B.SUPPORT_FAIL.min + (B.SUPPORT_FAIL.max - B.SUPPORT_FAIL.min) * check())
         support = Math.min(100, Math.max(0, support))
         return {
-          year: c.year, kind: 'crisis', axis: c.axis, difficulty: c.difficulty,
+          year: c.year, kind: 'crisis', axis: c.axis, difficulty: c.difficulty, title: c.title,
           success, margin, deltaYears: delta, supportAfter: support,
           responder: who.name, viaFlex,
         }
@@ -145,7 +145,17 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
   }
 
   const finalYears = Math.min(B.HARD_CAP_YEARS, Math.max(1, Math.round(years)))
-  return { years: finalYears, timeline, crises, finalSupport: support }
+  const cleared = crisisEvents.filter((e) => e.success).length
+  const allClear = cleared === crisisEvents.length && crisisEvents.length > 0
+  return { years: finalYears, timeline, crises, finalSupport: support, cleared, allClear, grade: gradeOf(cleared, finalYears, allClear) }
+}
+
+// 등급: 우승(3극복) 전제로 집권연수가 가를수록 높게. 미우승은 극복 수로 상한.
+export function gradeOf(cleared: number, years: number, allClear: boolean): SimResult['grade'] {
+  if (allClear) return years >= 70 ? 'S' : years >= 45 ? 'A' : 'B'
+  if (cleared === 2) return years >= 30 ? 'B' : 'C'
+  if (cleared === 1) return 'C'
+  return 'D'
 }
 
 // ── 유틸 ───────────────────────────────────────────────────────────

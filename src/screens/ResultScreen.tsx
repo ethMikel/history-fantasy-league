@@ -3,20 +3,36 @@ import { SLOTS } from '../lib/types'
 import { MiniPortrait, fitScore } from '../ui/shared'
 import type { Action, GameState } from '../game/gameState'
 
-// walking skeleton: 지지율 스파크라인(SVG) + 집권 연수. 정식 국정 그래프 연출은 Phase 2.
+const GRADE_COLOR: Record<string, string> = {
+  S: 'var(--gold-400)', A: 'var(--stat-diplomacy)', B: 'var(--stat-domestic)', C: 'var(--paper-300)', D: 'var(--paper-100)',
+}
+
 export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   const r = state.result!
   const support = [B.SUPPORT_START, ...r.timeline.map((e) => e.supportAfter)]
   const path = support.map((s, i) => `${(i / (support.length - 1)) * 100},${100 - s}`).join(' ')
-  const crises = r.timeline.filter((e) => e.kind === 'crisis')
-  const cleared = crises.filter((e) => e.success).length
 
   return (
     <div className="result-screen">
-      <div className="result-verdict hard-shadow">
-        <span className="verdict-label">우리 정권은</span>
-        <span className="verdict-years">{r.years}년</span>
-        <span className="verdict-sub">집권했다 · 위기 {cleared}/{crises.length} 극복</span>
+      {/* 우승 여부 = 1차 목표 (retry 동기) */}
+      <div className={`result-verdict hard-shadow ${r.allClear ? 'win' : 'lose'}`}>
+        {r.allClear ? (
+          <>
+            <span className="win-crown">🏆</span>
+            <span className="win-title">완전 집권</span>
+            <span className="verdict-sub">위기 3개 전부 극복 — 명예의 전당 등재 자격</span>
+          </>
+        ) : (
+          <>
+            <span className="verdict-label">위기 {r.cleared} / 3 극복</span>
+            <span className="lose-title">정권 교체</span>
+            <span className="verdict-sub">3개를 모두 막아야 완전 집권이다. 다시 도전하라.</span>
+          </>
+        )}
+        <div className="result-metrics">
+          <span className="grade-badge" style={{ color: GRADE_COLOR[r.grade], borderColor: GRADE_COLOR[r.grade] }}>{r.grade}</span>
+          <span className="years-metric"><b>{r.years}</b>년 집권</span>
+        </div>
       </div>
 
       <div className="support-graph hard-shadow">
@@ -40,8 +56,9 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
 
       <div className="result-actions">
         <button className="btn-primary hard-shadow" onClick={() => dispatch({ type: 'NEW_GAME', seed: newSeed() })}>
-          🔄 다시 하기
+          🔄 {r.allClear ? '더 높은 등급 도전' : '다시 도전'}
         </button>
+        <button className="btn-secondary" disabled title="Phase 3 예정">🏅 랭킹 (준비 중)</button>
         <button className="btn-secondary" onClick={() => dispatch({ type: 'HOME' })}>홈</button>
       </div>
     </div>
