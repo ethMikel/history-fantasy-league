@@ -1,0 +1,24 @@
+.title-screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+  padding: var(--sp-6);
+  touch-action: manipulation;
+  user-select: none;
+}
+.game-title {
+  font-size: var(--fs-hero);
+  color: var(--accent);
+  background: var(--panel);
+  padding: var(--sp-4) var(--sp-8);
+  border-radius: 0;
+}
+.tagline { font-size: var(--fs-lg); }
+.tagline.dim { color: var(--text-dim); font-size: var(--fs-md); }
+.build-note { margin-top: var(--sp-8); font-size: var(--fs-sm); color: var(--text-dim); }

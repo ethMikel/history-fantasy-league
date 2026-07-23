@@ -1,0 +1,45 @@
+/* 디자인 토큰 — 색상 리터럴은 이 파일에만 존재 (08_REFERENCE_STUDY §3)
+   구조: 원시 토큰(팔레트) → 의미 토큰(용도). 팔레트 16색은 R9 확정 후 교체 예정(임시값). */
+:root {
+  /* 원시 팔레트 (임시 — Lospec 16색 선정 후 교체) */
+  --ink-900: #14121f;
+  --ink-700: #262336;
+  --ink-500: #4a4562;
+  --paper-100: #efe9d9;
+  --paper-300: #cfc6ae;
+  --gold-400: #e8b53a;
+  --red-400: #d9484a;
+  --blue-400: #4a7fd9;
+  --green-400: #55a868;
+  --purple-400: #9a6bd9;
+  --cyan-400: #56b8c9;
+
+  /* 의미 토큰 — 기능 컬러 = 색이 곧 라벨 (Balatro 문법) */
+  --bg: var(--ink-900);
+  --panel: var(--ink-700);
+  --text: var(--paper-100);
+  --text-dim: var(--paper-300);
+  --stat-military: var(--red-400);   /* 무력 */
+  --stat-strategy: var(--purple-400);/* 지략 */
+  --stat-domestic: var(--green-400); /* 내정 */
+  --stat-diplomacy: var(--blue-400); /* 외교 */
+  --stat-science: var(--cyan-400);   /* 과학 */
+  --stat-culture: var(--gold-400);   /* 문화 */
+  --accent: var(--gold-400);
+  --danger: var(--red-400);
+  --shadow: rgb(0 0 0 / 55%);
+
+  /* 스페이싱: 4px 배수만 */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px;
+
+  /* 폰트 크기: Galmuri 의도 크기의 정수 배수만 (비정수 배율 = 블러) */
+  --fs-sm: 12px;  /* Galmuri11 x1 */
+  --fs-md: 15px;  /* Galmuri14 x1 */
+  --fs-lg: 24px;  /* Galmuri11 x2 */
+  --fs-xl: 30px;  /* Galmuri14 x2 */
+  --fs-hero: 45px;/* Galmuri14 x3 */
+}
+
+/* 픽셀 정체성: radius 0 + 블러 없는 하드섀도 */
+.hard-shadow { box-shadow: 4px 4px 0 var(--shadow); }
+.pixelated { image-rendering: pixelated; }
