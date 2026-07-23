@@ -21,6 +21,18 @@ DENYLIST = {
 }
 # 정복 논란 인물은 제외 안 함(쿠빌라이·티무르 등 유지) — 칭기즈칸만 상징성 커서 동현 판단 대기로 보류 제외
 DENYLIST |= {'Genghis Khan'}
+# v2 확장 시 CON(현대) 대폭 늘리며 딸려온 위험 인물 차단 (심사=NHN, 톤·안전):
+#  나치 전범 / 일왕(일제 민감) / 북한 인물 / 명백한 현대 독재자
+DENYLIST |= {
+    'Heinrich Himmler', 'Hermann Göring', 'Hermann Goring', 'Reinhard Heydrich',
+    'Adolf Eichmann', 'Joseph Goebbels', 'Rudolf Höss',
+    'Hirohito',  # 쇼와 일왕 — 한국 심사 민감
+    'Kim Jong-suk', 'Pak Hon-yong', 'Jang Song-thaek',  # 북한
+    'Hosni Mubarak', 'Hafez al-Assad', 'Mohammad Reza Pahlavi',
+    'Muhammad Zia-ul-Haq', 'Fidel Castro',  # 현대 독재/권위주의
+    'Bernie Madoff',  # 폰지 사기꾼
+    'Sung Jae-gi', 'Ivana Trump',  # 논란·저가치 (기업가 부스트 부작용)
+}
 EXCLUDE_OCC = {'RELIGIOUS FIGURE', 'COMPANION', 'CELEBRITY', 'PORNOGRAPHIC ACTOR',
                'EXTREMIST', 'CRIMINAL', 'SOCCER PLAYER', 'RACING DRIVER', 'COACH',
                'ACTOR', 'SINGER', 'MUSICIAN', 'CHEF', 'MODEL', 'BASKETBALL PLAYER'}
@@ -72,6 +84,7 @@ def fame(r):
     h = float(r['hpi'])
     if r['bplace_country'] in {'South Korea','North Korea'}: h += 15
     if r['bplace_country'] in {'China','Japan'}: h += 3  # 동아시아 친숙도 소폭
+    if r['occupation'] == 'BUSINESSPERSON': h += 6  # 기업가 일부 편입(정주영·록펠러·카네기 등) — 동현 요청
     return h
 
 pool = []
@@ -92,15 +105,23 @@ for r in rows:
     })
 
 # 라이브 셀(10_CELL_MATRIX)만 + 셀별 fame 상위 N
-LIVE = {  # (civ,era): 목표 인원  — 밀도 반영
-    ('EA','ANC'):6,('EA','MED'):8,('EA','EARLY'):8,('EA','MOD'):8,('EA','CON'):6,
-    ('EU','MED'):6,('EU','EARLY'):8,('EU','MOD'):10,('EU','CON'):8,
-    ('MED','ANC'):10,('MED','MED'):4,
-    ('MEA','ANC'):4,('MEA','MED'):8,('MEA','EARLY'):5,('MEA','MOD'):4,
-    ('SA','ANC'):5,('SA','MED'):4,('SA','EARLY'):4,('SA','MOD'):5,('SA','CON'):4,
+LIVE = {  # (civ,era): 목표 인원 — v2: 친숙 위주 확장(~300) + 20~21C(CON) 대폭. 비서구는 다양성 유지(상위만)
+    # 동아시아 (한·중·일 — 친숙 깊음)
+    ('EA','ANC'):10,('EA','MED'):12,('EA','EARLY'):12,('EA','MOD'):12,('EA','CON'):16,
+    # 유럽 (친숙 최심 + 현대 강화)
+    ('EU','MED'):10,('EU','EARLY'):16,('EU','MOD'):20,('EU','CON'):20,
+    # 지중해 고대 (그리스·로마 — 매우 친숙)
+    ('MED','ANC'):18,('MED','MED'):4,
+    # 아메리카 (미국 근현대 — 친숙, 현대 강화)
+    ('AM','MOD'):14,('AM','CON'):20,
+    # 중동 (다양성 유지 — 상위, 현대 소폭)
+    ('MEA','ANC'):6,('MEA','MED'):10,('MEA','EARLY'):7,('MEA','MOD'):5,('MEA','CON'):5,
+    # 남아시아 (다양성 유지 — 상위, 현대 소폭)
+    ('SA','ANC'):5,('SA','MED'):4,('SA','EARLY'):5,('SA','MOD'):8,('SA','CON'):8,
+    # 중앙아시아 (다양성 — 상위 소수)
     ('CA','ANC'):3,('CA','MED'):6,
-    ('AM','MOD'):8,('AM','CON'):8,
-    ('AF','ANC'):4,('AF','MOD'):3,('AF','CON'):3,
+    # 아프리카 (다양성 — 상위 소수, 현대 소폭)
+    ('AF','ANC'):5,('AF','MOD'):4,('AF','CON'):6,
 }
 by_cell = collections.defaultdict(list)
 for p in pool: by_cell[(p['civ'],p['era'])].append(p)
