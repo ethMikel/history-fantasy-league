@@ -5,7 +5,7 @@ import { BALANCE as B } from './balance'
 import { createStreams, mulberry32, hashSeed, randInt, type Rng } from './rng'
 import {
   AXES, SLOTS,
-  type Axis, type Cabinet, type Character, type Crisis, type Difficulty,
+  type Cabinet, type Character, type Crisis, type Difficulty,
   type SimResult, type SlotDef, type TimelineEvent,
 } from './types'
 
@@ -72,8 +72,8 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
   const M = presidentMultiplier(cabinet.president)
 
   const timeline: TimelineEvent[] = []
-  let support = B.SUPPORT_START
-  let years = B.Y_BASE
+  let support: number = B.SUPPORT_START
+  let years: number = B.Y_BASE
 
   // 소이벤트 2~4개 (연출·소폭 변동, rng_crisis 스트림)
   const minorCount = 2 + randInt(minorRng, 3)
