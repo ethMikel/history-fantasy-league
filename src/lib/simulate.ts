@@ -6,7 +6,7 @@ import { CRISIS_POOL } from '../data/crises'
 import { createStreams, mulberry32, hashSeed, randInt, type Rng } from './rng'
 import {
   AXES, SLOTS,
-  type Cabinet, type Character, type Crisis, type Difficulty,
+  type Axis, type Cabinet, type Character, type Crisis, type Difficulty,
   type SimResult, type SlotDef, type TimelineEvent,
 } from './types'
 
@@ -56,6 +56,15 @@ export function slotScore(slot: SlotDef, c: Character): number {
   return B.W_MAIN * c.stats[slot.mainAxis] + B.W_SUB * c.stats[slot.subAxis] + B.W_AVG * avg6(c)
 }
 
+// 시그니처 축 = 전설/명신의 최고 스탯 축 (희귀도 특성). 그 외 티어는 특성 없음(null).
+// 담당 위기 축과 일치하면 판정 보너스 발동 → "딱 맞는 거물을 딱 맞는 자리에" 실력 보상.
+export function signatureAxis(c: Character): Axis | null {
+  if (c.tier !== 'legend' && c.tier !== 'great') return null
+  let best: Axis = AXES[0]
+  for (const a of AXES) if (c.stats[a] > c.stats[best]) best = a
+  return best
+}
+
 // 위기 담당자 결정: 주무 장관 vs 무임소(위기 축 스탯 ×0.9) 중 높은 쪽이 대응
 // ("구원 등판" — v0.1 해석, 06_SIM_SPEC §3 무임소 조항)
 export function responder(cabinet: Cabinet, crisis: Crisis): { S: number; who: Character; viaFlex: boolean } {
@@ -99,7 +108,10 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
     events.push({
       year: c.year,
       run: () => {
-        const { S, who, viaFlex } = responder(cabinet, c)
+        const { S: baseS, who, viaFlex } = responder(cabinet, c)
+        // 시그니처 특성: 담당자의 최고 축 == 위기 축이면 S 가산 (전설/명신 한정)
+        const traitFired = signatureAxis(who) === c.axis
+        const S = traitFired ? baseS + B.TRAIT_BONUS : baseS
         const p = successProb(S, M, c.difficulty)
         // '유리'(P≥0.75) 판정은 2RN — 고확률 실패 원한 완화, 전원 동일 규칙 (§5)
         const roll = p >= B.FAVORABLE_2RN_THRESHOLD ? (check() + check()) / 2 : check()
@@ -116,7 +128,7 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
         return {
           year: c.year, kind: 'crisis', axis: c.axis, difficulty: c.difficulty, title: c.title,
           success, margin, deltaYears: delta, supportAfter: support,
-          responder: who.name, viaFlex,
+          responder: who.name, viaFlex, traitFired,
         }
       },
     })

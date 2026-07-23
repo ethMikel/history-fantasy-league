@@ -66,6 +66,7 @@ export interface TimelineEvent {
   supportAfter: number
   responder?: string // 대응한 장관 이름 (구국공신/역적 연출용)
   viaFlex?: boolean // 무임소 구원 등판 여부
+  traitFired?: boolean // 담당자의 시그니처 특성 발동 (⚡ 연출)
 }
 
 export type Grade = 'S' | 'A' | 'B' | 'C' | 'D'

@@ -30,6 +30,9 @@ export const BALANCE = {
   // 등급 컷 (집권연수) — gradeOf + 목표구배 near-miss 문구가 공유하는 단일 출처 (drift 방지)
   GRADE_YEARS: { allClearS: 70, allClearA: 45, cleared2B: 30 },
 
+  // 시그니처 특성 (희귀도): 전설/명신이 자기 최고 축 위기를 담당하면 S에 가산 (04_FORMULA "유능감")
+  TRAIT_BONUS: 8, // 대략 난이도 반 칸 — 봇 러너로 튜닝 (분포 급변 방지)
+
   // §7 지지율 그래프 (연출 전용 — 점수 무관)
   SUPPORT_START: 55,
   SUPPORT_SUCCESS: { min: 10, max: 25 },
