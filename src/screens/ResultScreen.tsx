@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { BALANCE as B } from '../lib/balance'
-import { SLOTS } from '../lib/types'
+import { SLOTS, type Character, type SlotId } from '../lib/types'
 import { MiniPortrait, fitScore } from '../ui/shared'
 import { record, top } from '../game/localScores'
+import { shareResult } from '../game/shareCard'
 import type { Action, GameState } from '../game/gameState'
 
 const GRADE_COLOR: Record<string, string> = {
@@ -20,6 +21,8 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
     cabinet: SLOTS.map((s) => state.slots[s.id]!.name),
   }))
   const [board] = useState(() => top(5))
+  const [sharing, setSharing] = useState(false)
+  const [shareMsg, setShareMsg] = useState('')
 
   return (
     <div className="result-screen">
@@ -89,7 +92,12 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
         <button className="btn-primary hard-shadow" onClick={() => dispatch({ type: 'NEW_GAME', seed: newSeed() })}>
           🔄 {r.allClear ? '더 높은 등급 도전' : '다시 도전'}
         </button>
-        <button className="btn-secondary" disabled title="Phase 3 예정">🏅 랭킹 (준비 중)</button>
+        <button className="btn-secondary" disabled={sharing} onClick={async () => {
+          setSharing(true)
+          const res = await shareResult(r, state.slots as Record<SlotId, Character>)
+          setShareMsg(res === 'shared' ? '공유 완료!' : res === 'downloaded' ? '카드 저장됨 📥' : '실패')
+          setSharing(false)
+        }}>📸 {sharing ? '생성 중…' : shareMsg || '내각 자랑하기'}</button>
         <button className="btn-secondary" onClick={() => dispatch({ type: 'HOME' })}>홈</button>
       </div>
     </div>
