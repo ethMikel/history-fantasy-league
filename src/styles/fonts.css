@@ -1,0 +1,15 @@
+/* 픽셀 폰트 Galmuri11 (Quiple, SIL OFL 1.1) — 자체호스팅(woff2)로 필요한 2 weight만.
+   tokens/폰트 스택이 이미 'Galmuri11'을 지정하는데 로드가 안 돼 sans-serif로 폴백되던 것을 붙임.
+   CREDITS.md에 라이선스 기록. */
+@font-face {
+  font-family: 'Galmuri11';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../node_modules/galmuri/dist/Galmuri11.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Galmuri11';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../node_modules/galmuri/dist/Galmuri11-Bold.woff2') format('woff2');
+}

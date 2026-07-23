@@ -1,4 +1,5 @@
 import { useReducer, useState } from 'react'
+import './styles/fonts.css'
 import './styles/tokens.css'
 import './App.css'
 import { initGame, reducer, type GameState } from './game/gameState'

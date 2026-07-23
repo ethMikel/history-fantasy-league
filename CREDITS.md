@@ -3,7 +3,7 @@
 에셋 추가 시 **같은 커밋에서** 이 파일에 기록한다. 정책: CC0 우선, CC-BY는 표기, CC-BY-NC/SA·라이선스 미표기 에셋 금지.
 
 ## Fonts
-- (예정) Galmuri — quiple — https://github.com/quiple/galmuri — SIL OFL 1.1
+- Galmuri11 (Regular/Bold) — Quiple — https://github.com/quiple/galmuri — SIL OFL 1.1 (npm `galmuri`, woff2 자체호스팅)
 
 ## Portraits (초상)
 
