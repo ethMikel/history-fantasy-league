@@ -1,6 +1,8 @@
 // 공용 표시 컴포넌트 — 기능 컬러(축=색), 픽셀 톤 (08_REFERENCE_STUDY §2)
-import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type SlotDef, type SlotId, type Tier } from '../lib/types'
+import { Fragment } from 'react'
+import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type Difficulty, type SlotDef, type SlotId, type Tier } from '../lib/types'
 import { leadershipIndex, slotScore } from '../lib/simulate'
+import { crisisProgress } from '../lib/progress'
 
 export const ovr = (c: Character) => Math.round(AXES.reduce((s, a) => s + c.stats[a], 0) / 6)
 
@@ -107,6 +109,35 @@ export function CrisisBanner({ crisis }: { crisis: Crisis }) {
         <span className="crisis-when">{crisis.year}년차</span>
       </div>
       <p className="crisis-omen">{crisis.omen}</p>
+    </div>
+  )
+}
+
+const DIFF_LABEL: Record<Difficulty, string> = { low: '하', mid: '중', high: '상' }
+
+// 목표구배 진행바 (Kivetz) — 위기 3개 저지 현황을 라이브로. "2/3 저지! 마지막 하나"로
+// 결승 직전 몰입·재도전 압력 급증. outcomes[i]=null(대기)/true(저지)/false(실패), crises와 정렬.
+export function CrisisTracker({ crises, outcomes }: { crises: Crisis[]; outcomes: (boolean | null)[] }) {
+  const total = crises.length
+  const { headline, hot } = crisisProgress(total, outcomes)
+  return (
+    <div className={`crisis-tracker${hot ? ' hot' : ''}`}>
+      <div className="tracker-head">{headline}</div>
+      <div className="tracker-nodes">
+        {crises.map((c, i) => {
+          const o = outcomes[i]
+          const state = o === null ? 'pending' : o ? 'cleared' : 'failed'
+          return (
+            <Fragment key={i}>
+              <div className="tracker-node hard-shadow" data-state={state} style={{ borderColor: AXIS_VAR[c.axis] }}>
+                <span className="tracker-icon">{o === null ? CRISIS_ICON[c.axis] : o ? '✅' : '❌'}</span>
+                <span className="tracker-diff">{DIFF_LABEL[c.difficulty]}</span>
+              </div>
+              {i < total - 1 && <div className="tracker-link" data-on={outcomes[i] === true} />}
+            </Fragment>
+          )
+        })}
+      </div>
     </div>
   )
 }

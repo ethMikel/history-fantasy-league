@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BALANCE as B } from '../lib/balance'
 import { SLOTS, type Character, type SlotId } from '../lib/types'
 import { MiniPortrait, fitScore } from '../ui/shared'
+import { nextGoal } from '../lib/simulate'
 import { record, top } from '../game/localScores'
 import { shareResult } from '../game/shareCard'
 import type { Action, GameState } from '../game/gameState'
@@ -23,6 +24,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
   const [board] = useState(() => top(5))
   const [sharing, setSharing] = useState(false)
   const [shareMsg, setShareMsg] = useState('')
+  const goal = nextGoal(r) // 목표구배/near-miss — "한 끗" 근접치로 재도전 유도
 
   return (
     <div className="result-screen">
@@ -46,6 +48,9 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
           <span className="years-metric"><b>{r.years}</b>년 집권</span>
         </div>
       </div>
+
+      {/* 목표구배/near-miss — 다음 목표까지 "한 끗" (재도전 압력) */}
+      {goal && <div className={`near-miss hard-shadow${goal.hot ? ' hot' : ''}`}>{goal.text}</div>}
 
       {/* 이번 판 순위 + 신기록 — "내 최고 깨기" retry 훅 */}
       <div className="rank-strip hard-shadow">

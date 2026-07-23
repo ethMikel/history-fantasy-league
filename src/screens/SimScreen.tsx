@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AXIS_LABEL, SLOTS, type SlotId } from '../lib/types'
 import { pickVerdict, FLEX_HERO, MVP_LABEL, GOAT_LABEL } from '../data/verdicts'
-import { MiniPortrait } from '../ui/shared'
+import { MiniPortrait, CrisisTracker } from '../ui/shared'
 import type { Action, GameState } from '../game/gameState'
 
 // 관전의 서사: 위기 판정을 밈 코멘트 + 담당자 초상 + 구국공신/역적 라벨로 (11_CRISIS_NARRATIVE)
@@ -32,9 +32,14 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
 
   const done = shown >= result.timeline.length
 
+  // 목표구배: 지금까지 드러난 위기 판정만 반영 (crisis 이벤트는 result.crises와 같은 연차순)
+  const shownCrises = result.timeline.slice(0, shown).filter((e) => e.kind === 'crisis')
+  const outcomes = result.crises.map((_, i) => (i < shownCrises.length ? shownCrises[i].success! : null))
+
   return (
     <div className="sim-screen">
       <header className="sim-header">집권 실록</header>
+      <CrisisTracker crises={result.crises} outcomes={outcomes} />
       <div className="sim-log">
         {result.timeline.slice(0, shown).map((e, i) => {
           if (e.kind === 'minor') {

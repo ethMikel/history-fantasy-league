@@ -125,6 +125,36 @@
 /* ── 시뮬 ── */
 .sim-screen { max-width: 700px; margin: 0 auto; padding: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-3); }
 .sim-header { font-size: var(--fs-lg); color: var(--accent); text-align: center; }
+
+/* ── 목표구배 진행바 (Kivetz) — 시뮬 라이브 + 결과 near-miss ── */
+.crisis-tracker {
+  position: sticky; top: 0; z-index: 2; background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2) 0 var(--sp-3);
+}
+.tracker-head { font-size: var(--fs-md); color: var(--text-dim); }
+.crisis-tracker.hot .tracker-head { color: var(--gold-400); font-weight: bold; animation: trackerPulse 0.8s ease-in-out infinite; }
+@keyframes trackerPulse { 50% { opacity: 0.5; } }
+.tracker-nodes { display: flex; align-items: center; }
+.tracker-node {
+  width: 46px; height: 46px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--panel); border: 2px solid; transition: opacity 0.3s ease;
+}
+.tracker-node[data-state='pending'] { opacity: 0.45; }
+.tracker-node[data-state='cleared'] { border-color: var(--green-400) !important; }
+.tracker-node[data-state='failed'] { border-color: var(--red-400) !important; opacity: 0.8; }
+.tracker-icon { font-size: var(--fs-md); line-height: 1.1; }
+.tracker-diff { font-size: 11px; color: var(--text-dim); }
+.tracker-link { width: 22px; height: 4px; background: var(--ink-500); transition: background 0.3s ease; }
+.tracker-link[data-on='true'] { background: var(--green-400); }
+.near-miss {
+  width: 100%; text-align: center; background: var(--panel);
+  border: 2px solid var(--ink-500); padding: var(--sp-2) var(--sp-4);
+  font-size: var(--fs-md); color: var(--text);
+}
+.near-miss.hot { border-color: var(--gold-400); color: var(--gold-400); font-weight: bold; }
+
 .sim-log { display: flex; flex-direction: column; gap: var(--sp-2); min-height: 300px; }
 .log-line { font-size: var(--fs-md); padding: var(--sp-2) var(--sp-3); background: var(--panel); border-left: 4px solid var(--ink-500); animation: logIn 0.35s ease-out; }
 @keyframes logIn { from { opacity: 0; transform: translateX(-8px); } }

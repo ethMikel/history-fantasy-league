@@ -151,11 +151,28 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
 }
 
 // 등급: 우승(3극복) 전제로 집권연수가 가를수록 높게. 미우승은 극복 수로 상한.
+// 컷은 balance.ts GRADE_YEARS 단일 출처 (near-miss 문구와 drift 방지).
 export function gradeOf(cleared: number, years: number, allClear: boolean): SimResult['grade'] {
-  if (allClear) return years >= 70 ? 'S' : years >= 45 ? 'A' : 'B'
-  if (cleared === 2) return years >= 30 ? 'B' : 'C'
+  const g = B.GRADE_YEARS
+  if (allClear) return years >= g.allClearS ? 'S' : years >= g.allClearA ? 'A' : 'B'
+  if (cleared === 2) return years >= g.cleared2B ? 'B' : 'C'
   if (cleared === 1) return 'C'
   return 'D'
+}
+
+// 목표구배(Kivetz) + 손실회피 — 결과 화면 "다음 목표까지 한 끗" 근접 문구.
+// hot = 재도전 압력 최고조 (완전집권 한 끗 / 상위 등급 근접). 등급 컷은 gradeOf와 동일 출처.
+export function nextGoal(r: SimResult): { text: string; hot: boolean } | null {
+  const g = B.GRADE_YEARS
+  const NEAR = 5 // 상위 등급까지 N년 이내면 '한 끗'으로 강조
+  if (r.allClear) {
+    if (r.grade === 'S') return { text: '🏆 최고 등급 — 더 긴 집권으로 신기록에 도전하라', hot: false }
+    if (r.grade === 'A') return { text: `S 등급까지 ${g.allClearS - r.years}년`, hot: g.allClearS - r.years <= NEAR }
+    return { text: `A 등급까지 ${g.allClearA - r.years}년`, hot: g.allClearA - r.years <= NEAR }
+  }
+  if (r.cleared === 2) return { text: '위기 하나만 더 막았다면 완전 집권 🏆 — 한 끗 차이!', hot: true }
+  if (r.cleared === 1) return { text: '완전 집권까지 위기 2개 더 — 내각을 다시 짜보자', hot: false }
+  return { text: '이번 내각으론 역부족 — 판을 다시 돌려라', hot: false }
 }
 
 // ── 유틸 ───────────────────────────────────────────────────────────

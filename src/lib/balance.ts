@@ -27,6 +27,9 @@ export const BALANCE = {
   ALL_CLEAR_BONUS: 10, // 위기 3개 전부 성공 시 (04_FORMULA_STUDY §6 올클리어 보너스)
   GOLDEN_AGE_MAX: 50, // 황금기 상한 — 올클리어 시 (내각 평균/99)² × MAX 추가 연수 (v0.3 구조 추가: 상위 꼬리 + 비위기축 픽 가치)
 
+  // 등급 컷 (집권연수) — gradeOf + 목표구배 near-miss 문구가 공유하는 단일 출처 (drift 방지)
+  GRADE_YEARS: { allClearS: 70, allClearA: 45, cleared2B: 30 },
+
   // §7 지지율 그래프 (연출 전용 — 점수 무관)
   SUPPORT_START: 55,
   SUPPORT_SUCCESS: { min: 10, max: 25 },
