@@ -10,9 +10,11 @@ permissions:
   pages: write
   id-token: write
 
+# Pages 배포는 서로 취소하면 "higher priority request" 경합으로 배포가 죽는다.
+# 큐잉만 하고 진행 중인 배포는 끝까지 완료시킨다 (cancel-in-progress: false).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
