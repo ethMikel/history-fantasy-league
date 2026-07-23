@@ -13,6 +13,7 @@ export interface SpinResult {
   label: string // "동아시아 · 15세기"
   civ: string
   era: string
+  nearMiss?: Character // 이 셀에 있었지만 안 뽑힌 거물(전설/명신) — 정직한 near-miss (RNG 미소비)
 }
 
 // 이미 배치된 인물 id 집합을 제외하고, 남은 인물에서 한 셀을 골라 후보 제시.
@@ -26,12 +27,17 @@ export function spin(rng: Rng, usedIds: Set<string>, fixedEra?: string): SpinRes
     return { candidates: cand, label: '재야 인사', civ: '재야', era: '' }
   }
   const cell = cells[randInt(rng, cells.length)]
-  return {
-    candidates: drawN(rng, cell.members, CANDIDATES_PER_SPIN),
-    label: `${cell.civ} · ${cell.era}`,
-    civ: cell.civ,
-    era: cell.era,
-  }
+  const candidates = drawN(rng, cell.members, CANDIDATES_PER_SPIN)
+  // 정직한 near-miss: 같은 셀에 실재했지만 이번에 안 뽑힌 거물(전설/명신) 중 최고 OVR.
+  // RNG를 소비하지 않으므로 이후 스핀의 결정론을 해치지 않는다.
+  const drawnIds = new Set(candidates.map((c) => c.id))
+  // 전설 우선, 그다음 peak(대표 스탯) 높은 순 — 스페셜리스트(나폴레옹 등)가 평균에 묻히지 않게.
+  const peak = (c: Character) => Math.max(...Object.values(c.stats))
+  const rank = (t: Character['tier']) => (t === 'legend' ? 2 : t === 'great' ? 1 : 0)
+  const nearMiss = cell.members
+    .filter((m) => !drawnIds.has(m.id) && (m.tier === 'legend' || m.tier === 'great'))
+    .sort((a, b) => rank(b.tier) - rank(a.tier) || peak(b) - peak(a))[0]
+  return { candidates, label: `${cell.civ} · ${cell.era}`, civ: cell.civ, era: cell.era, nearMiss }
 }
 
 interface Cell {

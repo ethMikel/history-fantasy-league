@@ -101,6 +101,18 @@
 .respin-row { display: flex; gap: var(--sp-2); }
 .hint { font-size: var(--fs-sm); color: var(--text-dim); }
 
+/* near-miss 칩 — 이 셀에 있었지만 놓친 거물 (정직한 near-miss, 재도전 자극) */
+.near-miss-chip {
+  display: flex; align-items: center; gap: var(--sp-2);
+  background: var(--panel); border-left: 4px solid var(--gold-400);
+  padding: var(--sp-2) var(--sp-3); width: 100%;
+  animation: nmIn 0.4s ease-out;
+}
+@keyframes nmIn { from { opacity: 0; transform: translateY(-6px); } }
+.near-miss-chip .nm-text { font-size: var(--fs-sm); color: var(--text-dim); line-height: 1.4; }
+.near-miss-chip .nm-text b { color: var(--gold-400); }
+.near-miss-chip .nm-hint { color: var(--ink-500); margin-left: var(--sp-1); }
+
 /* ── 카드 ── */
 .char-card {
   font: inherit; text-align: left; color: var(--text); cursor: pointer;

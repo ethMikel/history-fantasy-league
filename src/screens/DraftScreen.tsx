@@ -3,7 +3,7 @@ import { createStreams } from '../lib/rng'
 import { spin } from '../game/draft'
 import { filledCount, isCabinetFull, type Action, type GameState } from '../game/gameState'
 import { SLOTS, type SlotId } from '../lib/types'
-import { CharCard, CrisisBanner, MiniPortrait, fitScore } from '../ui/shared'
+import { CharCard, CrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT } from '../ui/shared'
 
 export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   // 세션 pool rng — seed 바뀌면 재생성 (라운드 넘어가도 소비 상태 유지)
@@ -16,11 +16,11 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
 
   const doSpin = () => {
     const r = spin(rngRef.current!.rng, usedIds())
-    dispatch({ type: 'SPIN', candidates: r.candidates, label: r.label })
+    dispatch({ type: 'SPIN', candidates: r.candidates, label: r.label, nearMiss: r.nearMiss })
   }
   const doRespin = (kind: 'all' | 'civ') => {
     const r = spin(rngRef.current!.rng, usedIds(), kind === 'civ' ? currentEra() : undefined)
-    dispatch({ type: 'RESPIN', kind, candidates: r.candidates, label: r.label })
+    dispatch({ type: 'RESPIN', kind, candidates: r.candidates, label: r.label, nearMiss: r.nearMiss })
   }
 
   return (
@@ -87,6 +87,18 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
           ) : (
             <>
               <div className="spin-label">{state.spinLabel}</div>
+              {state.nearMiss && (() => {
+                const bf = bestFit(state.nearMiss)
+                return (
+                  <div className="near-miss-chip" key={state.nearMiss.id}>
+                    <MiniPortrait c={state.nearMiss} size={30} />
+                    <span className="nm-text">
+                      아깝다! 이 시대엔 <b>{state.nearMiss.name}</b> ({SLOT_SHORT[bf.slot.id]}적성 {bf.score})도 있었다
+                      <span className="nm-hint">— 리스핀으로 노려볼 수도</span>
+                    </span>
+                  </div>
+                )
+              })()}
               <div className="candidate-list">
                 {state.candidates.map((c) => (
                   <CharCard
