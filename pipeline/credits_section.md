@@ -1,10 +1,3 @@
-# Credits & Licenses (TASL: Title — Author — Source — License)
-
-에셋 추가 시 **같은 커밋에서** 이 파일에 기록한다. 정책: CC0 우선, CC-BY는 표기, CC-BY-NC/SA·라이선스 미표기 에셋 금지.
-
-## Fonts
-- (예정) Galmuri — quiple — https://github.com/quiple/galmuri — SIL OFL 1.1
-
 ## Portraits (초상)
 
 퍼블릭 도메인/CC 초상을 Pillow로 96px 픽셀화(팔레트 감색+Floyd-Steinberg 디더). 형식: 인물 — 라이선스 — 출처
@@ -167,11 +160,3 @@ Clarence Cook) — [Commons](https://commons.wikimedia.org/wiki/File:Great%20Men
 ### ⚠️ 초상 제외 (라이선스 검토 필요 — 현재 미사용, 동현 판단 대기)
 - 조선 세종 — South Korean currency — 안전한 퍼블릭도메인 초상 대체 필요 (현재 이니셜 플레이스홀더 표시)
 - 고려 태조 — Attribution — 안전한 퍼블릭도메인 초상 대체 필요 (현재 이니셜 플레이스홀더 표시)
-
-
-## Audio
-- (예정) ZzFX 생성 효과음 (코드 생성, 에셋 아님) / Kenney (CC0)
-
-## Data
-- (예정) Pantheon (pantheon.world) 유명세 데이터 — MIT Media Lab — CC BY-SA 4.0
-- Wikidata — CC0

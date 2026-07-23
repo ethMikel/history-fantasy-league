@@ -24,6 +24,9 @@ export function StatBar({ axis, value }: { axis: Axis; value: number }) {
   )
 }
 
+// 초상 경로: public/portraits/<id>.png → base 경로 반영
+const portraitUrl = (id: string) => `${import.meta.env.BASE_URL}portraits/${id}.png`
+
 export function CharCard({ c, selected, onClick, compact }: {
   c: Character; selected?: boolean; onClick?: () => void; compact?: boolean
 }) {
@@ -34,6 +37,12 @@ export function CharCard({ c, selected, onClick, compact }: {
       style={{ borderColor: TIER_COLOR[c.tier] }}
     >
       <div className="char-head">
+        {c.portrait ? (
+          <img className="char-portrait pixelated" src={portraitUrl(c.portrait)} alt={c.name}
+               loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
+        ) : (
+          <span className="char-portrait char-portrait-blank">{c.name[0]}</span>
+        )}
         <span className="char-name">{c.name}</span>
         <span className="char-ovr" style={{ color: TIER_COLOR[c.tier] }}>{ovr(c)}</span>
       </div>

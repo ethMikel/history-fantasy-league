@@ -15,7 +15,11 @@ export interface Character {
   civ: string // 문명권 (스핀 셀)
   era: string // 시대 (스핀 셀)
   tier: Tier
-  stats: Record<Axis, number> // 0-99, 티어 예산 합
+  stats: Record<Axis, number> // 0-99, 앵커 루브릭 스코어링
+  en?: string // 영문명
+  portrait?: string // public/portraits/<id>.png 존재 시 id, 없으면 ''
+  evidence?: string // 최고 축 근거 한 줄 (툴팁·심사 방어용)
+  flag?: boolean // 검수 플래그 (현대 정치인 등 — 동현 큐레이션 대기)
 }
 
 export type SlotId =

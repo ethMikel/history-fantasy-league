@@ -88,8 +88,10 @@
   background: var(--panel); border: 3px solid; border-radius: 0; padding: var(--sp-2) var(--sp-3); width: 100%;
 }
 .char-card.selected { transform: translate(-2px, -2px); outline: 2px solid var(--accent); }
-.char-head { display: flex; justify-content: space-between; align-items: baseline; }
-.char-name { font-size: var(--fs-md); }
+.char-head { display: flex; align-items: center; gap: var(--sp-2); }
+.char-portrait { width: 48px; height: 48px; flex-shrink: 0; border: 2px solid var(--ink-500); background: var(--ink-900); image-rendering: pixelated; object-fit: cover; }
+.char-portrait-blank { display: flex; align-items: center; justify-content: center; font-size: var(--fs-lg); color: var(--text-dim); }
+.char-name { font-size: var(--fs-md); flex: 1; }
 .char-ovr { font-size: var(--fs-lg); font-weight: bold; }
 .char-meta { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-1); }
 .char-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px var(--sp-3); }
