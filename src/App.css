@@ -4,6 +4,7 @@
   color: var(--text);
   touch-action: manipulation;
   user-select: none;
+  word-break: keep-all; /* 한국어 단어 중간 줄바꿈 방지 (가독성) */
 }
 /* 소리 토글 — 우상단 고정 */
 .mute-btn {
@@ -59,9 +60,12 @@
   text-align: center; padding: var(--sp-6);
 }
 .game-title {
-  font-size: var(--fs-hero); color: var(--accent);
-  background: var(--panel); padding: var(--sp-4) var(--sp-8);
+  font-size: var(--fs-lg); color: var(--accent);
+  background: var(--panel); padding: var(--sp-2) var(--sp-3);
+  white-space: nowrap; letter-spacing: -0.5px;
 }
+@media (min-width: 400px) { .game-title { font-size: var(--fs-xl); padding: var(--sp-3) var(--sp-4); } }
+@media (min-width: 560px) { .game-title { font-size: var(--fs-hero); } }
 .tagline { font-size: var(--fs-lg); }
 .tagline.dim { color: var(--text-dim); font-size: var(--fs-md); }
 .start-btn { margin-top: var(--sp-6); }

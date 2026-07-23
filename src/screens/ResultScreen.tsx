@@ -63,7 +63,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
       </div>
 
       <div className="support-graph hard-shadow">
-        <div className="graph-title">국정 지지율 추이</div>
+        <div className="graph-title">국운 그래프</div>
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="graph-svg">
           <polyline points={path} fill="none" stroke="var(--accent)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
         </svg>

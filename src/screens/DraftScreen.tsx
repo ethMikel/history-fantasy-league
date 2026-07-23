@@ -114,10 +114,10 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
               </div>
               <div className="respin-row">
                 <button className="btn-respin" disabled={state.respinAll <= 0} onClick={() => doRespin('all')}>
-                  🔄 전체 리스핀 ({state.respinAll})
+                  🎲 전체 리스핀 ({state.respinAll})
                 </button>
                 <button className="btn-respin" disabled={state.respinCiv <= 0} onClick={() => doRespin('civ')}>
-                  🔁 문명만 리스핀 ({state.respinCiv})
+                  🎲 문명 리스핀 ({state.respinCiv})
                 </button>
               </div>
               <p className="hint">{state.selected ? '↑ 임명할 부처를 고르세요' : '후보를 눌러 선택'}</p>

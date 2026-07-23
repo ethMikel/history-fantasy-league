@@ -90,7 +90,7 @@ export function CharCard({ c, selected, onClick, compact }: {
       </div>
       <div className="char-meta">
         {TIER_LABEL[c.tier]} · {c.civ} · {c.era}
-        {sig && <span className="char-trait" title="이 축의 위기를 담당하면 판정 보너스">⚡<b style={{ color: AXIS_VAR[sig] }}>{AXIS_LABEL[sig]}</b> 시그니처</span>}
+        {sig && <span className="char-trait" title="이 축의 위기를 이 인물이 맡으면 판정 보너스">⚡<b style={{ color: AXIS_VAR[sig] }}>{AXIS_LABEL[sig]}</b> 위기에 강함</span>}
       </div>
       {cardBlurb(c) && <div className="char-blurb">{cardBlurb(c)}</div>}
       {!compact && (

@@ -17,6 +17,27 @@ function ac(): AudioContext | null {
   return ctx
 }
 
+// iOS Safari 오디오 언락: 첫 사용자 제스처에서 컨텍스트 생성·resume + 무음 버퍼 1회 재생.
+// (iOS는 제스처 밖에서 만든 컨텍스트는 소리가 안 나므로 첫 터치에 반드시 열어둠)
+let unlocked = false
+function unlock(): void {
+  if (unlocked) return
+  const c = ac()
+  if (!c) return
+  try {
+    const src = c.createBufferSource()
+    src.buffer = c.createBuffer(1, 1, 22050)
+    src.connect(c.destination)
+    src.start(0)
+  } catch { /* 무시 */ }
+  unlocked = true
+}
+if (typeof document !== 'undefined') {
+  const h = () => unlock()
+  document.addEventListener('pointerdown', h, { once: true })
+  document.addEventListener('touchend', h, { once: true })
+}
+
 interface Tone { f: number; to?: number; type: OscillatorType; dur: number; vol?: number }
 // 8종: 주파수(진행 f→to)·파형·길이·볼륨. 성공/우승은 상행 화음(팡파레), 실패/멸망은 하강.
 const SFX: Record<SfxName, Tone[]> = {
