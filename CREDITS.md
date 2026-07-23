@@ -164,14 +164,6 @@ Clarence Cook) — [Commons](https://commons.wikimedia.org/wiki/File:Great%20Men
 - 황셴판 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Huang%20Xianfan%20Graduation%20Photo.jpg)
 - 훌라구 — Public domain (by Circa 1340 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Representation%20of%20Hulagu%20Khan%20%281217-1265%29%20Persian%20miniature%20taken%20from%20Jami%20al-tawarikh%20%28Jami%20al-tawarikh%29%20or%20Universal%20History%20by%20historian%20Rashid%20al-din%20%28al%20din%29%20%281247-1318%29%20Around%201430.%20Paris%2C%20B.N%20%28portrait%29.jpg)
 
-### ⚠️ 초상 제외 (라이선스 검토 필요 — 현재 미사용, 동현 판단 대기)
-- 조선 세종 — South Korean currency — 안전한 퍼블릭도메인 초상 대체 필요 (현재 이니셜 플레이스홀더 표시)
-- 고려 태조 — Attribution — 안전한 퍼블릭도메인 초상 대체 필요 (현재 이니셜 플레이스홀더 표시)
-
-
-## Audio
-- (예정) ZzFX 생성 효과음 (코드 생성, 에셋 아님) / Kenney (CC0)
-
-## Data
-- (예정) Pantheon (pantheon.world) 유명세 데이터 — MIT Media Lab — CC BY-SA 4.0
-- Wikidata — CC0
+### 초상 (재확보 — 옛 퍼블릭도메인 초상으로 교체)
+- 조선 세종 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20of%20King%20Sejong%201965.jpg)
+- 고려 태조 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:왕건%20좌상.jpg)

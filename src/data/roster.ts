@@ -5,7 +5,7 @@ import type { Character } from '../lib/types'
 export const ROSTER: Character[] = [
   {id:'Q935',name:'아이작 뉴턴',en:'Isaac Newton',civ:'유럽',era:'근세',tier:'legend',portrait:'Q935',stats:{mil:10,str:25,dom:32,dip:15,sci:99,cul:20},evidence:'과학 99: 만유인력·운동법칙·미적분, 근대 물리학 정점 앵커'},
   {id:'Q635',name:'클레오파트라 7세',en:'Cleopatra',civ:'지중해',era:'고대',tier:'legend',portrait:'Q635',stats:{mil:40,str:66,dom:66,dip:86,sci:20,cul:55},evidence:'외교 86: 카이사르·안토니우스와 동맹, 다국어 구사한 프톨레마이오스 여왕'},
-  {id:'Q37682',name:'조선 세종',en:'Sejong the Great',civ:'동아시아',era:'중세',tier:'legend',portrait:'',stats:{mil:55,str:65,dom:96,dip:62,sci:88,cul:92},evidence:'내정 96: 집현전·공법·제도 정점(앵커) / 한글 창제(문화)·측우기·칠정산(과학)의 폴리매스 성군'},
+  {id:'Q37682',name:'조선 세종',en:'Sejong the Great',civ:'동아시아',era:'중세',tier:'legend',portrait:'Q37682',stats:{mil:55,str:65,dom:96,dip:62,sci:88,cul:92},evidence:'내정 96: 집현전·공법·제도 정점(앵커) / 한글 창제(문화)·측우기·칠정산(과학)의 폴리매스 성군'},
   {id:'Q1001',name:'마하트마 간디',en:'Mahatma Gandhi',civ:'남아시아',era:'근대',tier:'legend',portrait:'Q1001',stats:{mil:10,str:82,dom:46,dip:79,sci:24,cul:78},evidence:'지략 82: 소금 행진·비협력운동 등 대중 비폭력 저항(사티아그라하) 전략으로 독립운동 지도'},
   {id:'Q255',name:'루트비히 판 베토벤',en:'Ludwig van Beethoven',civ:'유럽',era:'근대',tier:'legend',portrait:'Q255',stats:{mil:5,str:15,dom:10,dip:15,sci:20,cul:96},evidence:'문화 96: 고전-낭만 전환기 악성(樂聖), 서양음악 정점(앵커)'},
   {id:'Q762',name:'레오나르도 다 빈치',en:'Leonardo da Vinci',civ:'유럽',era:'근세',tier:'legend',portrait:'Q762',stats:{mil:42,str:35,dom:25,dip:32,sci:90,cul:95},evidence:'문화 95: 모나리자·최후의 만찬 등 르네상스 회화 정점 (전축 폴리매스 앵커)'},
@@ -65,7 +65,7 @@ export const ROSTER: Character[] = [
   {id:'Q36107',name:'무하마드 알리',en:'Muhammad Ali',civ:'아메리카',era:'현대',tier:'capable',portrait:'Q36107',stats:{mil:60,str:32,dom:10,dip:50,sci:5,cul:28},evidence:'무력 60: 역사상 가장 위대한 헤비급 복서로 평가받는 개인 전투력'},
   {id:'Q8462',name:'티무르',en:'Timur',civ:'중앙아시아',era:'중세',tier:'capable',portrait:'Q8462',stats:{mil:92,str:78,dom:63,dip:48,sci:10,cul:40},evidence:'무력 92: 티무르 제국 창건, 앙카라 전투 오스만 격파 등 사실상 미패 대정복자'},
   {id:'Q9038',name:'콰리즈미',en:'Muhammad ibn Musa al-Khwarizmi',civ:'중앙아시아',era:'중세',tier:'capable',portrait:'Q9038',stats:{mil:5,str:22,dom:40,dip:15,sci:87,cul:15},evidence:'과학 87: 대수학(algebra) 창시, 아라비아 숫자·0·자릿값·사칙연산 체계 정립(algorithm 어원)'},
-  {id:'Q334312',name:'고려 태조',en:'Taejo of Goryeo',civ:'동아시아',era:'중세',tier:'capable',portrait:'',stats:{mil:80,str:74,dom:72,dip:70,sci:12,cul:45},evidence:'무력 80: 후삼국 통일·후백제 격파 / 외교 70: 호족 혼인 정책·신라 흡수'},
+  {id:'Q334312',name:'고려 태조',en:'Taejo of Goryeo',civ:'동아시아',era:'중세',tier:'capable',portrait:'Q334312',stats:{mil:80,str:74,dom:72,dip:70,sci:12,cul:45},evidence:'무력 80: 후삼국 통일·후백제 격파 / 외교 70: 호족 혼인 정책·신라 흡수'},
   {id:'Q491079',name:'기황후',en:'Empress Gi',civ:'동아시아',era:'중세',tier:'capable',portrait:'Q491079',stats:{mil:10,str:66,dom:52,dip:55,sci:10,cul:35},evidence:'지략 66: 고려 공녀 출신에서 원 제1황후로 부상, 궁정 권력 장악'},
   {id:'Q8958',name:'요하네스 구텐베르크',en:'Johannes Gutenberg',civ:'유럽',era:'중세',tier:'capable',portrait:'Q8958',stats:{mil:10,str:30,dom:20,dip:25,sci:88,cul:30},evidence:'과학 88: 금속 활판 인쇄술 발명, 정보 혁명급 기술'},
   {id:'Q8023',name:'넬슨 만델라',en:'Nelson Mandela',civ:'아프리카',era:'현대',tier:'capable',portrait:'Q8023',stats:{mil:30,str:62,dom:70,dip:85,sci:8,cul:30},evidence:'외교 85: 화해·협상으로 아파르트헤이트 평화적 종식 주도, 노벨평화상'},
