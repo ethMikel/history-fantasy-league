@@ -126,7 +126,9 @@
 .char-fit { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.1; }
 .char-fit-score { font-size: var(--fs-lg); }
 .char-fit-label { font-size: 11px; color: var(--text-dim); }
-.char-meta { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-1); }
+.char-meta { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-1); display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
+/* 시그니처 특성 배지 (전설/명신) — 이 축 위기 담당 시 판정 보너스 */
+.char-trait { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; color: var(--text-dim); border: 1px solid var(--ink-500); padding: 0 4px; }
 /* 한 줄 코멘트 — "이게 누구지?" 해소 (인식 훅). 최대 2줄 클램프 */
 .char-blurb {
   font-size: var(--fs-sm); color: var(--paper-300); line-height: 1.45;
@@ -189,6 +191,7 @@
 .log-axis[data-axis='dip'] { color: var(--stat-diplomacy); border-color: var(--stat-diplomacy); }
 .log-axis[data-axis='sci'] { color: var(--stat-science); border-color: var(--stat-science); }
 .log-axis[data-axis='cul'] { color: var(--stat-culture); border-color: var(--stat-culture); }
+.log-trait { font-size: 12px; color: var(--gold-400); }
 .log-delta { font-size: var(--fs-md); font-weight: bold; }
 .log-line.ok .log-delta { color: var(--green-400); }
 .log-line.fail .log-delta { color: var(--red-400); }

@@ -1,9 +1,9 @@
 // 공용 표시 컴포넌트 — 기능 컬러(축=색), 픽셀 톤 (08_REFERENCE_STUDY §2)
 import { Fragment } from 'react'
 import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type Difficulty, type SlotDef, type SlotId, type Tier } from '../lib/types'
-import { leadershipIndex, slotScore } from '../lib/simulate'
+import { leadershipIndex, slotScore, signatureAxis } from '../lib/simulate'
 import { crisisProgress } from '../lib/progress'
-import { blurb } from '../lib/blurb'
+import { cardBlurb } from '../lib/blurb'
 
 export const ovr = (c: Character) => Math.round(AXES.reduce((s, a) => s + c.stats[a], 0) / 6)
 
@@ -68,6 +68,7 @@ export function CharCard({ c, selected, onClick, compact }: {
   c: Character; selected?: boolean; onClick?: () => void; compact?: boolean
 }) {
   const fit = bestFit(c) // 본직 적성 + 그 기준 점수 (평균이 아님 — "국방감 92" 문법)
+  const sig = signatureAxis(c) // 전설/명신 시그니처 축 (희귀도 특성) — 없으면 null
   return (
     <button
       className={`char-card hard-shadow${selected ? ' selected' : ''}`}
@@ -87,8 +88,11 @@ export function CharCard({ c, selected, onClick, compact }: {
           <span className="char-fit-label">{SLOT_SHORT[fit.slot.id]}적성</span>
         </span>
       </div>
-      <div className="char-meta">{TIER_LABEL[c.tier]} · {c.civ} · {c.era}</div>
-      {blurb(c.evidence) && <div className="char-blurb">{blurb(c.evidence)}</div>}
+      <div className="char-meta">
+        {TIER_LABEL[c.tier]} · {c.civ} · {c.era}
+        {sig && <span className="char-trait" title="이 축의 위기를 담당하면 판정 보너스">⚡<b style={{ color: AXIS_VAR[sig] }}>{AXIS_LABEL[sig]}</b> 시그니처</span>}
+      </div>
+      {cardBlurb(c) && <div className="char-blurb">{cardBlurb(c)}</div>}
       {!compact && (
         <div className="char-stats">
           {AXES.map((a) => <StatBar key={a} axis={a} value={c.stats[a]} />)}

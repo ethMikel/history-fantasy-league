@@ -55,6 +55,7 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
                 <span className="log-year">{e.year}년차</span>
                 <span className="log-crisis-name">{e.title}</span>
                 <span className="log-axis" data-axis={e.axis}>{AXIS_LABEL[e.axis!]}</span>
+                {e.traitFired && <span className="log-trait" title="담당자 시그니처 발동">⚡</span>}
                 <span className="log-delta">{e.deltaYears >= 0 ? '+' : ''}{e.deltaYears.toFixed(0)}년</span>
               </div>
               <div className="log-verdict">
