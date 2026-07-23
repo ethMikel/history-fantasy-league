@@ -54,7 +54,7 @@ export const portraitUrl = (id: string) => `${import.meta.env.BASE_URL}portraits
 export function MiniPortrait({ c, size = 32 }: { c: Character; size?: number }) {
   return c.portrait ? (
     <img className="mini-portrait pixelated" src={portraitUrl(c.portrait)} alt={c.name}
-         style={{ width: size, height: size }} loading="lazy"
+         style={{ width: size, height: size }}
          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
   ) : (
     <span className="mini-portrait mini-portrait-blank" style={{ width: size, height: size }}>{c.name[0]}</span>
@@ -74,7 +74,7 @@ export function CharCard({ c, selected, onClick, compact }: {
       <div className="char-head">
         {c.portrait ? (
           <img className="char-portrait pixelated" src={portraitUrl(c.portrait)} alt={c.name}
-               loading="lazy" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
+               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
         ) : (
           <span className="char-portrait char-portrait-blank">{c.name[0]}</span>
         )}

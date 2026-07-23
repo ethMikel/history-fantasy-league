@@ -163,6 +163,17 @@
 .grade-badge { font-size: var(--fs-hero); font-weight: bold; border: 3px solid; padding: 0 var(--sp-4); line-height: 1.1; }
 .years-metric { font-size: var(--fs-md); color: var(--text-dim); }
 .years-metric b { font-size: var(--fs-xl); color: var(--text); }
+.rank-strip { width: 100%; background: var(--panel); padding: var(--sp-2) var(--sp-4); text-align: center; }
+.rank-best { font-size: var(--fs-md); color: var(--gold-400); font-weight: bold; }
+.rank-normal { font-size: var(--fs-md); color: var(--text-dim); }
+.rank-normal b { color: var(--text); font-size: var(--fs-lg); }
+.local-board { width: 100%; background: var(--panel); padding: var(--sp-3); }
+.board-title { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-2); }
+.board-row { display: flex; align-items: center; gap: var(--sp-3); font-size: var(--fs-sm); padding: 2px 0; border-bottom: 1px solid var(--ink-700); }
+.board-rank { width: 20px; color: var(--text-dim); }
+.board-grade { width: 40px; font-weight: bold; }
+.board-years { width: 56px; color: var(--accent); }
+.board-cab { flex: 1; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .support-graph { background: var(--panel); padding: var(--sp-3); width: 100%; }
 .graph-title { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-2); }
 .graph-svg { width: 100%; height: 120px; background: var(--ink-900); }
