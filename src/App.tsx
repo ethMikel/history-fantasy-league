@@ -7,6 +7,7 @@ import { DraftScreen } from './screens/DraftScreen'
 import { SimScreen } from './screens/SimScreen'
 import { ResultScreen, newSeed } from './screens/ResultScreen'
 import { play, toggleMute, isMuted } from './lib/sfx'
+import { AtlasBackground } from './ui/AtlasBackground'
 
 const titleState: GameState = { ...initGame(0), screen: 'title' }
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <main className="app-root">
+      <AtlasBackground />
       <button className="mute-btn" title="소리 켜기/끄기" onClick={() => setMuted(toggleMute())}>
         {muted ? '🔇' : '🔊'}
       </button>
@@ -23,7 +25,7 @@ function App() {
         <div className="title-screen">
           <h1 className="hard-shadow game-title">히스토리 판타지 리그</h1>
           <p className="tagline">세종·나폴레옹·다빈치… 최강 내각을 뽑아라</p>
-          <p className="tagline dim">위기 셋을 넘어, 당신의 정권은 몇 년이나 갈까? 👑</p>
+          <p className="tagline dim">당신의 정권, 과연 몇 년이나 버틸까? 👑</p>
           <button className="btn-primary hard-shadow start-btn" onClick={() => { play('click'); dispatch({ type: 'NEW_GAME', seed: newSeed() }) }}>
             ▶ 시작
           </button>

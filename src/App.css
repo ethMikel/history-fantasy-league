@@ -6,6 +6,25 @@
   user-select: none;
   word-break: keep-all; /* 한국어 단어 중간 줄바꿈 방지 (가독성) */
 }
+/* ── 아틀라스 배경 (초상 벽 + 양피지 색조) ── */
+.atlas-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background: var(--bg); }
+.atlas-faces {
+  display: grid; grid-template-columns: repeat(auto-fill, 84px); grid-auto-rows: 84px;
+  gap: 22px; padding: 14px; justify-content: center; align-content: center; height: 100%;
+  opacity: 0.06; filter: sepia(0.55) saturate(0.5) contrast(0.9);
+}
+.atlas-face { width: 84px; height: 84px; object-fit: cover; }
+/* 위경도 격자(graticule) + 낡은 지도 vignette — 이미지 없이 순수 CSS */
+.atlas-veil {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(232,181,58,.03) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(232,181,58,.03) 0 1px, transparent 1px 46px),
+    radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, rgba(20,18,31,.82) 100%);
+}
+/* 콘텐츠는 배경 위로 */
+.app-root > *:not(.atlas-bg) { position: relative; z-index: 1; }
+
 /* 소리 토글 — 우상단 고정 */
 .mute-btn {
   position: fixed; top: var(--sp-2); right: var(--sp-2); z-index: 10;
