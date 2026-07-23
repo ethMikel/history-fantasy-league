@@ -1,7 +1,30 @@
 // 공용 표시 컴포넌트 — 기능 컬러(축=색), 픽셀 톤 (08_REFERENCE_STUDY §2)
-import { AXES, AXIS_LABEL, type Axis, type Character, type Crisis, type Tier } from '../lib/types'
+import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type SlotDef, type SlotId, type Tier } from '../lib/types'
+import { leadershipIndex, slotScore } from '../lib/simulate'
 
 export const ovr = (c: Character) => Math.round(AXES.reduce((s, a) => s + c.stats[a], 0) / 6)
+
+// 슬롯 짧은 라벨 (카드 적성 표기용)
+export const SLOT_SHORT: Record<SlotId, string> = {
+  president: '대통령', pm: '총리', defense: '국방', security: '안보',
+  foreign: '외교', science: '과학', culture: '문화', flex: '만능',
+}
+
+// 슬롯별 표시 점수: 대통령=통솔지수, 장관=slotScore (04_FORMULA "같은 인물, 슬롯별 다른 가치")
+export function fitScore(slot: SlotDef, c: Character): number {
+  return Math.round(slot.id === 'president' ? leadershipIndex(c) : slotScore(slot, c))
+}
+
+// 카드 얼굴 = 베스트 슬롯 기준 점수 + 본직 라벨 (FIFA "본직 OVR" 문법)
+export function bestFit(c: Character): { slot: SlotDef; score: number } {
+  let best = { slot: SLOTS[0], score: -1 }
+  for (const s of SLOTS) {
+    if (s.id === 'flex') continue // 만능석은 본직이 아님
+    const v = fitScore(s, c)
+    if (v > best.score) best = { slot: s, score: v }
+  }
+  return best
+}
 
 export const AXIS_VAR: Record<Axis, string> = {
   mil: 'var(--stat-military)', str: 'var(--stat-strategy)', dom: 'var(--stat-domestic)',
@@ -25,11 +48,23 @@ export function StatBar({ axis, value }: { axis: Axis; value: number }) {
 }
 
 // 초상 경로: public/portraits/<id>.png → base 경로 반영
-const portraitUrl = (id: string) => `${import.meta.env.BASE_URL}portraits/${id}.png`
+export const portraitUrl = (id: string) => `${import.meta.env.BASE_URL}portraits/${id}.png`
+
+// 소형 초상 (슬롯판·결과 화면용)
+export function MiniPortrait({ c, size = 32 }: { c: Character; size?: number }) {
+  return c.portrait ? (
+    <img className="mini-portrait pixelated" src={portraitUrl(c.portrait)} alt={c.name}
+         style={{ width: size, height: size }} loading="lazy"
+         onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
+  ) : (
+    <span className="mini-portrait mini-portrait-blank" style={{ width: size, height: size }}>{c.name[0]}</span>
+  )
+}
 
 export function CharCard({ c, selected, onClick, compact }: {
   c: Character; selected?: boolean; onClick?: () => void; compact?: boolean
 }) {
+  const fit = bestFit(c) // 본직 적성 + 그 기준 점수 (평균이 아님 — "국방감 92" 문법)
   return (
     <button
       className={`char-card hard-shadow${selected ? ' selected' : ''}`}
@@ -44,7 +79,10 @@ export function CharCard({ c, selected, onClick, compact }: {
           <span className="char-portrait char-portrait-blank">{c.name[0]}</span>
         )}
         <span className="char-name">{c.name}</span>
-        <span className="char-ovr" style={{ color: TIER_COLOR[c.tier] }}>{ovr(c)}</span>
+        <span className="char-fit">
+          <b className="char-fit-score" style={{ color: TIER_COLOR[c.tier] }}>{fit.score}</b>
+          <span className="char-fit-label">{SLOT_SHORT[fit.slot.id]}적성</span>
+        </span>
       </div>
       <div className="char-meta">{TIER_LABEL[c.tier]} · {c.civ} · {c.era}</div>
       {!compact && (
@@ -59,17 +97,16 @@ export function CharCard({ c, selected, onClick, compact }: {
 const CRISIS_ICON: Record<Axis, string> = {
   mil: '⚔️', str: '🎯', dom: '🏛️', dip: '🕊️', sci: '🔬', cul: '🎭',
 }
-// walking skeleton: 실 예고문(11_CRISIS_NARRATIVE)은 다음 Fable 작업. 지금은 축 라벨 자리표시.
-export function CrisisBanner({ crisis, idx }: { crisis: Crisis; idx: number }) {
+// 구체적 이벤트명(헤드라인) + 서술형 예고(증상). 축 색은 왼쪽 보더로만 힌트 (처방 은닉 원칙)
+export function CrisisBanner({ crisis }: { crisis: Crisis }) {
   return (
     <div className="crisis-chip hard-shadow" style={{ borderColor: AXIS_VAR[crisis.axis] }}>
-      <span className="crisis-icon">{CRISIS_ICON[crisis.axis]}</span>
-      <span className="crisis-body">
-        <span className="crisis-title">위기 {idx + 1} · {crisis.year}년차</span>
-        <span className="crisis-hint" style={{ color: AXIS_VAR[crisis.axis] }}>
-          {AXIS_LABEL[crisis.axis]} 역량이 시험대에 오른다
-        </span>
-      </span>
+      <div className="crisis-top">
+        <span className="crisis-icon">{CRISIS_ICON[crisis.axis]}</span>
+        <span className="crisis-name">{crisis.title}</span>
+        <span className="crisis-when">{crisis.year}년차</span>
+      </div>
+      <p className="crisis-omen">{crisis.omen}</p>
     </div>
   )
 }

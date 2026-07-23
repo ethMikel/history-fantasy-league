@@ -1,6 +1,6 @@
 import { BALANCE as B } from '../lib/balance'
 import { SLOTS } from '../lib/types'
-import { ovr } from '../ui/shared'
+import { MiniPortrait, fitScore } from '../ui/shared'
 import type { Action, GameState } from '../game/gameState'
 
 // walking skeleton: 지지율 스파크라인(SVG) + 집권 연수. 정식 국정 그래프 연출은 Phase 2.
@@ -29,7 +29,12 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
       <div className="result-cabinet">
         {SLOTS.map((s) => {
           const c = state.slots[s.id]!
-          return <div key={s.id} className="result-slot"><span>{s.name}</span><b>{c.name} {ovr(c)}</b></div>
+          return (
+            <div key={s.id} className="result-slot">
+              <span>{s.name}</span>
+              <b className="result-slot-who"><MiniPortrait c={c} size={22} /> {c.name} {fitScore(s, c)}</b>
+            </div>
+          )
         })}
       </div>
 

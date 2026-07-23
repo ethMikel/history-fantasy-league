@@ -2,6 +2,7 @@
 // DOM/React 의존 금지: 클라이언트·봇 러너·(향후) Edge Function이 이 모듈을 공유한다.
 
 import { BALANCE as B } from './balance'
+import { CRISIS_POOL } from '../data/crises'
 import { createStreams, mulberry32, hashSeed, randInt, type Rng } from './rng'
 import {
   AXES, SLOTS,
@@ -20,12 +21,18 @@ export function generateCrises(seed: number): Crisis[] {
   // 발생 연차: 초반(2~5) / 중반(6~10) / 후반(11~15) — 난이도와 시기는 독립 셔플
   const yearBands: Array<[number, number]> = [[2, 5], [6, 10], [11, 15]]
   const shuffledDiffs = pickDistinct(rng, DIFFS, 3)
-  return yearBands.map(([lo, hi], i) => ({
-    axis: axes[i],
-    difficulty: shuffledDiffs[i],
-    year: lo + randInt(rng, hi - lo + 1),
-    label: `위기 예고 ${i + 1}`, // v0.1 자리표시 — R5(내러티브) 후 실문구
-  })).sort((a, b) => a.year - b.year)
+  return yearBands.map(([lo, hi], i) => {
+    const axis = axes[i]
+    const difficulty = shuffledDiffs[i]
+    const pool = CRISIS_POOL[axis][difficulty]
+    const scenario = pool[randInt(rng, pool.length)]
+    return {
+      axis, difficulty,
+      year: lo + randInt(rng, hi - lo + 1),
+      title: scenario.title,
+      omen: scenario.omen,
+    }
+  }).sort((a, b) => a.year - b.year)
 }
 
 // ── 판정 보조 ───────────────────────────────────────────────────────
@@ -33,10 +40,14 @@ const avg6 = (c: Character) => AXES.reduce((s, a) => s + c.stats[a], 0) / 6
 
 // 대통령 배수 M = PRES_MIN + PRES_RANGE × (통솔지수/99)
 // 통솔지수 = 지략 0.3 + 내정 0.3 + 외교 0.2 + 문화 0.1 + 무력 0.1 (06_SIM_SPEC §3)
+// 통솔지수 (대통령 적성 — UI 표시에도 사용)
+export function leadershipIndex(c: Character): number {
+  const s = c.stats
+  return 0.3 * s.str + 0.3 * s.dom + 0.2 * s.dip + 0.1 * s.cul + 0.1 * s.mil
+}
+
 export function presidentMultiplier(president: Character): number {
-  const s = president.stats
-  const lead = 0.3 * s.str + 0.3 * s.dom + 0.2 * s.dip + 0.1 * s.cul + 0.1 * s.mil
-  return B.PRES_MIN + B.PRES_RANGE * (lead / 99)
+  return B.PRES_MIN + B.PRES_RANGE * (leadershipIndex(president) / 99)
 }
 
 // 슬롯 기여도 S = 0.65×주스탯 + 0.20×부스탯 + 0.15×(6축 평균)

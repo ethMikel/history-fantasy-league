@@ -3,7 +3,7 @@ import { createStreams } from '../lib/rng'
 import { spin } from '../game/draft'
 import { filledCount, isCabinetFull, type Action, type GameState } from '../game/gameState'
 import { SLOTS, type SlotId } from '../lib/types'
-import { CharCard, CrisisBanner, ovr } from '../ui/shared'
+import { CharCard, CrisisBanner, MiniPortrait, fitScore } from '../ui/shared'
 
 export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   // 세션 pool rng — seed 바뀌면 재생성 (라운드 넘어가도 소비 상태 유지)
@@ -33,28 +33,39 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
       <section className="crisis-row">
         <div className="crisis-row-label">이번 정권에 닥칠 위기</div>
         <div className="crisis-list">
-          {state.crises.map((c, i) => <CrisisBanner key={i} crisis={c} idx={i} />)}
+          {state.crises.map((c, i) => <CrisisBanner key={i} crisis={c} />)}
         </div>
       </section>
 
       <div className="draft-body">
-        {/* 슬롯판 */}
+        {/* 슬롯판 — 대통령 상단 하이어라키 (⑤), 초상 (③), 선택 시 슬롯별 적성 숫자 (④) */}
         <section className="slot-board">
           {SLOTS.map((slot) => {
             const occupant = state.slots[slot.id]
             const assignable = state.selected && !occupant
+            const pick = state.selected ? state.candidates?.find((c) => c.id === state.selected) : undefined
+            const fit = pick && !occupant ? fitScore(slot, pick) : null
             return (
               <button
                 key={slot.id}
-                className={`slot hard-shadow${occupant ? ' filled' : ''}${assignable ? ' assignable' : ''}`}
+                className={`slot hard-shadow${slot.id === 'president' ? ' president' : ''}${occupant ? ' filled' : ''}${assignable ? ' assignable' : ''}`}
                 disabled={!assignable}
                 onClick={() => assignable && dispatch({ type: 'ASSIGN', slot: slot.id as SlotId })}
               >
                 <span className="slot-name">{slot.name}</span>
                 {occupant ? (
-                  <span className="slot-occupant">{occupant.name} <b>{ovr(occupant)}</b></span>
+                  <span className="slot-occupant">
+                    <MiniPortrait c={occupant} size={slot.id === 'president' ? 40 : 28} />
+                    <span>{occupant.name}</span>
+                    <b>{fitScore(slot, occupant)}</b>
+                  </span>
+                ) : fit !== null ? (
+                  <span className="slot-fit">
+                    <span className="slot-fit-num" data-grade={fit >= 75 ? 'good' : fit >= 50 ? 'mid' : 'bad'}>{fit}</span>
+                    <span className="slot-fit-hint">여기 임명 시</span>
+                  </span>
                 ) : (
-                  <span className="slot-empty">{assignable ? '여기 임명' : '비어 있음'}</span>
+                  <span className="slot-empty">비어 있음</span>
                 )}
               </button>
             )

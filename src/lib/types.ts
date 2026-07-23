@@ -3,7 +3,7 @@
 export type Axis = 'mil' | 'str' | 'dom' | 'dip' | 'sci' | 'cul'
 export const AXES: Axis[] = ['mil', 'str', 'dom', 'dip', 'sci', 'cul']
 export const AXIS_LABEL: Record<Axis, string> = {
-  mil: '무력', str: '지략', dom: '내정', dip: '외교', sci: '과학', cul: '문화',
+  mil: '군사', str: '지략', dom: '내정', dip: '외교', sci: '과학', cul: '문화',
 }
 
 export type Tier = 'legend' | 'great' | 'capable' | 'common'
@@ -50,7 +50,8 @@ export interface Crisis {
   axis: Axis
   difficulty: Difficulty
   year: number // 발생 연차 (타임라인 배치)
-  label: string // 서술형 예고문 (v0.1은 자리표시 문구)
+  title: string // 구체적 이벤트명 (배너 헤드라인, 예: "대역병 창궐")
+  omen: string // 서술형 예고 — 증상만 노출, 축은 은닉 (11_CRISIS_NARRATIVE)
 }
 
 export interface TimelineEvent {
