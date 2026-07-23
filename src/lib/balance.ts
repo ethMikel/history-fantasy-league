@@ -5,7 +5,7 @@
 export const BALANCE = {
   // §5 판정 (로지스틱)
   K: 20, // 시그모이드 스케일 — 클수록 스탯 격차에 둔감
-  D: { low: 50, mid: 65, high: 80 }, // 위기 난이도 (0-99 스케일)
+  D: { low: 56, mid: 71, high: 85 }, // 위기 난이도 — v0.3: greedy 중앙값 회복 방향 소폭 하향
   P_CLAMP: { min: 0.05, max: 0.95 },
   FAVORABLE_2RN_THRESHOLD: 0.75, // '유리' 라벨 판정은 2RN 굴림
 
@@ -19,10 +19,12 @@ export const BALANCE = {
 
   // §6 점수 (집권 연수, 가산 + 마진 연속형)
   Y_BASE: 4, // 기본 임기
-  G_MAX: { low: 6, mid: 12, high: 24 }, // 성공 보상 상한
+  G_MAX: { low: 8, mid: 16, high: 32 }, // 성공 보상 상한 — v0.2: 상위 분포 목표(p99 ~85년) 방향 상향
   L_FAIL: { low: 2, mid: 5, high: 10 }, // 실패 페널티
   MARGIN_SOFTCAP_S: 15, // Δ = G_MAX × (1 − e^(−margin/s))
   HARD_CAP_YEARS: 100, // "한 세기 집권" 완주
+  ALL_CLEAR_BONUS: 10, // 위기 3개 전부 성공 시 (04_FORMULA_STUDY §6 올클리어 보너스)
+  GOLDEN_AGE_MAX: 50, // 황금기 상한 — 올클리어 시 (내각 평균/99)² × MAX 추가 연수 (v0.3 구조 추가: 상위 꼬리 + 비위기축 픽 가치)
 
   // §7 지지율 그래프 (연출 전용 — 점수 무관)
   SUPPORT_START: 55,
