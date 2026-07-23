@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { AXIS_LABEL, SLOTS, type SlotId } from '../lib/types'
 import { pickVerdict, FLEX_HERO, MVP_LABEL, GOAT_LABEL } from '../data/verdicts'
 import { MiniPortrait, CrisisTracker } from '../ui/shared'
+import { play } from '../lib/sfx'
 import type { Action, GameState } from '../game/gameState'
 
 // 관전의 서사: 위기 판정을 밈 코멘트 + 담당자 초상 + 구국공신/역적 라벨로 (11_CRISIS_NARRATIVE)
@@ -29,6 +30,13 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
     const t = setTimeout(() => setShown((n) => n + 1), 900)
     return () => clearTimeout(t)
   }, [shown, result.timeline.length])
+
+  // 위기 판정이 드러날 때 효과음 (성공/실패)
+  useEffect(() => {
+    if (shown === 0 || shown > result.timeline.length) return
+    const e = result.timeline[shown - 1]
+    if (e?.kind === 'crisis') play(e.success ? 'success' : 'fail')
+  }, [shown, result.timeline])
 
   const done = shown >= result.timeline.length
 

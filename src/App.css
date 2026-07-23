@@ -5,6 +5,13 @@
   touch-action: manipulation;
   user-select: none;
 }
+/* 소리 토글 — 우상단 고정 */
+.mute-btn {
+  position: fixed; top: var(--sp-2); right: var(--sp-2); z-index: 10;
+  font-size: var(--fs-lg); line-height: 1; background: var(--panel);
+  border: 2px solid var(--ink-500); border-radius: 0; padding: var(--sp-1) var(--sp-2); cursor: pointer;
+}
+.mute-btn:active { transform: translate(1px, 1px); }
 
 /* ── 공통 버튼 ── */
 .btn-primary {

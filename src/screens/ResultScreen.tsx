@@ -3,6 +3,7 @@ import { BALANCE as B } from '../lib/balance'
 import { SLOTS, type Character, type SlotId } from '../lib/types'
 import { MiniPortrait, fitScore } from '../ui/shared'
 import { nextGoal } from '../lib/simulate'
+import { play } from '../lib/sfx'
 import { record, top } from '../game/localScores'
 import { shareResult } from '../game/shareCard'
 import type { Action, GameState } from '../game/gameState'
@@ -26,6 +27,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
   const [shareMsg, setShareMsg] = useState('')
   const goal = nextGoal(r) // 목표구배/near-miss — "한 끗" 근접치로 재도전 유도
   const shownYears = useCountUp(r.years) // 집권연수 카운트업 (juice)
+  useEffect(() => { play(r.allClear ? 'win' : 'lose') }, [r.allClear]) // 결과 진입 효과음
 
   return (
     <div className="result-screen">

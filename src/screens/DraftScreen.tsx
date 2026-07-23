@@ -4,6 +4,7 @@ import { spin } from '../game/draft'
 import { filledCount, isCabinetFull, type Action, type GameState } from '../game/gameState'
 import { SLOTS, type SlotId } from '../lib/types'
 import { CharCard, CrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT } from '../ui/shared'
+import { play } from '../lib/sfx'
 
 export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   // 세션 pool rng — seed 바뀌면 재생성 (라운드 넘어가도 소비 상태 유지)
@@ -15,10 +16,12 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
   const currentEra = () => state.spinLabel?.split(' · ')[1]
 
   const doSpin = () => {
+    play('spin')
     const r = spin(rngRef.current!.rng, usedIds())
     dispatch({ type: 'SPIN', candidates: r.candidates, label: r.label, nearMiss: r.nearMiss })
   }
   const doRespin = (kind: 'all' | 'civ') => {
+    play('spin')
     const r = spin(rngRef.current!.rng, usedIds(), kind === 'civ' ? currentEra() : undefined)
     dispatch({ type: 'RESPIN', kind, candidates: r.candidates, label: r.label, nearMiss: r.nearMiss })
   }
@@ -50,7 +53,7 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
                 key={slot.id}
                 className={`slot hard-shadow${slot.id === 'president' ? ' president' : ''}${occupant ? ' filled' : ''}${assignable ? ' assignable' : ''}`}
                 disabled={!assignable}
-                onClick={() => assignable && dispatch({ type: 'ASSIGN', slot: slot.id as SlotId })}
+                onClick={() => { if (assignable) { play('assign'); dispatch({ type: 'ASSIGN', slot: slot.id as SlotId }) } }}
               >
                 <span className="slot-name">{slot.name}</span>
                 {occupant ? (
@@ -105,7 +108,7 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
                     key={c.id}
                     c={c}
                     selected={state.selected === c.id}
-                    onClick={() => dispatch({ type: 'SELECT', id: c.id })}
+                    onClick={() => { play('select'); dispatch({ type: 'SELECT', id: c.id }) }}
                   />
                 ))}
               </div>
