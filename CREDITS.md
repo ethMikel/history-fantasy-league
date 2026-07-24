@@ -1,6 +1,6 @@
 # Credits & Licenses (TASL: Title — Author — Source — License)
 
-에셋 추가 시 **같은 커밋에서** 이 파일에 기록한다. 정책: CC0 우선, CC-BY는 표기, CC-BY-NC/SA·라이선스 미표기 에셋 금지.
+에셋 추가 시 **같은 커밋에서** 이 파일에 기록한다. 정책: CC0 우선, CC-BY·CC-BY-SA는 출처 표기 조건 허용, CC-BY-NC·ND·라이선스 미표기 에셋 금지. (BY-SA: ShareAlike는 변형 이미지에만 적용, 게임·상업 사용 무방)
 
 ## Fonts
 - Galmuri11 (Regular/Bold) — Quiple — https://github.com/quiple/galmuri — SIL OFL 1.1 (npm `galmuri`, woff2 자체호스팅)

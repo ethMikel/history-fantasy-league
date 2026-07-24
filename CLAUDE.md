@@ -14,7 +14,7 @@
 5. 색상 리터럴은 `src/styles/tokens.css`에만. radius 0 + 하드섀도 유지
 6. 폰트 크기는 tokens.css의 --fs-* 만 (Galmuri 정수 배율)
 7. 라우터 금지 — 화면 전환은 상태 머신 (title → draft → sim → result)
-8. 에셋 추가 시 같은 커밋에서 `CREDITS.md` 갱신 (TASL). CC0 우선, CC-BY-NC/SA 금지
+8. 에셋 추가 시 같은 커밋에서 `CREDITS.md` 갱신 (TASL). CC0 우선, **CC-BY·CC-BY-SA 허용(출처 표기 필수)**, CC-BY-NC·ND 금지 (2026-07-24 완화: SA는 표기만 하면 게임·상업·변형 OK, ShareAlike는 변형 이미지에만 적용)
 9. 프롬프트 1개 = 검증 가능한 변경 1개. 작동 확인 후 커밋. fix 3연속 실패 → revert 후 재설계
 10. 항상 플레이 가능 상태 유지 — 어느 커밋에서도 한 판이 끝까지 돌아야 함
 
