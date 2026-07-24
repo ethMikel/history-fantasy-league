@@ -39,11 +39,36 @@ DENYLIST |= {
     # v0.5: 한국 쿠데타/독재 + 북한 (NHN 심사 톤 — 동현 확정 "명백한 독재/쿠데타/북한만")
     'Park Chung-hee', 'Chun Doo-hwan', 'Roh Tae-woo',  # 5·16/12·12 쿠데타·유신·광주
     'Kim Hyong-jik',  # 북한 (김일성 부친)
+    # v0.6: 박정희 제거로 백필된 톤 리스크 (교과서 위인 아님)
+    'Kim Song-ae',  # 북한 (김일성 처)
+    'Kim Jae-gyu',  # 10·26 박정희 암살
+    'Kim Ki-duk',   # #MeToo 논란 영화감독
+    'Kim Chaek',    # 북한 건국 인물 (김책시)
+    'Yukio Mishima',  # 극우 쿠데타 미수·할복
 }
-EXCLUDE_OCC |= {'MAFIOSO', 'PIRATE'}  # 범죄자 직업 추가 차단
+
+# v0.6: 교과서 친숙 인물 강제 편입 (동현 "삼국지·일본사·유럽·미국 근대 교과서 인물 추가").
+# 셀 fame 컷에 밀렸던 유명 인물을 목표 인원과 무관하게 포함 → 스핀에서 익숙한 얼굴 등장.
+# person.csv name과 정확히 일치해야 함(diacritic 포함). alive/denylist는 그대로 적용됨.
+ALLOWLIST = {
+    # 삼국지 (한국 인지도 최상 — 소설/게임)
+    'Cao Cao', 'Liu Bei', 'Zhuge Liang', 'Guan Yu', 'Sun Quan', 'Lü Bu',
+    'Zhang Fei', 'Zhao Yun', 'Sima Yi', 'Zhou Yu', 'Sun Ce', 'Dong Zhuo',
+    # 일본 전국시대·막말
+    'Oda Nobunaga', 'Toyotomi Hideyoshi', 'Tokugawa Ieyasu', 'Miyamoto Musashi',
+    'Takeda Shingen', 'Uesugi Kenshin', 'Date Masamune', 'Minamoto no Yoritomo',
+    'Ashikaga Takauji', 'Sakamoto Ryōma', 'Saigō Takamori', 'Tokugawa Yoshinobu',
+    # 중국 황제/근대
+    'Wu Zetian', 'Emperor Wu of Han', 'Kangxi Emperor', 'Qianlong Emperor', 'Sun Yat-sen',
+    # 유럽 교과서
+    'Joan of Arc', 'Otto von Bismarck', 'Queen Victoria', 'William the Conqueror', 'Richard I of England',
+    # 아메리카 근대
+    'Benjamin Franklin', 'Theodore Roosevelt', 'Mark Twain',
+}
 EXCLUDE_OCC = {'RELIGIOUS FIGURE', 'COMPANION', 'CELEBRITY', 'PORNOGRAPHIC ACTOR',
                'EXTREMIST', 'CRIMINAL', 'SOCCER PLAYER', 'RACING DRIVER', 'COACH',
-               'ACTOR', 'SINGER', 'MUSICIAN', 'CHEF', 'MODEL', 'BASKETBALL PLAYER'}
+               'ACTOR', 'SINGER', 'MUSICIAN', 'CHEF', 'MODEL', 'BASKETBALL PLAYER',
+               'MAFIOSO', 'PIRATE'}  # 범죄자 직업 차단
 # 배우/가수 등 현대 연예는 "위인 내각" 톤과 안 맞아 제외 (WRITER/COMPOSER/PAINTER는 문화축으로 유지)
 
 # 검수 플래그: 자동 통과했으나 동현 최종 판단 권장 (현대 정치인 = 당파성·초상권 잔여 리스크)
@@ -143,8 +168,18 @@ for cell, target in sorted(LIVE.items()):
     flag = '' if got>=max(3,target*0.6) else '  ⚠️부족'
     summary.append((cell, target, got, [m['name_en'] for m in members[:5]], flag))
 
+# ALLOWLIST 강제 편입 (셀 목표·fame 컷과 무관, 중복 방지) — 교과서 친숙 인물
+sel_ids = {p['wd_id'] for p in selected}
+forced = [p for p in pool if p['name_en'] in ALLOWLIST and p['wd_id'] not in sel_ids]
+selected.extend(forced)
+found_names = {p['name_en'] for p in pool}
+missing = sorted(n for n in ALLOWLIST if n not in found_names)
+
 json.dump(selected, open('candidates.json','w'), ensure_ascii=False, indent=1)
-print(f"=== 후보 풀: {len(selected)}명 / {len(LIVE)} 라이브 셀 ===\n")
+print(f"=== 후보 풀: {len(selected)}명 / {len(LIVE)} 라이브 셀 (+ALLOWLIST 강제 {len(forced)}) ===\n")
+print(f"강제 편입: {', '.join(p['name_en'] for p in forced)}")
+if missing: print(f"⚠️ ALLOWLIST 중 pool에 없음(필터 탈락): {', '.join(missing)}")
+print()
 for cell,target,got,names,flag in summary:
     print(f"[{cell[0]:3}·{cell[1]:5}] 목표{target:2} 확보{got:2}{flag}  {', '.join(names)}")
 flagged = [p for p in selected if p['flag']]

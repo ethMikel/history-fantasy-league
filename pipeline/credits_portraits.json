@@ -272,6 +272,14 @@
   "source": "https://commons.wikimedia.org/wiki/File:David%20Lynch%20at%20the%201990%20Emmy%20Awards.jpg"
  },
  {
+  "wd_id": "Q855252",
+  "name": "푸미폰 아둔야뎃",
+  "file": "Aankomst Koning Bhumibol en Koningin Sirikit te Den Haag, Koning Bhumibol, Bestanddeelnr 911-6993 (cropped)(2).jpg",
+  "license": "CC0",
+  "artist": "Harry Pot / Anefo",
+  "source": "https://commons.wikimedia.org/wiki/File:Aankomst%20Koning%20Bhumibol%20en%20Koningin%20Sirikit%20te%20Den%20Haag%2C%20Koning%20Bhumibol%2C%20Bestanddeelnr%20911-6993%20%28cropped%29%282%29.jpg"
+ },
+ {
   "wd_id": "Q11812",
   "name": "토머스 제퍼슨",
   "file": "Official Presidential portrait of Thomas Jefferson (by Rembrandt Peale, 1800)(cropped).jpg",
@@ -620,6 +628,19 @@
   "source": "https://commons.wikimedia.org/wiki/File:Choi%20Hong%20Hi%201970.jpg"
  },
  {
+  "wd_id": "Q168567",
+  "name": "신격호",
+  "file": "Shin Kyuk-ho.jpg",
+  "license": "Public domain",
+  "artist": "宣伝会議　撮影者不明",
+  "source": "https://commons.wikimedia.org/wiki/File:Shin%20Kyuk-ho.jpg"
+ },
+ {
+  "wd_id": "Q244998",
+  "name": "찰스 피더슨",
+  "portrait": null
+ },
+ {
   "wd_id": "Q50184",
   "name": "이순신",
   "file": "Bust of Yi Sun-sin 01.jpg",
@@ -699,14 +720,6 @@
   "wd_id": "Q484453",
   "name": "조선 인조",
   "portrait": null
- },
- {
-  "wd_id": "Q37682",
-  "name": "조선 세종",
-  "file": "10000 won banknote (cropped).jpg",
-  "license": "South Korean currency",
-  "artist": "Bank of Korea",
-  "source": "https://commons.wikimedia.org/wiki/File:10000%20won%20banknote%20%28cropped%29.jpg"
  },
  {
   "wd_id": "Q7523",
@@ -870,6 +883,14 @@
   "source": "https://commons.wikimedia.org/wiki/File:Cheoljong2.jpg"
  },
  {
+  "wd_id": "Q36014",
+  "name": "호찌민",
+  "file": "Ho Chi Minh 1946.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:Ho%20Chi%20Minh%201946.jpg"
+ },
+ {
   "wd_id": "Q5577",
   "name": "살바도르 달리",
   "file": "Salvador Dalí 1939.jpg",
@@ -1012,6 +1033,22 @@
   "license": "Copyrighted free use",
   "artist": "derivative work by Begoon",
   "source": "https://commons.wikimedia.org/wiki/File:Margaret%20Thatcher%20stock%20portrait%20%28cropped%29.jpg"
+ },
+ {
+  "wd_id": "Q132524",
+  "name": "아인 랜드",
+  "file": "Ayn Rand (1943 Talbot portrait).jpg",
+  "license": "Public domain",
+  "artist": "Photo portrait credited to \"Talbot\" (though not on original dust jacket). Published by the Bobbs-Merrill Company.",
+  "source": "https://commons.wikimedia.org/wiki/File:Ayn%20Rand%20%281943%20Talbot%20portrait%29.jpg"
+ },
+ {
+  "wd_id": "Q40904",
+  "name": "베르너 하이젠베르크",
+  "file": "Bundesarchiv Bild183-R57262, Werner Heisenberg.jpg",
+  "license": "CC BY-SA 3.0 de",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:Bundesarchiv%20Bild183-R57262%2C%20Werner%20Heisenberg.jpg"
  },
  {
   "wd_id": "Q935",
@@ -2025,5 +2062,293 @@
   "license": "Public domain",
   "artist": "Unknown authorUnknown author",
   "source": "https://commons.wikimedia.org/wiki/File:Dr.%20Bhimrao%20Ambedkar.jpg"
+ },
+ {
+  "wd_id": "Q7226",
+  "name": "잔 다르크",
+  "file": "Joan of Arc miniature graded.jpg",
+  "license": "Public domain",
+  "artist": "",
+  "source": "https://commons.wikimedia.org/wiki/File:Joan%20of%20Arc%20miniature%20graded.jpg"
+ },
+ {
+  "wd_id": "Q8442",
+  "name": "오토 폰 비스마르크",
+  "file": "BismarckArbeitszimmer1886.jpg",
+  "license": "Public domain",
+  "artist": "André Bockmann",
+  "source": "https://commons.wikimedia.org/wiki/File:BismarckArbeitszimmer1886.jpg"
+ },
+ {
+  "wd_id": "Q9439",
+  "name": "빅토리아",
+  "file": "Queen Victoria by Bassano.jpg",
+  "license": "Public domain",
+  "artist": "Alexander Bassano",
+  "source": "https://commons.wikimedia.org/wiki/File:Queen%20Victoria%20by%20Bassano.jpg"
+ },
+ {
+  "wd_id": "Q34969",
+  "name": "벤저민 프랭클린",
+  "file": "Joseph Siffrein Duplessis - Benjamin Franklin - Google Art Project.jpg",
+  "license": "Public domain",
+  "artist": "Joseph-Siffred Duplessis",
+  "source": "https://commons.wikimedia.org/wiki/File:Joseph%20Siffrein%20Duplessis%20-%20Benjamin%20Franklin%20-%20Google%20Art%20Project.jpg"
+ },
+ {
+  "wd_id": "Q7245",
+  "name": "마크 트웨인",
+  "file": "MarkTwain.LOC.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:MarkTwain.LOC.jpg"
+ },
+ {
+  "wd_id": "Q171411",
+  "name": "오다 노부나가",
+  "file": "Odanobunaga.jpg",
+  "license": "Public domain",
+  "artist": "狩野宗秀 (Kanō Sōshū, 1551 - 1601)",
+  "source": "https://commons.wikimedia.org/wiki/File:Odanobunaga.jpg"
+ },
+ {
+  "wd_id": "Q8573",
+  "name": "쑨원",
+  "file": "孙中山肖像.jpg",
+  "license": "Public domain",
+  "artist": "上海波尔照相馆",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%AD%99%E4%B8%AD%E5%B1%B1%E8%82%96%E5%83%8F.jpg"
+ },
+ {
+  "wd_id": "Q171977",
+  "name": "도쿠가와 이에야스",
+  "file": "Tokugawa Ieyasu2.JPG",
+  "license": "Public domain",
+  "artist": "Kanō Tan'yū",
+  "source": "https://commons.wikimedia.org/wiki/File:Tokugawa%20Ieyasu2.JPG"
+ },
+ {
+  "wd_id": "Q37594",
+  "name": "윌리엄 1세",
+  "file": "Bayeux Tapestry William.jpg",
+  "license": "Public domain",
+  "artist": "Myrabella",
+  "source": "https://commons.wikimedia.org/wiki/File:Bayeux%20Tapestry%20William.jpg"
+ },
+ {
+  "wd_id": "Q193344",
+  "name": "미야모토 무사시",
+  "file": "Miyamoto Musashi-Portrait-Edo-period.png",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:Miyamoto%20Musashi-Portrait-Edo-period.png"
+ },
+ {
+  "wd_id": "Q9738",
+  "name": "측천무후",
+  "file": "唐后行從圖 (局部) - 武則天.png",
+  "license": "Public domain",
+  "artist": "Likely to be Zhang Xuan (张萱)",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%94%90%E5%90%8E%E8%A1%8C%E5%BE%9E%E5%9C%96%20%28%E5%B1%80%E9%83%A8%29%20-%20%E6%AD%A6%E5%89%87%E5%A4%A9.png"
+ },
+ {
+  "wd_id": "Q187550",
+  "name": "도요토미 히데요시",
+  "file": "Toyotomi Hideyoshi (Kodaiji).jpg",
+  "license": "Public domain",
+  "artist": "Kanō Mitsunobu",
+  "source": "https://commons.wikimedia.org/wiki/File:Toyotomi%20Hideyoshi%20%28Kodaiji%29.jpg"
+ },
+ {
+  "wd_id": "Q33866",
+  "name": "시어도어 루스벨트",
+  "file": "Theodore Roosevelt by the Pach Bros.jpg",
+  "license": "Public domain",
+  "artist": "Adam Cuerden",
+  "source": "https://commons.wikimedia.org/wiki/File:Theodore%20Roosevelt%20by%20the%20Pach%20Bros.jpg"
+ },
+ {
+  "wd_id": "Q204077",
+  "name": "조조",
+  "file": "Cao Cao scth.jpg",
+  "license": "Public domain",
+  "artist": "Wang Qi",
+  "source": "https://commons.wikimedia.org/wiki/File:Cao%20Cao%20scth.jpg"
+ },
+ {
+  "wd_id": "Q19133",
+  "name": "건륭제",
+  "file": "Portrait of the Qianlong Emperor in Court Dress.jpg",
+  "license": "Public domain",
+  "artist": "Unidentified painter",
+  "source": "https://commons.wikimedia.org/wiki/File:Portrait%20of%20the%20Qianlong%20Emperor%20in%20Court%20Dress.jpg"
+ },
+ {
+  "wd_id": "Q198211",
+  "name": "제갈량",
+  "file": "蜀汉丞相忠武侯诸葛亮.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:%E8%9C%80%E6%B1%89%E4%B8%9E%E7%9B%B8%E5%BF%A0%E6%AD%A6%E4%BE%AF%E8%AF%B8%E8%91%9B%E4%BA%AE.jpg"
+ },
+ {
+  "wd_id": "Q17790",
+  "name": "강희제",
+  "file": "清 佚名 《清圣祖康熙皇帝朝服像》.jpg",
+  "license": "Public domain",
+  "artist": "AnonymousUnknown author Qing Dynasty Court Painter",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%B8%85%20%E4%BD%9A%E5%90%8D%20%E3%80%8A%E6%B8%85%E5%9C%A3%E7%A5%96%E5%BA%B7%E7%86%99%E7%9A%87%E5%B8%9D%E6%9C%9D%E6%9C%8D%E5%83%8F%E3%80%8B.jpg"
+ },
+ {
+  "wd_id": "Q245315",
+  "name": "유비",
+  "file": "Liu Bei Tang.jpg",
+  "license": "Public domain",
+  "artist": "Yan Liben (閻立本)",
+  "source": "https://commons.wikimedia.org/wiki/File:Liu%20Bei%20Tang.jpg"
+ },
+ {
+  "wd_id": "Q222797",
+  "name": "관우",
+  "file": "Guanyu.jpg",
+  "license": "Public domain",
+  "artist": "Utagawa Kuniyoshi",
+  "source": "https://commons.wikimedia.org/wiki/File:Guanyu.jpg"
+ },
+ {
+  "wd_id": "Q7225",
+  "name": "전한 무제",
+  "file": "漢武帝.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%BC%A2%E6%AD%A6%E5%B8%9D.jpg"
+ },
+ {
+  "wd_id": "Q317846",
+  "name": "여포",
+  "file": "Lü Bu Portrait.jpg",
+  "license": "Public domain",
+  "artist": "",
+  "source": "https://commons.wikimedia.org/wiki/File:L%C3%BC%20Bu%20Portrait.jpg"
+ },
+ {
+  "wd_id": "Q313327",
+  "name": "손권",
+  "file": "Sun Quan Tang.jpg",
+  "license": "Public domain",
+  "artist": "Yan Liben",
+  "source": "https://commons.wikimedia.org/wiki/File:Sun%20Quan%20Tang.jpg"
+ },
+ {
+  "wd_id": "Q353698",
+  "name": "사마의",
+  "file": "魏·太傅 司馬懿.jpg",
+  "license": "Public domain",
+  "artist": "Ming Zhu Tianran",
+  "source": "https://commons.wikimedia.org/wiki/File:%E9%AD%8F%C2%B7%E5%A4%AA%E5%82%85%20%E5%8F%B8%E9%A6%AC%E6%87%BF.jpg"
+ },
+ {
+  "wd_id": "Q310462",
+  "name": "사이고 다카모리",
+  "file": "Saigo Takamori Portrait by Ishikawa Shizumasa.jpg",
+  "license": "Public domain",
+  "artist": "Ishikawa Shizumasa (1848-1925)",
+  "source": "https://commons.wikimedia.org/wiki/File:Saigo%20Takamori%20Portrait%20by%20Ishikawa%20Shizumasa.jpg"
+ },
+ {
+  "wd_id": "Q242800",
+  "name": "미나모토노 요리토모",
+  "file": "Minamoto no Yoritomo.jpg",
+  "license": "Public domain",
+  "artist": "Fujiwara no Takanobu",
+  "source": "https://commons.wikimedia.org/wiki/File:Minamoto%20no%20Yoritomo.jpg"
+ },
+ {
+  "wd_id": "Q378450",
+  "name": "사카모토 료마",
+  "file": "Sakamoto Ryoma.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:Sakamoto%20Ryoma.jpg"
+ },
+ {
+  "wd_id": "Q276404",
+  "name": "다케다 신겐",
+  "file": "Takeda Harunobu.jpg",
+  "license": "Public domain",
+  "artist": "Unknown",
+  "source": "https://commons.wikimedia.org/wiki/File:Takeda%20Harunobu.jpg"
+ },
+ {
+  "wd_id": "Q197183",
+  "name": "장비",
+  "file": "明人画张飞像轴.png",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%98%8E%E4%BA%BA%E7%94%BB%E5%BC%A0%E9%A3%9E%E5%83%8F%E8%BD%B4.png"
+ },
+ {
+  "wd_id": "Q334081",
+  "name": "동탁",
+  "file": "Dong Zhuo Portrait.jpg",
+  "license": "Public domain",
+  "artist": "The original uploader was Plastictv at English Wikipedia.",
+  "source": "https://commons.wikimedia.org/wiki/File:Dong%20Zhuo%20Portrait.jpg"
+ },
+ {
+  "wd_id": "Q287657",
+  "name": "도쿠가와 요시노부",
+  "file": "1867 Osaka Yoshinobu Tokugawa.jpg",
+  "license": "Public domain",
+  "artist": "Frederick Sutton",
+  "source": "https://commons.wikimedia.org/wiki/File:1867%20Osaka%20Yoshinobu%20Tokugawa.jpg"
+ },
+ {
+  "wd_id": "Q198048",
+  "name": "주유",
+  "file": "ZhouYu.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:ZhouYu.jpg"
+ },
+ {
+  "wd_id": "Q380598",
+  "name": "손책",
+  "file": "Sun Ce Portrait.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:Sun%20Ce%20Portrait.jpg"
+ },
+ {
+  "wd_id": "Q311080",
+  "name": "우에스기 겐신",
+  "file": "Uesugi Kenshin Portrait from Uesugi Shrine.png",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:Uesugi%20Kenshin%20Portrait%20from%20Uesugi%20Shrine.png"
+ },
+ {
+  "wd_id": "Q311183",
+  "name": "다테 마사무네",
+  "file": "Date Masamune02.jpg",
+  "license": "Public domain",
+  "artist": "Tosa Mitsusada",
+  "source": "https://commons.wikimedia.org/wiki/File:Date%20Masamune02.jpg"
+ },
+ {
+  "wd_id": "Q197481",
+  "name": "조운 (촉한)",
+  "file": "ZhaoYun.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "source": "https://commons.wikimedia.org/wiki/File:ZhaoYun.jpg"
+ },
+ {
+  "wd_id": "Q297107",
+  "name": "아시카가 다카우지",
+  "file": "Ashikaga Takauji Jōdo-ji.jpg",
+  "license": "Public domain",
+  "artist": "Unknown artistUnknown artist",
+  "source": "https://commons.wikimedia.org/wiki/File:Ashikaga%20Takauji%20J%C5%8Ddo-ji.jpg"
  }
 ]
