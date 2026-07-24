@@ -37,13 +37,13 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
           <>
             <span className="win-crown"><CrownIcon /></span>
             <span className="win-title">완전 집권</span>
-            <span className="verdict-sub">위기 3개 전부 극복 — 명예의 전당 등재 자격</span>
+            <span className="verdict-sub">위기 {r.crises.length}개 전부 극복 — 명예의 전당 등재 자격</span>
           </>
         ) : (
           <>
-            <span className="verdict-label">위기 {r.cleared} / 3 극복</span>
+            <span className="verdict-label">위기 {r.cleared} / {r.crises.length} 극복</span>
             <span className="lose-title">정권 교체</span>
-            <span className="verdict-sub">3개를 모두 막아야 완전 집권이다. 다시 도전하라.</span>
+            <span className="verdict-sub">{r.crises.length}개를 모두 막아야 완전 집권이다. 다시 도전하라.</span>
           </>
         )}
         <div className="result-metrics">

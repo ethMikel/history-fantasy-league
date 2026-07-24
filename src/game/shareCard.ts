@@ -43,7 +43,7 @@ export async function renderShareCard(
   const win = result.allClear
   g.fillStyle = win ? C.gold : C.dim
   g.font = 'bold 44px sans-serif'
-  g.fillText(win ? '🏆 완전 집권' : `위기 ${result.cleared}/3 극복`, W / 2, 148)
+  g.fillText(win ? '🏆 완전 집권' : `위기 ${result.cleared}/${result.crises.length} 극복`, W / 2, 148)
 
   // 등급 대문짝 + 집권연수
   g.fillStyle = GRADE_C[result.grade]

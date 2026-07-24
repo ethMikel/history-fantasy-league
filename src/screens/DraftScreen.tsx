@@ -37,8 +37,14 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
       <section className="crisis-row">
         <div className="crisis-row-label">이번 정권에 닥칠 위기</div>
         <div className="crisis-list">
-          {state.crises.map((c, i) => <CrisisBanner key={i} crisis={c} />)}
+          {state.crises.filter((c) => !c.hidden).map((c, i) => <CrisisBanner key={i} crisis={c} />)}
         </div>
+        {state.crises.some((c) => c.hidden) && (
+          <div className="crisis-hidden-note">
+            <span className="hidden-mark">?</span>
+            예고 없는 위기 <b>{state.crises.filter((c) => c.hidden).length}개</b>가 임기 어딘가에 도사린다 — 대비할 수 없다
+          </div>
+        )}
       </section>
 
       <div className="draft-body">

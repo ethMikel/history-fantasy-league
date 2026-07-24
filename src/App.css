@@ -122,6 +122,17 @@
 .crisis-name { font-size: var(--fs-lg); color: var(--text); font-weight: bold; flex: 1; }
 .crisis-when { font-size: var(--fs-sm); color: var(--ink-900); background: var(--paper-300); padding: 1px var(--sp-2); }
 .crisis-omen { font-size: var(--fs-sm); color: var(--text-dim); line-height: 1.5; }
+/* 히든 위기 티저 (드래프트) — 예고 없는 위기 존재만 알림 */
+.crisis-hidden-note {
+  display: flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-3);
+  font-size: var(--fs-sm); color: var(--text-dim);
+  border: 2px dashed var(--ink-500); padding: var(--sp-2) var(--sp-3); background: rgb(0 0 0 / 25%);
+}
+.crisis-hidden-note b { color: var(--accent); }
+.crisis-hidden-note .hidden-mark {
+  flex: 0 0 24px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+  font-weight: bold; color: var(--accent); border: 2px solid var(--ink-500); background: var(--panel);
+}
 
 .draft-body { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--sp-4); align-items: start; }
 @media (max-width: 720px) { .draft-body { grid-template-columns: 1fr; } }
@@ -228,6 +239,9 @@
 .tracker-node[data-state='cleared'] { border-color: var(--green-400) !important; }
 .tracker-node[data-state='failed'] { border-color: var(--red-400) !important; opacity: 0.8; }
 .tracker-icon { font-size: var(--fs-md); line-height: 1.1; }
+.tracker-icon .icon { width: 20px; height: 20px; }
+.tracker-node[data-hidden='true'] { opacity: 0.6; border-style: dashed !important; }
+.tracker-q { font-size: var(--fs-lg); color: var(--text-dim); }
 .tracker-diff { font-size: 11px; color: var(--text-dim); }
 .tracker-link { width: 22px; height: 4px; background: var(--ink-500); transition: background 0.3s ease; }
 .tracker-link[data-on='true'] { background: var(--green-400); }
@@ -241,7 +255,16 @@
 .sim-log { display: flex; flex-direction: column; gap: var(--sp-2); min-height: 300px; }
 .log-line { font-size: var(--fs-md); padding: var(--sp-2) var(--sp-3); background: var(--panel); border-left: 4px solid var(--ink-500); animation: logIn 0.35s ease-out; }
 @keyframes logIn { from { opacity: 0; transform: translateX(-8px); } }
-.log-line.minor { color: var(--text-dim); font-size: var(--fs-sm); }
+.log-line.minor { color: var(--text-dim); font-size: var(--fs-sm); border-left-color: var(--ink-500); }
+.log-line.minor.active { color: var(--text); border-left-color: var(--green-400); }
+.log-line.minor.mishap { color: var(--text); border-left-color: var(--red-400); }
+.minor-delta { color: var(--text-dim); font-variant-numeric: tabular-nums; }
+/* 히든 위기 발생 = "돌발!" 강조 (예고 못 한 긴장) */
+.log-surprise {
+  font-size: 11px; font-weight: bold; color: var(--ink-900); background: var(--accent);
+  padding: 1px var(--sp-2); animation: surprisePop 0.4s ease-out;
+}
+@keyframes surprisePop { from { transform: scale(0.6); opacity: 0; } }
 .log-line.crisis.ok { border-left-color: var(--green-400); }
 .log-line.crisis.fail { border-left-color: var(--red-400); }
 .log-head { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-1); }

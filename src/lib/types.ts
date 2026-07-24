@@ -52,6 +52,7 @@ export interface Crisis {
   year: number // 발생 연차 (타임라인 배치)
   title: string // 구체적 이벤트명 (배너 헤드라인, 예: "대역병 창궐")
   omen: string // 서술형 예고 — 증상만 노출, 축은 은닉 (11_CRISIS_NARRATIVE)
+  hidden?: boolean // 예고 없는 히든 위기 — 드래프트에 안 뜨고 시뮬에서만 터짐 (불확실성 juice)
 }
 
 export interface TimelineEvent {
@@ -64,9 +65,12 @@ export interface TimelineEvent {
   margin?: number
   deltaYears: number
   supportAfter: number
-  responder?: string // 대응한 장관 이름 (구국공신/역적 연출용)
+  responder?: string // 대응한 장관 이름 (구국공신/역적 연출용 · minor 활약/부작용 주인공)
   viaFlex?: boolean // 무임소 구원 등판 여부
   traitFired?: boolean // 담당자의 시그니처 특성 발동 (⚡ 연출)
+  hidden?: boolean // 히든 위기 여부 (트래커 "?" 표시 → 발생 시 공개)
+  flavor?: 'active' | 'mishap' | null // minor 이벤트 유형: 활약/부작용/일반
+  text?: string // minor 이벤트 플레이버 문구 (내각 인물 참조)
 }
 
 export type Grade = 'S' | 'A' | 'B' | 'C' | 'D'
@@ -76,7 +80,7 @@ export interface SimResult {
   timeline: TimelineEvent[]
   crises: Crisis[]
   finalSupport: number
-  cleared: number // 극복한 위기 수 (0~3)
-  allClear: boolean // 🏆 우승 = 3개 전부 극복
+  cleared: number // 극복한 위기 수 (0~CRISIS_COUNT)
+  allClear: boolean // 🏆 우승 = 위기 전부 극복
   grade: Grade // 등급 (극복 수 + 집권연수)
 }

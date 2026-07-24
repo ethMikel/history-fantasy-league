@@ -37,9 +37,9 @@ function draft(seed: number, policy: Policy): Cabinet {
     if (p === 'random') {
       return { pick: cands[randInt(rng, cands.length)], slot: empty[randInt(rng, empty.length)].id as SlotId }
     }
-    // greedy: 예고된 위기 축의 미충원 부처를 우선, 해당 축 스탯 최고 후보 배치. 없으면 최고 슬롯 점수.
+    // greedy: 예고된(비히든) 위기 축의 미충원 부처를 우선, 해당 축 스탯 최고 후보 배치. 없으면 최고 슬롯 점수.
     if (p === 'greedy') {
-      const crisisAxes = cr.map((c) => c.axis)
+      const crisisAxes = cr.filter((c) => !c.hidden).map((c) => c.axis)
       const urgent = empty.filter((s) => s.mainAxis && crisisAxes.includes(s.mainAxis))
       if (urgent.length > 0) {
         let best = { v: -1, pick: cands[0], slot: urgent[0].id as SlotId }
@@ -68,10 +68,11 @@ function draft(seed: number, policy: Policy): Cabinet {
 }
 
 // oracle 평가함수: 채워진 슬롯 기준 기대 연수 (미충원 슬롯은 로스터 평균 가정)
+// 히든 위기는 예측 불가 → 드래프트 가치평가에서 제외 (사람과 동일 정보 조건)
 function expectedYears(cab: Partial<Cabinet>, crises: Crisis[]): number {
   const M = cab.president ? presidentMultiplier(cab.president) : 1.0
   let e = B.Y_BASE
-  for (const c of crises) {
+  for (const c of crises.filter((cc) => !cc.hidden)) {
     const slot = SLOTS.find((s) => s.mainAxis === c.axis)!
     const filled = cab[slot.id] || cab.flex
     if (!filled) { e += 0; continue }

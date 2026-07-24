@@ -155,13 +155,15 @@ export function CrisisTracker({ crises, outcomes }: { crises: Crisis[]; outcomes
         {crises.map((c, i) => {
           const o = outcomes[i]
           const state = o === null ? 'pending' : o ? 'cleared' : 'failed'
+          const concealed = o === null && c.hidden // 히든 미발생 = 축·난이도 은닉
           return (
             <Fragment key={i}>
-              <div className="tracker-node hard-shadow" data-state={state} style={{ borderColor: AXIS_VAR[c.axis] }}>
-                <span className="tracker-icon" style={{ color: o === null ? AXIS_VAR[c.axis] : o ? 'var(--green-400)' : 'var(--red-400)' }}>
-                  {o === null ? <CrisisAxisIcon axis={c.axis} /> : o ? <CheckIcon /> : <CrossIcon />}
+              <div className="tracker-node hard-shadow" data-state={state} data-hidden={concealed}
+                   style={{ borderColor: concealed ? 'var(--ink-500)' : AXIS_VAR[c.axis] }}>
+                <span className="tracker-icon" style={{ color: o === null ? (concealed ? 'var(--text-dim)' : AXIS_VAR[c.axis]) : o ? 'var(--green-400)' : 'var(--red-400)' }}>
+                  {o === null ? (concealed ? <b className="tracker-q">?</b> : <CrisisAxisIcon axis={c.axis} />) : o ? <CheckIcon /> : <CrossIcon />}
                 </span>
-                <span className="tracker-diff">{DIFF_LABEL[c.difficulty]}</span>
+                <span className="tracker-diff">{concealed ? '?' : DIFF_LABEL[c.difficulty]}</span>
               </div>
               {i < total - 1 && <div className="tracker-link" data-on={outcomes[i] === true} />}
             </Fragment>

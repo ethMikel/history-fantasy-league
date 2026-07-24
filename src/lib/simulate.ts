@@ -3,6 +3,7 @@
 
 import { BALANCE as B } from './balance'
 import { CRISIS_POOL } from '../data/crises'
+import { minorText } from '../data/minors'
 import { createStreams, mulberry32, hashSeed, randInt, type Rng } from './rng'
 import {
   AXES, SLOTS,
@@ -10,29 +11,33 @@ import {
   type SimResult, type SlotDef, type TimelineEvent,
 } from './types'
 
-const DIFFS: Difficulty[] = ['low', 'mid', 'high']
-
 // ── 위기 생성 (예고 시스템) ─────────────────────────────────────────
-// 드래프트 화면과 시뮬이 같은 seed로 같은 위기 3개를 얻는다 (예고 = 계약).
-// 난이도 하/중/상 각 1개 고정 구성, 축은 중복 없이 3개 (rng_crisis 전용 파생 스트림).
+// 드래프트 화면과 시뮬이 같은 seed로 같은 위기 N개를 얻는다 (예고 = 계약).
+// v0.5: 5개 (난이도 구성 high2·mid2·low1 셔플), 축 중복 없이 5/6, 그중 HIDDEN_COUNT개는
+// 히든(드래프트 비노출, 시뮬에서만 등장 — 불확실성). rng_crisis 전용 파생 스트림.
 export function generateCrises(seed: number): Crisis[] {
   const rng = mulberry32(hashSeed(`crisis:${seed}`))
-  const axes = pickDistinct(rng, AXES, 3)
-  // 발생 연차: 초반(2~5) / 중반(6~10) / 후반(11~15) — 난이도와 시기는 독립 셔플
-  const yearBands: Array<[number, number]> = [[2, 5], [6, 10], [11, 15]]
-  const shuffledDiffs = pickDistinct(rng, DIFFS, 3)
-  return yearBands.map(([lo, hi], i) => {
+  const n = B.CRISIS_COUNT
+  const axes = pickDistinct(rng, AXES, n)
+  const diffs = pickDistinct(rng, B.CRISIS_DIFFS as readonly Difficulty[], n) // 난이도 구성 셔플(중복 보존)
+  const bands = B.CRISIS_BANDS
+  const hiddenIdx = new Set(pickDistinct(rng, Array.from({ length: n }, (_, i) => i), B.HIDDEN_COUNT))
+  const list: Crisis[] = []
+  for (let i = 0; i < n; i++) {
     const axis = axes[i]
-    const difficulty = shuffledDiffs[i]
+    const difficulty = diffs[i]
+    const [lo, hi] = bands[i]
     const pool = CRISIS_POOL[axis][difficulty]
     const scenario = pool[randInt(rng, pool.length)]
-    return {
+    list.push({
       axis, difficulty,
       year: lo + randInt(rng, hi - lo + 1),
       title: scenario.title,
       omen: scenario.omen,
-    }
-  }).sort((a, b) => a.year - b.year)
+      hidden: hiddenIdx.has(i),
+    })
+  }
+  return list.sort((a, b) => a.year - b.year)
 }
 
 // ── 판정 보조 ───────────────────────────────────────────────────────
@@ -95,12 +100,22 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
   let support: number = B.SUPPORT_START
   let years: number = B.Y_BASE
 
-  // 소이벤트 2~4개 (연출·소폭 변동, rng_crisis 스트림)
-  const minorCount = 2 + randInt(minorRng, 3)
-  const minors = Array.from({ length: minorCount }, () => ({
-    year: 1 + randInt(minorRng, 15),
-    delta: randInt(minorRng, 4) - 1, // −1..+2
-  }))
+  // 소이벤트 (연출·소폭 변동, rng_crisis 스트림) — v0.5: 개수↑ + 내각 인물 활약/부작용 참조
+  const minorCount = B.MINOR_MIN + randInt(minorRng, B.MINOR_MAX - B.MINOR_MIN + 1)
+  const minors = Array.from({ length: minorCount }, () => {
+    const slot = SLOTS[randInt(minorRng, SLOTS.length)]
+    const person = cabinet[slot.id]
+    const standing = avg6(person)
+    let kind: 'active' | 'mishap' | 'neutral' = 'neutral'
+    let delta = randInt(minorRng, 3) - 1 // −1..+1 (무탈)
+    if (standing >= B.MINOR_ACTIVE_STAT) { kind = 'active'; delta = 1 + randInt(minorRng, 2) } // +1..+2
+    else if (standing <= B.MINOR_MISHAP_STAT) { kind = 'mishap'; delta = -1 }
+    return {
+      year: 1 + randInt(minorRng, B.MINOR_YEAR_MAX),
+      delta, kind, who: person.name,
+      text: minorText(kind, randInt(minorRng, 6), person.name, slot.name),
+    }
+  })
 
   const events: Array<{ year: number; run: () => TimelineEvent }> = []
 
@@ -128,7 +143,7 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
         return {
           year: c.year, kind: 'crisis', axis: c.axis, difficulty: c.difficulty, title: c.title,
           success, margin, deltaYears: delta, supportAfter: support,
-          responder: who.name, viaFlex, traitFired,
+          responder: who.name, viaFlex, traitFired, hidden: c.hidden,
         }
       },
     })
@@ -140,7 +155,10 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
       run: () => {
         years += m.delta
         support = Math.min(100, Math.max(0, support + (m.delta >= 0 ? 1 : -1) * B.SUPPORT_MINOR))
-        return { year: m.year, kind: 'minor', deltaYears: m.delta, supportAfter: support }
+        return {
+          year: m.year, kind: 'minor', deltaYears: m.delta, supportAfter: support,
+          flavor: m.kind === 'neutral' ? null : m.kind, text: m.text, responder: m.who,
+        }
       },
     })
   }
@@ -148,7 +166,7 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
   events.sort((a, b) => a.year - b.year)
   for (const e of events) timeline.push(e.run())
 
-  // 올클리어 보너스 + 황금기: 위기 3개 전부 성공 시 (§6 + v0.3 구조 추가)
+  // 올클리어 보너스 + 황금기: 위기 전부 성공 시 (§6 + v0.3 구조 추가)
   // 황금기 = (내각 8인 전체 평균/99)² × GOLDEN_AGE_MAX — 위기 축 밖의 픽에도 가치 부여, 상위 꼬리 형성
   const crisisEvents = timeline.filter((e) => e.kind === 'crisis')
   if (crisisEvents.length > 0 && crisisEvents.every((e) => e.success)) {
@@ -157,33 +175,36 @@ export function simulate(seed: number, cabinet: Cabinet): SimResult {
   }
 
   const finalYears = Math.min(B.HARD_CAP_YEARS, Math.max(1, Math.round(years)))
+  const total = crisisEvents.length
   const cleared = crisisEvents.filter((e) => e.success).length
-  const allClear = cleared === crisisEvents.length && crisisEvents.length > 0
-  return { years: finalYears, timeline, crises, finalSupport: support, cleared, allClear, grade: gradeOf(cleared, finalYears, allClear) }
+  const allClear = cleared === total && total > 0
+  return { years: finalYears, timeline, crises, finalSupport: support, cleared, allClear, grade: gradeOf(cleared, total, finalYears, allClear) }
 }
 
-// 등급: 우승(3극복) 전제로 집권연수가 가를수록 높게. 미우승은 극복 수로 상한.
-// 컷은 balance.ts GRADE_YEARS 단일 출처 (near-miss 문구와 drift 방지).
-export function gradeOf(cleared: number, years: number, allClear: boolean): SimResult['grade'] {
+// 등급: 완전집권(전부 극복) 전제로 집권연수가 가를수록 높게. 미우승은 극복 수로 상한.
+// 컷은 balance.ts GRADE_YEARS 단일 출처 (near-miss 문구와 drift 방지). v0.5: 위기 5개 일반화.
+export function gradeOf(cleared: number, total: number, years: number, allClear: boolean): SimResult['grade'] {
   const g = B.GRADE_YEARS
   if (allClear) return years >= g.allClearS ? 'S' : years >= g.allClearA ? 'A' : 'B'
-  if (cleared === 2) return years >= g.cleared2B ? 'B' : 'C'
-  if (cleared === 1) return 'C'
-  return 'D'
+  if (cleared >= total - 1) return years >= g.nearMissB ? 'B' : 'C' // 하나 빼고 전부 극복
+  if (cleared >= 2) return 'C' // 2개 이상 극복
+  return 'D' // 0~1개 = 사실상 붕괴
 }
 
 // 목표구배(Kivetz) + 손실회피 — 결과 화면 "다음 목표까지 한 끗" 근접 문구.
 // hot = 재도전 압력 최고조 (완전집권 한 끗 / 상위 등급 근접). 등급 컷은 gradeOf와 동일 출처.
 export function nextGoal(r: SimResult): { text: string; hot: boolean } | null {
   const g = B.GRADE_YEARS
-  const NEAR = 5 // 상위 등급까지 N년 이내면 '한 끗'으로 강조
+  const NEAR = 6 // 상위 등급까지 N년 이내면 '한 끗'으로 강조
+  const total = r.crises.length
   if (r.allClear) {
-    if (r.grade === 'S') return { text: '🏆 최고 등급 — 더 긴 집권으로 신기록에 도전하라', hot: false }
+    if (r.grade === 'S') return { text: '최고 등급 — 더 긴 집권으로 신기록에 도전하라', hot: false }
     if (r.grade === 'A') return { text: `S 등급까지 ${g.allClearS - r.years}년`, hot: g.allClearS - r.years <= NEAR }
     return { text: `A 등급까지 ${g.allClearA - r.years}년`, hot: g.allClearA - r.years <= NEAR }
   }
-  if (r.cleared === 2) return { text: '위기 하나만 더 막았다면 완전 집권 🏆 — 한 끗 차이!', hot: true }
-  if (r.cleared === 1) return { text: '완전 집권까지 위기 2개 더 — 내각을 다시 짜보자', hot: false }
+  const miss = total - r.cleared
+  if (miss === 1) return { text: '위기 하나만 더 막았다면 완전 집권 — 한 끗 차이!', hot: true }
+  if (r.cleared >= Math.ceil(total / 2)) return { text: `완전 집권까지 위기 ${miss}개 더 — 내각을 다시 짜보자`, hot: false }
   return { text: '이번 내각으론 역부족 — 판을 다시 돌려라', hot: false }
 }
 

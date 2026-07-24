@@ -56,7 +56,12 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
       <div className="sim-log">
         {result.timeline.slice(0, shown).map((e, i) => {
           if (e.kind === 'minor') {
-            return <div key={i} className="log-line minor">· {e.year}년차 — 소소한 정사 ({e.deltaYears >= 0 ? '+' : ''}{e.deltaYears}년)</div>
+            const fcls = e.flavor === 'active' ? ' active' : e.flavor === 'mishap' ? ' mishap' : ''
+            return (
+              <div key={i} className={`log-line minor${fcls}`}>
+                · {e.year}년차 — {e.text ?? '소소한 정사'} <span className="minor-delta">({e.deltaYears >= 0 ? '+' : ''}{e.deltaYears}년)</span>
+              </div>
+            )
           }
           const who = e.responder!
           const c = byName[who]
@@ -66,6 +71,7 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
             <div key={i} className={`log-line crisis ${e.success ? 'ok' : 'fail'}`}>
               <div className="log-head">
                 <span className="log-year">{e.year}년차</span>
+                {e.hidden && <span className="log-surprise" title="예고 없던 히든 위기">돌발!</span>}
                 <span className="log-crisis-name">{e.title}</span>
                 <span className="log-axis" data-axis={e.axis}>{AXIS_LABEL[e.axis!]}</span>
                 {e.traitFired && <span className="log-trait" title="담당자 시그니처 발동"><BoltIcon /></span>}
