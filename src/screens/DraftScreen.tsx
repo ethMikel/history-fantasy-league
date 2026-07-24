@@ -3,7 +3,7 @@ import { createStreams } from '../lib/rng'
 import { spin } from '../game/draft'
 import { filledCount, isCabinetFull, type Action, type GameState } from '../game/gameState'
 import { SLOTS, type SlotId } from '../lib/types'
-import { CharCard, CrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT, scoreBand, RegionEra } from '../ui/shared'
+import { CharCard, CrisisBanner, HiddenCrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT, scoreBand, RegionEra, SLOT_ROLE, SLOT_TIERS } from '../ui/shared'
 import { play } from '../lib/sfx'
 import { DiceIcon, PlayIcon } from '../ui/icons'
 
@@ -35,55 +35,54 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
       </header>
 
       <section className="crisis-row">
-        <div className="crisis-row-label">이번 정권에 닥칠 위기</div>
+        <div className="crisis-row-label"><b>임기 미션</b> — 이 위기들을 막을 인재를 뽑아 배치하라</div>
         <div className="crisis-list">
           {state.crises.filter((c) => !c.hidden).map((c, i) => <CrisisBanner key={i} crisis={c} />)}
+          {state.crises.filter((c) => c.hidden).map((_, i) => <HiddenCrisisBanner key={'h' + i} />)}
         </div>
-        {state.crises.some((c) => c.hidden) && (
-          <div className="crisis-hidden-note">
-            <span className="hidden-mark">?</span>
-            예고 없는 위기 <b>{state.crises.filter((c) => c.hidden).length}개</b>가 임기 어딘가에 도사린다 — 대비할 수 없다
-          </div>
-        )}
       </section>
 
       <div className="draft-body">
-        {/* 슬롯판 — 대통령 상단 하이어라키 (⑤), 초상 (③), 선택 시 슬롯별 적성 숫자 (④) */}
+        {/* 슬롯판 — 조직도 하이어라키: 대통령 → 총리·특임 → 6부처 (동현 #3) */}
         <section className="slot-board">
-          {SLOTS.map((slot) => {
-            const occupant = state.slots[slot.id]
-            const assignable = state.selected && !occupant
-            const pick = state.selected ? state.candidates?.find((c) => c.id === state.selected) : undefined
-            const fit = pick && !occupant ? fitScore(slot, pick) : null
-            return (
-              <button
-                key={slot.id}
-                className={`slot hard-shadow${slot.id === 'president' ? ' president' : ''}${occupant ? ' filled' : ''}${assignable ? ' assignable' : ''}`}
-                disabled={!assignable}
-                onClick={() => { if (assignable) { play('assign'); dispatch({ type: 'ASSIGN', slot: slot.id as SlotId }) } }}
-              >
-                <span className="slot-name">{slot.name}</span>
-                {occupant ? (
-                  <span className="slot-occupant">
-                    <MiniPortrait c={occupant} size={slot.id === 'president' ? 40 : 28} />
-                    <span>{occupant.name}</span>
-                    <b className="slot-fit-num" data-band={scoreBand(fitScore(slot, occupant))}>{fitScore(slot, occupant)}</b>
-                  </span>
-                ) : fit !== null ? (
-                  <span className="slot-fit">
-                    <span className="slot-fit-num" data-band={scoreBand(fit)}>{fit}</span>
-                    <span className="slot-fit-hint">여기 임명 시</span>
-                  </span>
-                ) : (
-                  <span className="slot-empty">
-                    비어 있음
-                    {slot.id === 'president' && <em className="slot-role">내각 전체 능력 배수 · 위기 직접 대응 X</em>}
-                    {slot.id === 'flex' && <em className="slot-role">어느 위기든 최고 능력치로 대신 대응</em>}
-                  </span>
-                )}
-              </button>
-            )
-          })}
+          {SLOT_TIERS.map((tier, ti) => (
+            <div key={ti} className={`slot-tier slot-tier-${ti}`}>
+              {tier.map((sid) => {
+                const slot = SLOTS.find((s) => s.id === sid)!
+                const occupant = state.slots[slot.id]
+                const assignable = state.selected && !occupant
+                const pick = state.selected ? state.candidates?.find((c) => c.id === state.selected) : undefined
+                const fit = pick && !occupant ? fitScore(slot, pick) : null
+                return (
+                  <button
+                    key={slot.id}
+                    className={`slot hard-shadow${slot.id === 'president' ? ' president' : ''}${occupant ? ' filled' : ''}${assignable ? ' assignable' : ''}`}
+                    disabled={!assignable}
+                    onClick={() => { if (assignable) { play('assign'); dispatch({ type: 'ASSIGN', slot: slot.id as SlotId }) } }}
+                  >
+                    <span className="slot-head">
+                      <span className="slot-name">{slot.name}</span>
+                      {!occupant && <span className="slot-role-hint">{SLOT_ROLE[slot.id]}</span>}
+                    </span>
+                    {occupant ? (
+                      <span className="slot-occupant">
+                        <MiniPortrait c={occupant} size={slot.id === 'president' ? 40 : 26} />
+                        <span className="slot-occ-name">{occupant.name}</span>
+                        <b className="slot-fit-num" data-band={scoreBand(fitScore(slot, occupant))}>{fitScore(slot, occupant)}</b>
+                      </span>
+                    ) : fit !== null ? (
+                      <span className="slot-fit">
+                        <span className="slot-fit-num" data-band={scoreBand(fit)}>{fit}</span>
+                        <span className="slot-fit-hint">임명 시</span>
+                      </span>
+                    ) : (
+                      <span className="slot-empty">비어 있음</span>
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+          ))}
         </section>
 
         {/* 스핀/후보 영역 */}

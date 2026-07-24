@@ -18,7 +18,7 @@ function App() {
 
   return (
     <main className="app-root">
-      <AtlasBackground />
+      <AtlasBackground mode={state.screen === 'title' ? 'portraits' : 'map'} />
       <button className="mute-btn" title="소리 켜기/끄기" onClick={() => setMuted(toggleMute())}>
         {muted ? <SoundOffIcon /> : <SoundOnIcon />}
       </button>

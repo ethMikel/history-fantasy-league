@@ -22,6 +22,15 @@
     repeating-linear-gradient(90deg, rgba(217,164,65,.035) 0 1px, transparent 1px 46px),
     radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, rgba(23,19,15,.86) 100%);
 }
+/* ── 게임 화면 배경: 차분한 고지도 (초상 없음 → 인터페이스 가독성) ── */
+.atlas-map { background: radial-gradient(ellipse 130% 90% at 50% -10%, #1d1710, var(--bg) 65%); }
+.atlas-map-grid { position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(217,164,65,.045) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(90deg, rgba(217,164,65,.045) 0 1px, transparent 1px 56px); }
+.atlas-compass { position: absolute; right: 3%; bottom: 4%; width: clamp(90px, 12vw, 170px); height: auto; color: var(--gold-400); opacity: 0.07; }
+.atlas-map-veil { position: absolute; inset: 0; background: radial-gradient(ellipse 85% 75% at 50% 42%, transparent 55%, rgba(8,6,4,.55) 100%); }
+
 /* 콘텐츠는 배경 위로 */
 .app-root > *:not(.atlas-bg) { position: relative; z-index: 1; }
 
@@ -114,51 +123,53 @@
 .draft-header { display: flex; align-items: baseline; gap: var(--sp-4); }
 .round-badge { font-size: var(--fs-sm); color: var(--ink-900); background: var(--accent); padding: 2px var(--sp-2); }
 .draft-title { font-size: var(--fs-lg); }
-.crisis-row-label { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-2); }
+.crisis-row-label { font-size: var(--fs-md); color: var(--text-dim); margin-bottom: var(--sp-2); }
+.crisis-row-label b { color: var(--accent); }
 .crisis-list { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
-.crisis-chip { background: var(--panel); border-left: 6px solid; padding: var(--sp-3) var(--sp-4); flex: 1; min-width: 240px; }
-.crisis-top { display: flex; align-items: baseline; gap: var(--sp-2); margin-bottom: var(--sp-1); }
-.crisis-icon { font-size: var(--fs-lg); }
-.crisis-name { font-size: var(--fs-lg); color: var(--text); font-weight: bold; flex: 1; }
-.crisis-when { font-size: var(--fs-sm); color: var(--ink-900); background: var(--paper-300); padding: 1px var(--sp-2); }
-.crisis-omen { font-size: var(--fs-sm); color: var(--text-dim); line-height: 1.5; }
-/* 히든 위기 티저 (드래프트) — 예고 없는 위기 존재만 알림 */
-.crisis-hidden-note {
-  display: flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-3);
-  font-size: var(--fs-sm); color: var(--text-dim);
-  border: 2px dashed var(--ink-500); padding: var(--sp-2) var(--sp-3); background: rgb(0 0 0 / 25%);
-}
-.crisis-hidden-note b { color: var(--accent); }
-.crisis-hidden-note .hidden-mark {
-  flex: 0 0 24px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
-  font-weight: bold; color: var(--accent); border: 2px solid var(--ink-500); background: var(--panel);
-}
+.crisis-chip { background: var(--panel); border-left: 6px solid; padding: var(--sp-3) var(--sp-4); flex: 1 1 240px; min-width: 220px; }
+.crisis-top { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-1); }
+.crisis-icon { font-size: var(--fs-lg); flex-shrink: 0; display: inline-flex; }
+.crisis-icon .icon { width: 1.1em; height: 1.1em; }
+.crisis-name { font-size: var(--fs-lg); color: var(--text); font-weight: bold; flex: 1; word-break: keep-all; line-height: 1.25; }
+.crisis-when { font-size: var(--fs-sm); color: var(--ink-900); background: var(--paper-300); padding: 1px var(--sp-2); flex-shrink: 0; white-space: nowrap; }
+.crisis-omen { font-size: var(--fs-sm); color: var(--text-dim); line-height: 1.55; word-break: keep-all; }
+/* 히든 위기 = "?" 미스터리 카드 (동현 #2: 인라인 물음표 스퀘어) */
+.crisis-chip.crisis-hidden { border-left-color: var(--ink-500); border-left-style: dashed; }
+.crisis-hidden .crisis-icon .crisis-q { font-size: var(--fs-lg); color: var(--accent); }
+.crisis-hidden .crisis-name { color: var(--text-dim); }
 
 .draft-body { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--sp-4); align-items: start; }
 @media (max-width: 720px) { .draft-body { grid-template-columns: 1fr; } }
 
 /* 하이어라키: 대통령 전폭 상단 + 장관 2열 (⑤) */
-.slot-board { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); align-content: start; }
+/* 조직도 하이어라키: 대통령 → 총리·특임 → 6부처 (동현 #3) */
+.slot-board { display: flex; flex-direction: column; gap: var(--sp-3); align-content: start; }
+.slot-tier { display: grid; gap: var(--sp-2); }
+.slot-tier-0 { grid-template-columns: 1fr; }
+.slot-tier-1, .slot-tier-2 { grid-template-columns: 1fr 1fr; }
+.slot-tier-1 { position: relative; }
 .slot {
   font: inherit; text-align: left; color: var(--text);
   background: var(--panel); border: 2px solid var(--ink-500); border-radius: 0;
   padding: var(--sp-2) var(--sp-3); display: flex; justify-content: space-between; align-items: center; gap: var(--sp-2);
-  min-height: 52px;
+  min-height: 50px;
 }
 .slot.president {
-  grid-column: 1 / -1; border-width: 3px; border-color: var(--gold-400);
-  min-height: 64px; background: linear-gradient(var(--panel), var(--ink-900));
+  border-width: 3px; border-color: var(--gold-400);
+  min-height: 58px; background: linear-gradient(var(--panel), var(--ink-900));
 }
 .slot.president .slot-name { color: var(--gold-400); font-size: var(--fs-md); }
 .slot.filled { border-color: var(--green-400); }
 .slot.president.filled { border-color: var(--gold-400); }
 .slot.assignable { border-color: var(--accent); cursor: pointer; animation: pulse 1s infinite; }
 @keyframes pulse { 50% { background: var(--ink-500); } }
-.slot-name { font-size: var(--fs-sm); color: var(--text-dim); flex-shrink: 0; }
-.slot-occupant { font-size: var(--fs-sm); display: flex; align-items: center; gap: var(--sp-2); min-width: 0; }
-.slot-occupant span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.slot-head { display: flex; flex-direction: column; gap: 1px; min-width: 0; align-items: flex-start; }
+.slot-name { font-size: var(--fs-sm); color: var(--text); }
+.slot-role-hint { font-size: 10px; color: var(--accent); opacity: 0.85; white-space: nowrap; }
+.slot-occupant { font-size: var(--fs-sm); display: flex; align-items: center; gap: var(--sp-1); min-width: 0; }
+.slot-occ-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .slot-occupant b { font-size: var(--fs-md); }
-.slot-empty { font-size: var(--fs-sm); color: var(--ink-500); }
+.slot-empty { font-size: var(--fs-sm); color: var(--ink-500); flex-shrink: 0; }
 .slot-fit { display: flex; align-items: center; gap: var(--sp-2); }
 .slot-fit-num { font-size: var(--fs-lg); font-weight: bold; }
 /* 능력치 값 밴드 (파워 히트맵) — 적성 점수 40/50/60/70/80대 색 구분 (동현 #3) */
@@ -201,9 +212,6 @@
 .respin-row { display: flex; gap: var(--sp-2); }
 .btn-respin em { font-style: normal; color: var(--accent); }
 .hint { font-size: var(--fs-sm); color: var(--text-dim); }
-/* 특수 슬롯 역할 힌트 (대통령·특임) — "무임소 뭔지 모름" 해소 */
-.slot-empty { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
-.slot-role { font-style: normal; font-size: 10px; color: var(--accent); margin-top: 2px; line-height: 1.3; opacity: 0.85; }
 
 /* near-miss 칩 — 이 셀에 있었지만 놓친 거물 (정직한 near-miss, 재도전 자극) */
 .near-miss-chip {

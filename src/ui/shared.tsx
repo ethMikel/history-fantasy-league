@@ -34,6 +34,25 @@ export const SLOT_SHORT: Record<SlotId, string> = {
   foreign: '외교', science: '과학', culture: '문화', flex: '만능',
 }
 
+// 슬롯 역할 힌트 (동현 #3: "무슨 능력 보고 뽑나"). 국방=무력/안보=지략 구분 명시.
+export const SLOT_ROLE: Record<SlotId, string> = {
+  president: '내각 전체 배수',
+  pm: '내정 · 살림/행정',
+  defense: '무력 · 전쟁/반란',
+  security: '지략 · 음모/첩보',
+  foreign: '외교 · 협상/동맹',
+  science: '과학 · 기술/재난',
+  culture: '문화 · 사상/예술',
+  flex: '만능 · 어느 위기든',
+}
+
+// 슬롯 계층 (동현 #3: 대통령 → 총리·특임 → 6부처). 조직도 하이어라키 렌더용.
+export const SLOT_TIERS: SlotId[][] = [
+  ['president'],
+  ['pm', 'flex'],
+  ['defense', 'security', 'foreign', 'science', 'culture'],
+]
+
 // 슬롯별 표시 점수: 대통령=통솔지수, 장관=slotScore (04_FORMULA "같은 인물, 슬롯별 다른 가치")
 export function fitScore(slot: SlotDef, c: Character): number {
   return Math.round(slot.id === 'president' ? leadershipIndex(c) : slotScore(slot, c))
@@ -57,7 +76,8 @@ export const AXIS_VAR: Record<Axis, string> = {
 const TIER_COLOR: Record<Tier, string> = {
   legend: 'var(--gold-400)', great: '#c9c9d6', capable: '#c08457', common: 'var(--ink-500)',
 }
-const TIER_LABEL: Record<Tier, string> = { legend: '전설', great: '명신', capable: '능신', common: '범재' }
+// 게임 rarity 문법 (동현 #5: '명신/범재' 불명확 → 가챠 표준어). 색은 gold/은/동/회색과 병행.
+const TIER_LABEL: Record<Tier, string> = { legend: '전설', great: '영웅', capable: '희귀', common: '일반' }
 
 export function StatBar({ axis, value }: { axis: Axis; value: number }) {
   return (
@@ -134,6 +154,19 @@ export function CrisisBanner({ crisis }: { crisis: Crisis }) {
         <span className="crisis-when">{crisis.year}년차</span>
       </div>
       <p className="crisis-omen">{crisis.omen}</p>
+    </div>
+  )
+}
+
+// 히든 위기 = 같은 프레임의 "?" 카드 (동현 #2: 별도 노트 말고 인라인 물음표 스퀘어로)
+export function HiddenCrisisBanner() {
+  return (
+    <div className="crisis-chip crisis-hidden hard-shadow gilt">
+      <div className="crisis-top">
+        <span className="crisis-icon"><b className="crisis-q">?</b></span>
+        <span className="crisis-name">예상치 못한 위기</span>
+      </div>
+      <p className="crisis-omen">예고 없이 임기 중 터진다 — 대비할 수 없다</p>
     </div>
   )
 }
