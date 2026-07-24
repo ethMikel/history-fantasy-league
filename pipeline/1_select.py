@@ -36,6 +36,9 @@ DENYLIST |= {
     'Pablo Escobar',  # 마약왕
     'Choe Yong-gon',  # 북한
     'Anne Frank',  # 홀로코스트 희생 아동 — 전투 스탯 드래프트는 톤 부적절
+    # v0.5: 한국 쿠데타/독재 + 북한 (NHN 심사 톤 — 동현 확정 "명백한 독재/쿠데타/북한만")
+    'Park Chung-hee', 'Chun Doo-hwan', 'Roh Tae-woo',  # 5·16/12·12 쿠데타·유신·광주
+    'Kim Hyong-jik',  # 북한 (김일성 부친)
 }
 EXCLUDE_OCC |= {'MAFIOSO', 'PIRATE'}  # 범죄자 직업 추가 차단
 EXCLUDE_OCC = {'RELIGIOUS FIGURE', 'COMPANION', 'CELEBRITY', 'PORNOGRAPHIC ACTOR',

@@ -28,13 +28,11 @@ derivative work: Octave.H) — https://commons.wikimedia.org/wiki/File:Thomas%20
 - 기황후 — CC0 (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Empress%20Gi.jpg
 - 김대중 — KOGL Type 1 (by 대한민국 국가기록원) — https://commons.wikimedia.org/wiki/File:Kim%20Dae-jung%20presidential%20portrait.jpg
 - 김영삼 — KOGL Type 1 (by 대한민국 국가기록원) — https://commons.wikimedia.org/wiki/File:Kim%20Young-sam%20presidential%20portrait.jpg
-- 김형직 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:%E9%87%91%E4%BA%A8%E7%A8%B7%201.jpg
 - 나폴레옹 보나파르트 — Public domain (by Jacques-Louis David) — https://commons.wikimedia.org/wiki/File:Jacques-Louis%20David%20-%20The%20Emperor%20Napoleon%20in%20His%20Study%20at%20the%20Tuileries%20-%20Google%20Art%20Project.jpg
 - 네부카드네자르 2세 — Public domain (by User Hedning on sv.wikipedia) — https://commons.wikimedia.org/wiki/File:Nebukadnessar%20II.jpg
 - 넬슨 만델라 — CC BY-SA 2.0 (by Kingkongphoto &amp; www.celebrity-photos.com from Laurel) — https://commons.wikimedia.org/wiki/File:Nelson%20Mandela%201994.jpg
 - 노무현 — KOGL Type 1 (by 대한민국 국가기록원) — https://commons.wikimedia.org/wiki/File:Roh%20Moo-hyun%20presidential%20portrait.jpg
 - 노자 — Public domain (by Zhang Lu) — https://commons.wikimedia.org/wiki/File:Zhang%20Lu-Laozi%20Riding%20an%20Ox%20%28cropped%29.jpg
-- 노태우 — Public domain (by CHERIE A. THURLBY) — https://commons.wikimedia.org/wiki/File:Roh%20Tae-woo%20-%20cropped%2C%201989-Mar-13.jpg
 - 니콜라 테슬라 — Public domain (by Napoleon Sarony) — https://commons.wikimedia.org/wiki/File:Tesla%20circa%201890.jpeg
 - 니콜라우스 코페르니쿠스 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Nikolaus%20Kopernikus%20MOT.jpg
 - 닐 암스트롱 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Neil%20Armstrong%20pose.jpg
@@ -89,7 +87,6 @@ derivative work: Octave.H) — https://commons.wikimedia.org/wiki/File:Thomas%20
 - 바스쿠 다 가마 — CC BY 3.0 (by Sailko) — https://commons.wikimedia.org/wiki/File:Ignoto%20portoghese%2C%20ritratto%20di%20un%20cavaliere%20dell%27ordine%20di%20cristo%2C%201525-50%20ca.%2002.jpg
 - 바실리우스 2세 — Public domain (by from the Middle Ages, unknown) — https://commons.wikimedia.org/wiki/File:Basilios%20II.jpg
 - 바예지드 1세 — Public domain (by 1460 artist) — https://commons.wikimedia.org/wiki/File:The%20accession%20of%20Sultan%20Bayezid%20I%20%28enthroned%29.%20Ahmed%C3%AE%2C%20Iskendername%2C%20VBNM%2C%20circa%201460.%2C%20Cod.%20Or.%20XC%20%2857%29%2C%20y.%20240b.jpg
-- 박정희 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — https://commons.wikimedia.org/wiki/File:Park%20Chung%20Hee%20%28%EB%B0%95%EC%A0%95%ED%9D%AC%29%20Presidential%20Portrait.jpg
 - 발라브바이 파텔 — Public domain (by Government of India work) — https://commons.wikimedia.org/wiki/File:Sardar%20patel%20%28cropped%29.jpg
 - 보두앵 4세 — Public domain (by Guillermo de Tiro) — https://commons.wikimedia.org/wiki/File:Balduino%20IV%20de%20Jerusal%C3%A9n.png
 - 보리스 옐친 — CC BY 4.0 (by Presidential Press and Information Office) — https://commons.wikimedia.org/wiki/File:%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D0%B8%D1%87%20%D0%95%D0%BB%D1%8C%D1%86%D0%B8%D0%BD-1.jpg
@@ -188,7 +185,6 @@ Derivative: باسم) — https://commons.wikimedia.org/wiki/File:Sultan%20Gazi%
 - 장자크 루소 — Public domain (by Maurice Quentin de La Tour) — https://commons.wikimedia.org/wiki/File:Jean-Jacques%20Rousseau%20%28painted%20portrait%29.jpg
 - 장제스 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Chiang%20Kai-shek%EF%BC%88%E8%94%A3%E4%B8%AD%E6%AD%A3%EF%BC%89.jpg
 - 장폴 사르트르 — CC BY 3.0 (by User:T1980) — https://commons.wikimedia.org/wiki/File:Jean%20Paul%20Sartre%201967.jpg
-- 전두환 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — https://commons.wikimedia.org/wiki/File:Chun%20Doo-hwan%20%28%EC%A0%84%EB%91%90%ED%99%98%29%20Presidential%20Portrait.jpg
 - 정주영 — Public domain (by Technical Sergeant Renee` Sitler) — https://commons.wikimedia.org/wiki/File:Chung%20Ju-yung.jpg
 - 정화 — CC BY-SA 4.0 (by Marcin Konsek) — https://commons.wikimedia.org/wiki/File:2016%20Malakka%2C%20Stadhuys%20%2809%29.jpg
 - 제임스 K. 포크 — Public domain (by George Peter Alexander Healy) — https://commons.wikimedia.org/wiki/File:JamesKnoxPolk.jpg

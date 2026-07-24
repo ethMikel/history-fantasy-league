@@ -816,18 +816,6 @@
   "flag": "MODERN_POLITICS"
  },
  {
-  "wd_id": "Q14356",
-  "name_en": "Park Chung-hee",
-  "hpi": 81.3,
-  "fame": 96.3,
-  "occupation": "POLITICIAN",
-  "birthyear": 1917,
-  "country": "South Korea",
-  "civ": "EA",
-  "era": "CON",
-  "flag": "MODERN_POLITICS"
- },
- {
   "wd_id": "Q45785",
   "name_en": "Kim Dae-jung",
   "hpi": 78.3,
@@ -840,36 +828,12 @@
   "flag": "MODERN_POLITICS"
  },
  {
-  "wd_id": "Q108324402",
-  "name_en": "Chun Doo-hwan",
-  "hpi": 77.3,
-  "fame": 92.3,
-  "occupation": "POLITICIAN",
-  "birthyear": 1931,
-  "country": "South Korea",
-  "civ": "EA",
-  "era": "CON",
-  "flag": "MODERN_POLITICS"
- },
- {
   "wd_id": "Q14345",
   "name_en": "Roh Moo-hyun",
   "hpi": 76.7,
   "fame": 91.7,
   "occupation": "POLITICIAN",
   "birthyear": 1946,
-  "country": "South Korea",
-  "civ": "EA",
-  "era": "CON",
-  "flag": "MODERN_POLITICS"
- },
- {
-  "wd_id": "Q242651",
-  "name_en": "Roh Tae-woo",
-  "hpi": 75.4,
-  "fame": 90.4,
-  "occupation": "POLITICIAN",
-  "birthyear": 1932,
   "country": "South Korea",
   "civ": "EA",
   "era": "CON",
@@ -1351,18 +1315,6 @@
   "occupation": "MILITARY PERSONNEL",
   "birthyear": 1887,
   "country": "China",
-  "civ": "EA",
-  "era": "MOD",
-  "flag": ""
- },
- {
-  "wd_id": "Q489279",
-  "name_en": "Kim Hyong-jik",
-  "hpi": 73.2,
-  "fame": 88.2,
-  "occupation": "SOCIAL ACTIVIST",
-  "birthyear": 1894,
-  "country": "North Korea",
   "civ": "EA",
   "era": "MOD",
   "flag": ""
