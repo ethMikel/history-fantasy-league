@@ -31,6 +31,19 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
   const shownYears = useCountUp(r.years) // 집권연수 카운트업 (juice)
   useEffect(() => { play(r.allClear ? 'win' : 'lose') }, [r.allClear]) // 결과 진입 효과음
 
+  // 담당자 이름 → 캐릭터(초상) 매핑 + 정권 요약(구국공신/역적) — 동현 #2/사진9 "누가 활약/어떤 일로 끝났나"
+  const byName = useMemo(() => {
+    const m: Record<string, Character> = {}
+    for (const s of SLOTS) { const c = state.slots[s.id]; if (c) m[c.name] = c }
+    return m
+  }, [state.slots])
+  const recap = useMemo(() => {
+    const cr = r.timeline.filter((e) => e.kind === 'crisis')
+    const ok = cr.filter((e) => e.success).sort((a, b) => (b.margin ?? 0) - (a.margin ?? 0))
+    const bad = cr.filter((e) => !e.success).sort((a, b) => (a.margin ?? 0) - (b.margin ?? 0))
+    return { mvp: ok[0], goat: bad[0] }
+  }, [r])
+
   return (
     <div className="result-screen">
       {/* 우승 여부 = 1차 목표 (retry 동기) */}
@@ -66,6 +79,28 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
 
       <SupportGraph series={support} total={support.length} />
 
+      {/* 정권 요약 — 누가 활약/책임, 어떤 일로 끝났나 (스크롤 없이 결말 파악) */}
+      {(recap.mvp || recap.goat) && (
+        <div className="reign-recap hard-shadow gilt">
+          <div className="recap-title">정권 요약</div>
+          {recap.mvp && (
+            <div className="recap-row">
+              {byName[recap.mvp.responder!] && <MiniPortrait c={byName[recap.mvp.responder!]} size={26} />}
+              <span className="recap-tag mvp">구국공신</span>
+              <span className="recap-text"><b>{recap.mvp.responder}</b> — “{recap.mvp.title}” 저지 <em className="up">+{Math.round(recap.mvp.deltaYears)}년</em></span>
+            </div>
+          )}
+          {recap.goat && (
+            <div className="recap-row">
+              {byName[recap.goat.responder!] && <MiniPortrait c={byName[recap.goat.responder!]} size={26} />}
+              <span className="recap-tag goat">역적</span>
+              <span className="recap-text"><b>{recap.goat.responder}</b> — “{recap.goat.title}” 실패 <em className="down">{Math.round(recap.goat.deltaYears)}년</em></span>
+            </div>
+          )}
+          <div className="recap-line">위기 {r.cleared}/{r.crises.length} 저지 · 집권 {r.years}년으로 마감</div>
+        </div>
+      )}
+
       {/* 명예의 전당 — 시드 고득점 + 내 기록 병합 (오락실 리더보드) */}
       <div className="hall-of-fame hard-shadow gilt">
         <div className="hof-title">명예의 전당</div>
@@ -81,7 +116,9 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
               <span className="hof-rank" data-medal={i < 3 ? i + 1 : undefined}>{i + 1}</span>
               <span className="hof-grade" data-g={b.grade}>{b.grade}</span>
               <span className="hof-nick">{me ? (nick || '무명의 지도자') : (b.nick || '무명')}</span>
-              <span className="hof-cab">{b.cabinet[0]} 정권</span>
+              <span className="hof-cab" title={b.cabinet.join(' · ')}>
+                {b.cabinet.slice(0, 4).join(' · ')}{b.cabinet.length > 4 ? ` +${b.cabinet.length - 4}` : ''}
+              </span>
               <span className="hof-years">{b.years}년</span>
             </div>
           )

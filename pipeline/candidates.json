@@ -216,18 +216,6 @@
   "flag": ""
  },
  {
-  "wd_id": "Q36107",
-  "name_en": "Muhammad Ali",
-  "hpi": 90.7,
-  "fame": 90.7,
-  "occupation": "BOXER",
-  "birthyear": 1942,
-  "country": "United States",
-  "civ": "AM",
-  "era": "CON",
-  "flag": ""
- },
- {
   "wd_id": "Q189081",
   "name_en": "Howard Hughes",
   "hpi": 83.2,
@@ -2962,18 +2950,6 @@
   "civ": "SA",
   "era": "CON",
   "flag": "MODERN_POLITICS"
- },
- {
-  "wd_id": "Q80732",
-  "name_en": "Tenzing Norgay",
-  "hpi": 75.5,
-  "fame": 75.5,
-  "occupation": "MOUNTAINEER",
-  "birthyear": 1914,
-  "country": "Nepal",
-  "civ": "SA",
-  "era": "CON",
-  "flag": ""
  },
  {
   "wd_id": "Q8597",

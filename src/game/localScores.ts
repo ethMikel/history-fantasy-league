@@ -20,16 +20,16 @@ export interface RunRecord {
 // 시드 고득점 — 오락실 명예의 전당을 "살아있게" + 심사위원 후킹용 목표 제시.
 // 절대 저장 안 됨(표시 전용). 등급은 gradeOf 규칙과 일치하게 구성.
 export const SEEDED: RunRecord[] = [
-  { nick: '고인물철수', cabinet: ['조선 세종'], years: 96, grade: 'S', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
-  { nick: '역사덕후',   cabinet: ['아우구스투스'], years: 88, grade: 'S', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
-  { nick: '내각장인',   cabinet: ['나폴레옹 보나파르트'], years: 71, grade: 'A', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
-  { nick: '킹갓다빈치', cabinet: ['레오나르도 다 빈치'], years: 55, grade: 'A', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
-  { nick: '스핀의신',   cabinet: ['이순신'], years: 44, grade: 'B', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
-  { nick: '아깝다1픽',  cabinet: ['율리우스 카이사르'], years: 47, grade: 'B', cleared: 4, allClear: false, seeded: true, seed: 0, ts: 0 },
-  { nick: '리스핀요정', cabinet: ['클레오파트라 7세'], years: 38, grade: 'B', cleared: 4, allClear: false, seeded: true, seed: 0, ts: 0 },
-  { nick: '중수정치',   cabinet: ['악바르'], years: 33, grade: 'C', cleared: 3, allClear: false, seeded: true, seed: 0, ts: 0 },
-  { nick: '첫판입니다', cabinet: ['에이브러햄 링컨'], years: 29, grade: 'C', cleared: 2, allClear: false, seeded: true, seed: 0, ts: 0 },
-  { nick: '폭망정권',   cabinet: ['측천무후'], years: 19, grade: 'D', cleared: 1, allClear: false, seeded: true, seed: 0, ts: 0 },
+  { nick: '고인물철수', cabinet: ['조선 세종', '이순신', '정도전', '장영실', '황희', '신숙주', '정약용', '김유신'], years: 96, grade: 'S', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
+  { nick: '역사덕후',   cabinet: ['아우구스투스', '율리우스 카이사르', '한니발 바르카', '키케로', '아르키메데스', '베르길리우스', '스키피오', '아그리파'], years: 88, grade: 'S', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
+  { nick: '내각장인',   cabinet: ['나폴레옹 보나파르트', '오토 폰 비스마르크', '알렉산드로스 대왕', '탈레랑', '라플라스', '볼테르', '다비드', '한니발 바르카'], years: 71, grade: 'A', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
+  { nick: '킹갓다빈치', cabinet: ['레오나르도 다 빈치', '미켈란젤로', '마키아벨리', '갈릴레오 갈릴레이', '단테 알리기에리', '라파엘로', '메흐메트 2세', '콜럼버스'], years: 55, grade: 'A', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
+  { nick: '스핀의신',   cabinet: ['이순신', '권율', '류성룡', '조선 세종', '정약용', '곽재우', '신립', '김유신'], years: 44, grade: 'B', cleared: 5, allClear: true, seeded: true, seed: 0, ts: 0 },
+  { nick: '아깝다1픽',  cabinet: ['율리우스 카이사르', '폼페이우스', '키케로', '안토니우스', '아그리파', '스키피오', '아우구스투스', '한니발 바르카'], years: 47, grade: 'B', cleared: 4, allClear: false, seeded: true, seed: 0, ts: 0 },
+  { nick: '리스핀요정', cabinet: ['클레오파트라 7세', '율리우스 카이사르', '안토니우스', '아르키메데스', '헤로도토스', '프톨레마이오스', '한니발 바르카', '살라딘'], years: 38, grade: 'B', cleared: 4, allClear: false, seeded: true, seed: 0, ts: 0 },
+  { nick: '중수정치',   cabinet: ['악바르', '샤 자한', '티무르', '아소카', '칼리다사', '아리아바타', '라지아 술타나', '바스쿠 다 가마'], years: 33, grade: 'C', cleared: 3, allClear: false, seeded: true, seed: 0, ts: 0 },
+  { nick: '첫판입니다', cabinet: ['에이브러햄 링컨', '조지 워싱턴', '토머스 제퍼슨', '벤저민 프랭클린', '율리시스 S. 그랜트', '토머스 에디슨', '마크 트웨인', '시어도어 루스벨트'], years: 29, grade: 'C', cleared: 2, allClear: false, seeded: true, seed: 0, ts: 0 },
+  { nick: '폭망정권',   cabinet: ['측천무후', '전한 무제', '조조', '제갈량', '이백', '두보', '손무', '관우'], years: 19, grade: 'D', cleared: 1, allClear: false, seeded: true, seed: 0, ts: 0 },
 ]
 
 function load(): RunRecord[] {

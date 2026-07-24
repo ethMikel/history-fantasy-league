@@ -350,6 +350,19 @@
 .rank-best { font-size: var(--fs-md); color: var(--gold-400); font-weight: bold; }
 .rank-normal { font-size: var(--fs-md); color: var(--text-dim); }
 .rank-normal b { color: var(--text); font-size: var(--fs-lg); }
+/* 정권 요약 (동현 #2/사진9) — 누가 활약/책임, 어떤 일로 끝났나 */
+.reign-recap { width: 100%; background: var(--panel); padding: var(--sp-3) var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-2); }
+.recap-title { font-size: var(--fs-sm); color: var(--text-dim); letter-spacing: 1px; }
+.recap-row { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); }
+.recap-tag { font-size: 11px; font-weight: bold; padding: 1px var(--sp-2); color: var(--ink-900); flex-shrink: 0; }
+.recap-tag.mvp { background: var(--gold-400); }
+.recap-tag.goat { background: var(--red-400); }
+.recap-text { color: var(--text); min-width: 0; }
+.recap-text b { color: var(--accent); }
+.recap-text em { font-style: normal; font-weight: bold; font-variant-numeric: tabular-nums; }
+.recap-text em.up { color: var(--green-400); }
+.recap-text em.down { color: var(--red-400); }
+.recap-line { font-size: var(--fs-sm); color: var(--text-dim); border-top: 1px solid var(--ink-700); padding-top: var(--sp-2); }
 /* ── 명예의 전당 (아케이드 리더보드: 시드 고득점 + 내 기록) ── */
 .hall-of-fame { width: 100%; background: var(--panel); padding: var(--sp-4) var(--sp-3) var(--sp-3); }
 .hof-title { font-size: var(--fs-lg); color: var(--accent); text-align: center; letter-spacing: 2px; margin-bottom: var(--sp-3); }

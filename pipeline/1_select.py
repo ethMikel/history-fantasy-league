@@ -45,6 +45,7 @@ DENYLIST |= {
     'Kim Ki-duk',   # #MeToo 논란 영화감독
     'Kim Chaek',    # 북한 건국 인물 (김책시)
     'Yukio Mishima',  # 극우 쿠데타 미수·할복
+    'Tenzing Norgay',  # 에베레스트 등반가 (무력 오배정·내각 부적합, 스탯감사)
 }
 
 # v0.6: 교과서 친숙 인물 강제 편입 (동현 "삼국지·일본사·유럽·미국 근대 교과서 인물 추가").
@@ -68,7 +69,7 @@ ALLOWLIST = {
 EXCLUDE_OCC = {'RELIGIOUS FIGURE', 'COMPANION', 'CELEBRITY', 'PORNOGRAPHIC ACTOR',
                'EXTREMIST', 'CRIMINAL', 'SOCCER PLAYER', 'RACING DRIVER', 'COACH',
                'ACTOR', 'SINGER', 'MUSICIAN', 'CHEF', 'MODEL', 'BASKETBALL PLAYER',
-               'MAFIOSO', 'PIRATE'}  # 범죄자 직업 차단
+               'MAFIOSO', 'PIRATE', 'BOXER', 'TENNIS PLAYER', 'GYMNAST', 'SWIMMER'}  # 범죄자·스포츠 차단(동현 #5 무하마드 알리 복서 오배정)
 # 배우/가수 등 현대 연예는 "위인 내각" 톤과 안 맞아 제외 (WRITER/COMPOSER/PAINTER는 문화축으로 유지)
 
 # 검수 플래그: 자동 통과했으나 동현 최종 판단 권장 (현대 정치인 = 당파성·초상권 잔여 리스크)
