@@ -311,23 +311,45 @@
 .board-grade { width: 40px; font-weight: bold; }
 .board-years { width: 56px; color: var(--accent); }
 .board-cab { flex: 1; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.support-graph { background: var(--panel); padding: var(--sp-3); width: 100%; }
+/* 국운 그래프 — 크래시/주식차트 긴장감 (관전의 서사 코어). 구간색: 안정=초록 / 흔들림=금 / 위태=적 */
+.support-graph { background: var(--panel); padding: var(--sp-3); width: 100%; --graph-c: var(--accent); }
+.support-graph.zone-up { --graph-c: var(--green-400); }
+.support-graph.zone-mid { --graph-c: var(--accent); }
+.support-graph.zone-down { --graph-c: var(--red-400); }
 .graph-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-2); }
 .graph-title { font-size: var(--fs-sm); color: var(--text-dim); }
-.graph-cur { font-size: var(--fs-lg); color: var(--accent); }
+.graph-cur { font-size: var(--fs-lg); color: var(--graph-c); font-variant-numeric: tabular-nums; display: inline-flex; align-items: center; gap: var(--sp-1); }
+.graph-warn { font-size: var(--fs-sm); color: var(--ink-900); background: var(--red-400); padding: 0 var(--sp-1); animation: warnPulse 0.7s ease-in-out infinite; }
+@keyframes warnPulse { 50% { opacity: 0.4; } }
 .graph-body { position: relative; }
 .graph-svg {
-  width: 100%; height: 120px; display: block;
+  width: 100%; height: 130px; display: block;
   background:
     repeating-linear-gradient(0deg, rgba(217,164,65,.07) 0 1px, transparent 1px 24px),
     repeating-linear-gradient(90deg, rgba(217,164,65,.07) 0 1px, transparent 1px 40px),
     var(--ink-900);
 }
-/* 현재 국운 위치 픽셀 마커 (자라는 선 끝) */
+.graph-baseline { stroke: var(--text-dim); opacity: 0.5; stroke-width: 1; }
+.graph-area { fill: var(--graph-c); opacity: 0.16; }
+.graph-line { stroke: var(--accent); }
+.graph-tracer { stroke: var(--graph-c); opacity: 0.4; stroke-width: 1; }
+/* 현재 국운 위치 마커 + 오르내림 맥동 (주식 티커 up/down 신호) */
 .graph-marker {
-  position: absolute; width: 8px; height: 8px; background: var(--accent);
-  transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--ink-900);
+  position: absolute; width: 9px; height: 9px; transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 2px var(--ink-900); z-index: 1;
 }
+.graph-marker.rise { background: var(--green-400); }
+.graph-marker.fall { background: var(--red-400); }
+.graph-marker::after {
+  content: ""; position: absolute; inset: -3px; border: 2px solid currentColor;
+  animation: markerPulse 1.1s ease-out infinite;
+}
+.graph-marker.rise::after { color: var(--green-400); }
+.graph-marker.fall::after { color: var(--red-400); }
+@keyframes markerPulse { from { transform: scale(0.5); opacity: 0.9; } to { transform: scale(2.4); opacity: 0; } }
+/* 위태(붕괴 임박) = 금박 프레임 붉게 점멸 */
+.support-graph.danger::before { border-color: var(--red-400); animation: dangerBorder 0.7s ease-in-out infinite; }
+@keyframes dangerBorder { 50% { opacity: 0.3; } }
 .result-cabinet { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-1) var(--sp-4); width: 100%; }
 .result-slot { display: flex; justify-content: space-between; align-items: center; font-size: var(--fs-sm); border-bottom: 1px solid var(--ink-700); padding: 2px 0; }
 .result-slot > span { color: var(--text-dim); }

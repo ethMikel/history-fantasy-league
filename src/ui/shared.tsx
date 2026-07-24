@@ -121,21 +121,32 @@ export function CrisisBanner({ crisis }: { crisis: Crisis }) {
 // series=[시작지지율, ...누적 supportAfter], total=전체 포인트 수(x축 고정 → 자라는 효과).
 export function SupportGraph({ series, total }: { series: number[]; total: number }) {
   const n = Math.max(total, 2)
-  const pts = series.map((s, i) => `${(i / (n - 1)) * 100},${100 - s}`).join(' ')
+  const X = (i: number) => (i / (n - 1)) * 100
+  const pts = series.map((s, i) => `${X(i)},${100 - s}`).join(' ')
   const cur = series.length ? Math.round(series[series.length - 1]) : 0
-  const lastX = series.length ? ((series.length - 1) / (n - 1)) * 100 : 0
+  const prev = series.length > 1 ? Math.round(series[series.length - 2]) : cur
+  const start = series.length ? series[0] : 55 // 시작 지지율 = 기준선
+  const rising = cur >= prev
+  const lastX = series.length ? X(series.length - 1) : 0
   const lastY = 100 - cur
+  const zone = cur >= start ? 'up' : cur >= 25 ? 'mid' : 'down' // 안정 / 흔들림 / 위태
+  const danger = series.length > 1 && cur < 25 // 붕괴 임박 = 크래시 긴장
+  const area = series.length > 1 ? `0,100 ${pts} ${lastX},100` : '' // 선 아래 면적(구간색 무드)
   return (
-    <div className="support-graph hard-shadow gilt">
+    <div className={`support-graph hard-shadow gilt zone-${zone}${danger ? ' danger' : ''}`}>
       <div className="graph-head">
         <span className="graph-title">국운 그래프</span>
-        <span className="graph-cur">{cur}</span>
+        <span className="graph-cur">{danger && <span className="graph-warn">위태</span>}{cur}</span>
       </div>
       <div className="graph-body">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="graph-svg">
-          <polyline points={pts} fill="none" stroke="var(--accent)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+          {/* 기준선: 위=안정, 아래=위태 (오를까 떨어질까 긴장의 기준) */}
+          <line x1="0" y1={100 - start} x2="100" y2={100 - start} className="graph-baseline" strokeDasharray="2 3" vectorEffect="non-scaling-stroke" />
+          {area && <polygon points={area} className="graph-area" />}
+          {series.length > 0 && <line x1={lastX} y1={lastY} x2={lastX} y2="100" className="graph-tracer" vectorEffect="non-scaling-stroke" />}
+          <polyline points={pts} fill="none" className="graph-line" strokeWidth="2" vectorEffect="non-scaling-stroke" />
         </svg>
-        {series.length > 0 && <span className="graph-marker" style={{ left: `${lastX}%`, top: `${lastY}%` }} />}
+        {series.length > 0 && <span className={`graph-marker ${rising ? 'rise' : 'fall'}`} style={{ left: `${lastX}%`, top: `${lastY}%` }} />}
       </div>
     </div>
   )
