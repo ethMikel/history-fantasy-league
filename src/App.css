@@ -182,8 +182,20 @@
 .cell-banner { width: 100%; display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
   background: var(--panel); border-left: 4px solid var(--accent); padding: var(--sp-2) var(--sp-3); }
 .cell-tag { font-size: 11px; color: var(--ink-900); background: var(--accent); padding: 1px var(--sp-2); font-weight: bold; }
-.cell-name { font-size: var(--fs-lg); color: var(--accent); font-weight: bold; }
 .cell-sub { font-size: var(--fs-sm); color: var(--text-dim); margin-left: auto; }
+/* 대륙 그림 + 지역 + 시대(연도범위 숫자 배지) — 동현 요청 */
+.region-era { display: inline-flex; align-items: center; gap: 5px; }
+.re-cont { width: 1.15em; height: 1.15em; color: var(--accent); flex-shrink: 0; }
+.re-civ { color: var(--accent); font-weight: bold; }
+.re-era { color: var(--text); }
+.re-range { font-size: 0.82em; color: var(--ink-900); background: var(--paper-300); padding: 0 4px; font-variant-numeric: tabular-nums; }
+.cell-banner .region-era { font-size: var(--fs-lg); }
+/* 카드 meta 안에서는 compact */
+.region-era.compact { gap: 4px; }
+.region-era.compact .re-civ { color: var(--text-dim); font-weight: normal; }
+.region-era.compact .re-era { color: var(--text-dim); }
+.region-era.compact .re-range { font-size: 0.9em; }
+.char-tier { color: var(--text-dim); }
 .candidate-list { display: flex; flex-direction: column; gap: var(--sp-2); width: 100%; }
 .respin-caption { font-size: var(--fs-sm); color: var(--text-dim); align-self: flex-start; }
 .respin-row { display: flex; gap: var(--sp-2); }

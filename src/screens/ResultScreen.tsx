@@ -77,7 +77,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
         {board.map((b, i) => {
           const me = b.isMine && b.ts === meta.ts
           return (
-            <div key={b.seeded ? 's' + i : b.ts} className={`hof-row${me ? ' me' : ''}`}>
+            <div key={(b.seeded ? 's' : 'm') + i} className={`hof-row${me ? ' me' : ''}`}>
               <span className="hof-rank" data-medal={i < 3 ? i + 1 : undefined}>{i + 1}</span>
               <span className="hof-grade" data-g={b.grade}>{b.grade}</span>
               <span className="hof-nick">{me ? (nick || '무명의 지도자') : (b.nick || '무명')}</span>

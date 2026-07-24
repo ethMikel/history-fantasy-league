@@ -130,6 +130,30 @@ const MaskIcon = (p: P) => (
   </Svg>
 )
 
+// ── 대륙 그림 아이콘 (픽셀 실루엣) + 시대 연도범위 (동현: 지역=그림, 시대=숫자) ──
+const CONTINENT_PATH: Record<string, string> = {
+  '동아시아': 'M3.5 4 L8.5 3.5 L10 6.5 L8 8.5 L5.5 9 L4 7 Z', // 대륙부 (+섬 별도)
+  '유럽': 'M3 3 L8 2.5 L9.5 4.5 L7.5 5.5 L9 7 L6.5 8 L7.5 11.5 L5.5 10.5 L4.5 7 L3 5 Z',
+  '지중해': 'M6 2 L8 2.5 L7.6 7 L9.6 9 L9 11.5 L7.4 11 L6.6 13 L5.6 12.4 L6.2 9 L5.6 5 Z', // 이탈리아 부츠
+  '중동': 'M5 3 L11 4 L11.6 7.6 L8.6 12.4 L6.4 9.6 L5 5.6 Z', // 아라비아 반도
+  '남아시아': 'M4 3 L12 3 L10.5 6 L8 14 L6.5 7 L5 5 Z', // 인도 아대륙 (역삼각)
+  '중앙아시아': 'M3 5 L13 4.5 L12.5 9.5 L3.5 10.5 Z', // 내륙 스텝
+  '아메리카': 'M5 1.5 L8.5 2.5 L7.5 5.5 L9 6 L8 9.5 L6.5 14.5 L5.5 9.5 L6.5 6.5 L4.5 4.5 Z', // 남북 아메리카
+  '아프리카': 'M6 1.5 L10.5 2 L11 4.5 L10 6 L9 9 L7.6 14.5 L6.5 14 L6 9 L4.5 6.5 L5 3.5 Z',
+}
+export function ContinentIcon({ civ, ...p }: P & { civ: string }) {
+  const d = CONTINENT_PATH[civ]
+  return (
+    <Svg {...p}>
+      {d ? <path d={d} /> : <circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" strokeWidth="1.5" />}
+      {civ === '동아시아' && <><rect x="10.8" y="7" width="1.7" height="1.7" /><rect x="12.2" y="9.6" width="1.4" height="1.4" /></>}
+    </Svg>
+  )
+}
+// 시대 → 세기 범위 (era_of: ANC<500 / MED<1400 / EARLY<1700 / MOD<1900 / CON≥1900)
+export const eraRange = (era: string): string =>
+  ({ '고대': '~5C', '중세': '5–14C', '근세': '15–17C', '근대': '18–19C', '현대': '20C~' } as Record<string, string>)[era] ?? ''
+
 const AXIS_ICON: Record<Axis, (p: P) => ReactElement> = {
   mil: SwordsIcon, str: TargetIcon, dom: TempleIcon, dip: DoveIcon, sci: FlaskIcon, cul: MaskIcon,
 }

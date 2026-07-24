@@ -3,7 +3,7 @@ import { createStreams } from '../lib/rng'
 import { spin } from '../game/draft'
 import { filledCount, isCabinetFull, type Action, type GameState } from '../game/gameState'
 import { SLOTS, type SlotId } from '../lib/types'
-import { CharCard, CrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT, scoreBand } from '../ui/shared'
+import { CharCard, CrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT, scoreBand, RegionEra } from '../ui/shared'
 import { play } from '../lib/sfx'
 import { DiceIcon, PlayIcon } from '../ui/icons'
 
@@ -107,7 +107,7 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
             <>
               <div className="cell-banner">
                 <span className="cell-tag">이번 칸</span>
-                <span className="cell-name">{state.spinLabel}</span>
+                {(() => { const [civ, era] = (state.spinLabel ?? '').split(' · '); return <RegionEra civ={civ ?? ''} era={era ?? ''} /> })()}
                 <span className="cell-sub">이 지역·시대 인물 중 1명을 임명</span>
               </div>
               {state.nearMiss && (() => {

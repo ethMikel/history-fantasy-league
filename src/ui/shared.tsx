@@ -4,7 +4,24 @@ import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type D
 import { leadershipIndex, slotScore, signatureAxis } from '../lib/simulate'
 import { crisisProgress } from '../lib/progress'
 import { cardBlurb } from '../lib/blurb'
-import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon, BustIcon } from './icons'
+import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon, BustIcon, ContinentIcon, eraRange } from './icons'
+
+// 대륙 그림 아이콘 + 지역 + 시대(연도범위) — 스핀 배너·카드 공용 (동현: 지역=그림, 시대=숫자)
+export function RegionEra({ civ, era, compact }: { civ: string; era: string; compact?: boolean }) {
+  const range = eraRange(era)
+  return (
+    <span className={`region-era${compact ? ' compact' : ''}`}>
+      <ContinentIcon civ={civ} className="re-cont" />
+      <span className="re-civ">{civ}</span>
+      {era && (
+        <>
+          <span className="re-era">{era}</span>
+          {range && <span className="re-range">{range}</span>}
+        </>
+      )}
+    </span>
+  )
+}
 
 export const ovr = (c: Character) => Math.round(AXES.reduce((s, a) => s + c.stats[a], 0) / 6)
 
@@ -93,7 +110,8 @@ export function CharCard({ c, selected, onClick, compact }: {
         </span>
       </div>
       <div className="char-meta">
-        {TIER_LABEL[c.tier]} · {c.civ} · {c.era}
+        <span className="char-tier">{TIER_LABEL[c.tier]}</span>
+        <RegionEra civ={c.civ} era={c.era} compact />
         {sig && <span className="char-trait" title="이 축의 위기를 이 인물이 맡으면 판정 보너스"><BoltIcon /><b style={{ color: AXIS_VAR[sig] }}>{AXIS_LABEL[sig]}</b> 위기에 강함</span>}
       </div>
       {cardBlurb(c) && <div className="char-blurb">{cardBlurb(c)}</div>}
