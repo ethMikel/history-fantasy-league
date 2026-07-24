@@ -22,14 +22,14 @@
     repeating-linear-gradient(90deg, rgba(217,164,65,.035) 0 1px, transparent 1px 46px),
     radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, rgba(23,19,15,.86) 100%);
 }
-/* ── 게임 화면 배경: 차분한 고지도 (초상 없음 → 인터페이스 가독성) ── */
-.atlas-map { background: radial-gradient(ellipse 130% 90% at 50% -10%, #1d1710, var(--bg) 65%); }
+/* ── 게임 화면 배경: 펼쳐진 양피지 고지도 (초상 없음 → 가독성, 나침반 제거) ── */
+.atlas-map { background: radial-gradient(ellipse 120% 100% at 50% 30%, #2a2013, #1a1410 55%, #110c08 100%); }
 .atlas-map-grid { position: absolute; inset: 0;
   background:
-    repeating-linear-gradient(0deg, rgba(217,164,65,.045) 0 1px, transparent 1px 56px),
-    repeating-linear-gradient(90deg, rgba(217,164,65,.045) 0 1px, transparent 1px 56px); }
-.atlas-compass { position: absolute; right: 3%; bottom: 4%; width: clamp(90px, 12vw, 170px); height: auto; color: var(--gold-400); opacity: 0.07; }
-.atlas-map-veil { position: absolute; inset: 0; background: radial-gradient(ellipse 85% 75% at 50% 42%, transparent 55%, rgba(8,6,4,.55) 100%); }
+    repeating-linear-gradient(0deg, rgba(210,175,110,.05) 0 1px, transparent 1px 60px),
+    repeating-linear-gradient(90deg, rgba(210,175,110,.05) 0 1px, transparent 1px 60px); }
+.atlas-map-fiber { position: absolute; inset: 0; background: repeating-linear-gradient(38deg, rgba(180,140,80,.022) 0 2px, transparent 2px 7px); }
+.atlas-map-veil { position: absolute; inset: 0; background: radial-gradient(ellipse 78% 70% at 50% 45%, transparent 45%, rgba(10,7,4,.72) 100%); }
 
 /* 콘텐츠는 배경 위로 */
 .app-root > *:not(.atlas-bg) { position: relative; z-index: 1; }

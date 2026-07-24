@@ -9,17 +9,12 @@ const FACES = [
 ]
 
 export function AtlasBackground({ mode = 'portraits' }: { mode?: 'portraits' | 'map' }) {
-  // 게임 화면: 초상 없는 고지도 — 위경도 격자 + 나침반 + 비네트 (인터페이스 가독성 우선)
+  // 게임 화면: 펼쳐진 양피지 고지도 — 위경도 격자 + 종이 결 + 낡은 가장자리 (나침반 제거, 동현)
   if (mode === 'map') {
     return (
       <div className="atlas-bg atlas-map" aria-hidden="true">
         <div className="atlas-map-grid" />
-        <svg className="atlas-compass" viewBox="0 0 32 32" aria-hidden="true">
-          <circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" strokeWidth="0.8" />
-          <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" strokeWidth="0.5" />
-          <path d="M16 2 L18 16 L16 30 L14 16 Z" fill="currentColor" />
-          <path d="M2 16 L16 14 L30 16 L16 18 Z" fill="currentColor" opacity="0.5" />
-        </svg>
+        <div className="atlas-map-fiber" />
         <div className="atlas-map-veil" />
       </div>
     )
