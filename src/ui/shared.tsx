@@ -4,23 +4,19 @@ import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type D
 import { leadershipIndex, slotScore, signatureAxis } from '../lib/simulate'
 import { crisisProgress } from '../lib/progress'
 import { cardBlurb } from '../lib/blurb'
-import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon, BustIcon, ContinentIcon, EraIcon, eraRange } from './icons'
+import { BoltIcon, CheckIcon, CrossIcon, BustIcon, eraRange } from './icons'
 
-// (대륙 아이콘)지역 · (시대 아이콘)시대 연도범위 — 아이콘·라벨 쌍으로 정렬 (동현 #4)
+// 지역 · 시대 [연도범위] — 아이콘 없이 텍스트 + 명확한 연도 배지 (동현: 대륙 실루엣 안 읽힘 → 단순화)
 export function RegionEra({ civ, era, compact }: { civ: string; era: string; compact?: boolean }) {
   const range = eraRange(era)
   return (
     <span className={`region-era${compact ? ' compact' : ''}`}>
-      <span className="re-group">
-        <ContinentIcon civ={civ} className="re-ico" />
-        <span className="re-civ">{civ}</span>
-      </span>
+      <span className="re-civ">{civ}</span>
       {era && (
-        <span className="re-group">
-          <EraIcon className="re-ico" />
-          <span className="re-era">{era}</span>
+        <>
+          <span className="re-era">· {era}</span>
           {range && <span className="re-range">{range}</span>}
-        </span>
+        </>
       )}
     </span>
   )
@@ -166,7 +162,6 @@ export function CrisisBanner({ crisis }: { crisis: Crisis }) {
   return (
     <div className="crisis-chip hard-shadow gilt" style={{ borderColor: AXIS_VAR[crisis.axis] }}>
       <div className="crisis-top">
-        <span className="crisis-icon" style={{ color: AXIS_VAR[crisis.axis] }}><CrisisAxisIcon axis={crisis.axis} /></span>
         <span className="crisis-name">{crisis.title}</span>
         <span className="crisis-when">{crisis.year}년차</span>
       </div>
@@ -243,9 +238,8 @@ export function CrisisTracker({ crises, outcomes }: { crises: Crisis[]; outcomes
               <div className="tracker-node hard-shadow" data-state={state} data-hidden={concealed}
                    style={{ borderColor: concealed ? 'var(--ink-500)' : AXIS_VAR[c.axis] }}>
                 <span className="tracker-icon" style={{ color: o === null ? (concealed ? 'var(--text-dim)' : AXIS_VAR[c.axis]) : o ? 'var(--green-400)' : 'var(--red-400)' }}>
-                  {o === null ? (concealed ? <b className="tracker-q">?</b> : <CrisisAxisIcon axis={c.axis} />) : o ? <CheckIcon /> : <CrossIcon />}
+                  {o === null ? (concealed ? <b className="tracker-q">?</b> : <b className="tracker-dlabel">{DIFF_LABEL[c.difficulty]}</b>) : o ? <CheckIcon /> : <CrossIcon />}
                 </span>
-                <span className="tracker-diff">{concealed ? '?' : DIFF_LABEL[c.difficulty]}</span>
               </div>
               {i < total - 1 && <div className="tracker-link" data-on={outcomes[i] === true} />}
             </Fragment>

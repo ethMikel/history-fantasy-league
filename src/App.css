@@ -195,16 +195,13 @@
 .cell-tag { font-size: 11px; color: var(--ink-900); background: var(--accent); padding: 1px var(--sp-2); font-weight: bold; }
 .cell-sub { font-size: var(--fs-sm); color: var(--text-dim); margin-left: auto; }
 /* 대륙 그림 + 지역 + 시대(연도범위 숫자 배지) — 동현 요청 */
-.region-era { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.re-group { display: inline-flex; align-items: center; gap: 4px; }
-.re-ico { width: 1.05em; height: 1.05em; color: var(--accent); flex-shrink: 0; }
+.region-era { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .re-civ { color: var(--accent); font-weight: bold; }
 .re-era { color: var(--text); }
 .re-range { font-size: 0.78em; line-height: 1.4; color: var(--ink-900); background: var(--paper-300); padding: 0 5px; font-variant-numeric: tabular-nums; }
 .cell-banner .region-era { font-size: var(--fs-lg); }
 /* 카드 meta 안에서는 compact (색 죽여 이름·스탯에 시선 양보) */
-.region-era.compact { gap: 8px; }
-.region-era.compact .re-ico { color: var(--text-dim); }
+.region-era.compact { gap: 5px; }
 .region-era.compact .re-civ { color: var(--text-dim); font-weight: normal; }
 .region-era.compact .re-era { color: var(--text-dim); }
 .region-era.compact .re-range { font-size: 0.85em; }
@@ -286,6 +283,7 @@
 .tracker-node[data-state='failed'] { border-color: var(--red-400) !important; opacity: 0.8; }
 .tracker-icon { font-size: var(--fs-md); line-height: 1.1; }
 .tracker-icon .icon { width: 20px; height: 20px; }
+.tracker-dlabel { font-size: var(--fs-md); font-weight: bold; }
 .tracker-node[data-hidden='true'] { opacity: 0.6; border-style: dashed !important; }
 .tracker-q { font-size: var(--fs-lg); color: var(--text-dim); }
 .tracker-diff { font-size: 11px; color: var(--text-dim); }
