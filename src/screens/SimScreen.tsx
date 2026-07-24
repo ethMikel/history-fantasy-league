@@ -4,6 +4,7 @@ import { pickVerdict, FLEX_HERO, MVP_LABEL, GOAT_LABEL } from '../data/verdicts'
 import { MiniPortrait, CrisisTracker, SupportGraph } from '../ui/shared'
 import { BALANCE as B } from '../lib/balance'
 import { play } from '../lib/sfx'
+import { BoltIcon, PlayIcon } from '../ui/icons'
 import type { Action, GameState } from '../game/gameState'
 
 // 관전의 서사: 위기 판정을 밈 코멘트 + 담당자 초상 + 구국공신/역적 라벨로 (11_CRISIS_NARRATIVE)
@@ -67,7 +68,7 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
                 <span className="log-year">{e.year}년차</span>
                 <span className="log-crisis-name">{e.title}</span>
                 <span className="log-axis" data-axis={e.axis}>{AXIS_LABEL[e.axis!]}</span>
-                {e.traitFired && <span className="log-trait" title="담당자 시그니처 발동">⚡</span>}
+                {e.traitFired && <span className="log-trait" title="담당자 시그니처 발동"><BoltIcon /></span>}
                 <span className="log-delta">{e.deltaYears >= 0 ? '+' : ''}{e.deltaYears.toFixed(0)}년</span>
               </div>
               <div className="log-verdict">
@@ -82,7 +83,7 @@ export function SimScreen({ state, dispatch }: { state: GameState; dispatch: (a:
         })}
       </div>
       <div className="sim-footer">
-        {!done && <button className="btn-skip" onClick={() => setShown(result.timeline.length)}>▶▶ 건너뛰기</button>}
+        {!done && <button className="btn-skip" onClick={() => setShown(result.timeline.length)}><PlayIcon /> 건너뛰기</button>}
         {done && (
           <button className="btn-primary hard-shadow" onClick={() => dispatch({ type: 'GOTO', screen: 'result' })}>
             결과 보기

@@ -4,6 +4,7 @@ import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type D
 import { leadershipIndex, slotScore, signatureAxis } from '../lib/simulate'
 import { crisisProgress } from '../lib/progress'
 import { cardBlurb } from '../lib/blurb'
+import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon } from './icons'
 
 export const ovr = (c: Character) => Math.round(AXES.reduce((s, a) => s + c.stats[a], 0) / 6)
 
@@ -90,7 +91,7 @@ export function CharCard({ c, selected, onClick, compact }: {
       </div>
       <div className="char-meta">
         {TIER_LABEL[c.tier]} · {c.civ} · {c.era}
-        {sig && <span className="char-trait" title="이 축의 위기를 이 인물이 맡으면 판정 보너스">⚡<b style={{ color: AXIS_VAR[sig] }}>{AXIS_LABEL[sig]}</b> 위기에 강함</span>}
+        {sig && <span className="char-trait" title="이 축의 위기를 이 인물이 맡으면 판정 보너스"><BoltIcon /><b style={{ color: AXIS_VAR[sig] }}>{AXIS_LABEL[sig]}</b> 위기에 강함</span>}
       </div>
       {cardBlurb(c) && <div className="char-blurb">{cardBlurb(c)}</div>}
       {!compact && (
@@ -102,15 +103,12 @@ export function CharCard({ c, selected, onClick, compact }: {
   )
 }
 
-const CRISIS_ICON: Record<Axis, string> = {
-  mil: '⚔️', str: '🎯', dom: '🏛️', dip: '🕊️', sci: '🔬', cul: '🎭',
-}
 // 구체적 이벤트명(헤드라인) + 서술형 예고(증상). 축 색은 왼쪽 보더로만 힌트 (처방 은닉 원칙)
 export function CrisisBanner({ crisis }: { crisis: Crisis }) {
   return (
     <div className="crisis-chip hard-shadow gilt" style={{ borderColor: AXIS_VAR[crisis.axis] }}>
       <div className="crisis-top">
-        <span className="crisis-icon">{CRISIS_ICON[crisis.axis]}</span>
+        <span className="crisis-icon" style={{ color: AXIS_VAR[crisis.axis] }}><CrisisAxisIcon axis={crisis.axis} /></span>
         <span className="crisis-name">{crisis.title}</span>
         <span className="crisis-when">{crisis.year}년차</span>
       </div>
@@ -160,7 +158,9 @@ export function CrisisTracker({ crises, outcomes }: { crises: Crisis[]; outcomes
           return (
             <Fragment key={i}>
               <div className="tracker-node hard-shadow" data-state={state} style={{ borderColor: AXIS_VAR[c.axis] }}>
-                <span className="tracker-icon">{o === null ? CRISIS_ICON[c.axis] : o ? '✅' : '❌'}</span>
+                <span className="tracker-icon" style={{ color: o === null ? AXIS_VAR[c.axis] : o ? 'var(--green-400)' : 'var(--red-400)' }}>
+                  {o === null ? <CrisisAxisIcon axis={c.axis} /> : o ? <CheckIcon /> : <CrossIcon />}
+                </span>
                 <span className="tracker-diff">{DIFF_LABEL[c.difficulty]}</span>
               </div>
               {i < total - 1 && <div className="tracker-link" data-on={outcomes[i] === true} />}

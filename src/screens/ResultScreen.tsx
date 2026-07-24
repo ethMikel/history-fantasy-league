@@ -6,6 +6,7 @@ import { nextGoal } from '../lib/simulate'
 import { play } from '../lib/sfx'
 import { record, top } from '../game/localScores'
 import { shareResult } from '../game/shareCard'
+import { CrownIcon, RetryIcon, CameraIcon } from '../ui/icons'
 import type { Action, GameState } from '../game/gameState'
 
 const GRADE_COLOR: Record<string, string> = {
@@ -34,7 +35,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
       <div className={`result-verdict hard-shadow gilt ${r.allClear ? 'win' : 'lose'}`}>
         {r.allClear ? (
           <>
-            <span className="win-crown">🏆</span>
+            <span className="win-crown"><CrownIcon /></span>
             <span className="win-title">완전 집권</span>
             <span className="verdict-sub">위기 3개 전부 극복 — 명예의 전당 등재 자격</span>
           </>
@@ -92,14 +93,14 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
 
       <div className="result-actions">
         <button className="btn-primary hard-shadow" onClick={() => dispatch({ type: 'NEW_GAME', seed: newSeed() })}>
-          🔄 {r.allClear ? '더 높은 등급 도전' : '다시 도전'}
+          <RetryIcon /> {r.allClear ? '더 높은 등급 도전' : '다시 도전'}
         </button>
         <button className="btn-secondary" disabled={sharing} onClick={async () => {
           setSharing(true)
           const res = await shareResult(r, state.slots as Record<SlotId, Character>)
           setShareMsg(res === 'shared' ? '공유 완료!' : res === 'downloaded' ? '카드 저장됨 📥' : '실패')
           setSharing(false)
-        }}>📸 {sharing ? '생성 중…' : shareMsg || '내각 자랑하기'}</button>
+        }}><CameraIcon /> {sharing ? '생성 중…' : shareMsg || '내각 자랑하기'}</button>
         <button className="btn-secondary" onClick={() => dispatch({ type: 'HOME' })}>홈</button>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { filledCount, isCabinetFull, type Action, type GameState } from '../game
 import { SLOTS, type SlotId } from '../lib/types'
 import { CharCard, CrisisBanner, MiniPortrait, fitScore, bestFit, SLOT_SHORT } from '../ui/shared'
 import { play } from '../lib/sfx'
+import { DiceIcon, PlayIcon } from '../ui/icons'
 
 export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (a: Action) => void }) {
   // 세션 pool rng — seed 바뀌면 재생성 (라운드 넘어가도 소비 상태 유지)
@@ -81,10 +82,10 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
             <div className="spin-cta">
               {isCabinetFull(state) ? (
                 <button className="btn-primary hard-shadow" onClick={() => dispatch({ type: 'START_SIM' })}>
-                  ▶ 집권 시작
+                  <PlayIcon /> 집권 시작
                 </button>
               ) : (
-                <button className="btn-spin hard-shadow" onClick={doSpin}>🎲 스핀</button>
+                <button className="btn-spin hard-shadow" onClick={doSpin}><DiceIcon /> 스핀</button>
               )}
             </div>
           ) : (
@@ -114,10 +115,10 @@ export function DraftScreen({ state, dispatch }: { state: GameState; dispatch: (
               </div>
               <div className="respin-row">
                 <button className="btn-respin" disabled={state.respinAll <= 0} onClick={() => doRespin('all')}>
-                  🎲 전체 리스핀 ({state.respinAll})
+                  <DiceIcon /> 전체 리스핀 ({state.respinAll})
                 </button>
                 <button className="btn-respin" disabled={state.respinCiv <= 0} onClick={() => doRespin('civ')}>
-                  🎲 문명 리스핀 ({state.respinCiv})
+                  <DiceIcon /> 문명 리스핀 ({state.respinCiv})
                 </button>
               </div>
               <p className="hint">{state.selected ? '↑ 임명할 부처를 고르세요' : '후보를 눌러 선택'}</p>

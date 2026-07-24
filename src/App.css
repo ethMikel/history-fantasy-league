@@ -33,6 +33,9 @@
 }
 .mute-btn:active { transform: translate(1px, 1px); }
 
+/* ── 픽셀 SVG 아이콘 (이모지 대체) ── */
+.icon { width: 1em; height: 1em; display: inline-block; vertical-align: -0.14em; flex-shrink: 0; }
+
 /* ── 금박 이중 프레임 (흑금 태피스트리 시그니처) ──
    서사 패널에만 적용: 위기 카드·국운 그래프·결과 패널. char-card는 tier 색언어 보존을 위해 제외. */
 .gilt { position: relative; }
