@@ -7,163 +7,277 @@
 
 ## Portraits (초상)
 
-퍼블릭 도메인/CC 초상을 Pillow로 96px 픽셀화(팔레트 감색+Floyd-Steinberg 디더). 형식: 인물 — 라이선스 — 출처
+퍼블릭 도메인/CC 초상을 Pillow로 96px 픽셀화(팔레트 감색+Floyd-Steinberg 디더). 263개.
 
-- Alauddin Khalji — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20of%20Sultan%20%27Ala-ud-Din%2C%20Padshah%20of%20Delhi.jpg)
-- Ibrahim Lodi — Public domain (by c.1590 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Ibrahim%20Lodi%20at%20the%20Battle%20of%20Panipat%20%281526%29.jpg)
-- J. R. R. 톨킨 — Public domain (by Unknown photo studio commissioned by Tolkien's students 1925/6 (private communication from Catherine McIlwaine, Tolkien Archivist, Bodleian Library)) — [Commons](https://commons.wikimedia.org/wiki/File:J.%20R.%20R.%20Tolkien%2C%20ca.%201925.jpg)
-- 가잘리 — CC0 (by ShafiNotes) — [Commons](https://commons.wikimedia.org/wiki/File:Al%20Ghazali.png)
-- 갈릴레오 갈릴레이 — Public domain (by Justus Sustermans) — [Commons](https://commons.wikimedia.org/wiki/File:Galileo.arp.300pix.jpg)
-- 공자 — Public domain (by Anonymous Chinese painter of the Western Han period) — [Commons](https://commons.wikimedia.org/wiki/File:Confucius%2C%20fresco%20from%20a%20Western%20Han%20tomb%20of%20Dongping%20County%2C%20Shandong%20province%2C%20China.jpg)
-- 기황후 — CC0 (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Empress%20Gi.jpg)
-- 김대중 — KOGL Type 1 (by 대한민국 국가기록원) — [Commons](https://commons.wikimedia.org/wiki/File:Kim%20Dae-jung%20presidential%20portrait.jpg)
-- 김형직 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:%E9%87%91%E4%BA%A8%E7%A8%B7%201.jpg)
-- 나폴레옹 보나파르트 — Public domain (by Jacques-Louis David) — [Commons](https://commons.wikimedia.org/wiki/File:Jacques-Louis%20David%20-%20The%20Emperor%20Napoleon%20in%20His%20Study%20at%20the%20Tuileries%20-%20Google%20Art%20Project.jpg)
-- 넬슨 만델라 — CC BY-SA 2.0 (by Kingkongphoto &amp; www.celebrity-photos.com from Laurel) — [Commons](https://commons.wikimedia.org/wiki/File:Nelson%20Mandela%201994.jpg)
-- 노무현 — KOGL Type 1 (by 대한민국 국가기록원) — [Commons](https://commons.wikimedia.org/wiki/File:Roh%20Moo-hyun%20presidential%20portrait.jpg)
-- 노자 — Public domain (by Zhang Lu) — [Commons](https://commons.wikimedia.org/wiki/File:Zhang%20Lu-Laozi%20Riding%20an%20Ox%20%28cropped%29.jpg)
-- 노태우 — Public domain (by CHERIE A. THURLBY) — [Commons](https://commons.wikimedia.org/wiki/File:Roh%20Tae-woo%20-%20cropped%2C%201989-Mar-13.jpg)
-- 니콜라우스 코페르니쿠스 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Nikolaus%20Kopernikus%20MOT.jpg)
-- 단테 알리기에리 — Public domain (by Sandro Botticelli) — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20de%20Dante.jpg)
-- 대한제국 고종 — Public domain (by This photo was taken in 1907.) — [Commons](https://commons.wikimedia.org/wiki/File:Gojong%20of%20the%20Korean%20Empire%2002.jpg)
-- 대한제국 순종 — Public domain (by Photography by 岩田鼎) — [Commons](https://commons.wikimedia.org/wiki/File:Sunjong%20of%20the%20Korean%20Empire.jpg)
-- 동명성왕 — CC BY 2.0 (by yeowatzup) — [Commons](https://commons.wikimedia.org/wiki/File:Tomb%20of%20King%20Tongmyong%2C%20Pyongyang%2C%20North%20Korea.jpg)
-- 라마크리슈나 — Public domain (by Abinash Chandra Dna) — [Commons](https://commons.wikimedia.org/wiki/File:Ramakrishna.jpg)
-- 라빈드라나트 타고르 — Public domain (by Generalstabens litografiska anstalt) — [Commons](https://commons.wikimedia.org/wiki/File:Rabindranath%20Tagore%20in%201909.jpg)
-- 라지아 술타나 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Equestrian%20miniature%20painting%20of%20Razia%20Sultana%2C%20circa%2018th%20century.jpg)
-- 람세스 2세 — CC BY-SA 4.0 (by Unknown artistUnknown artist) — [Commons](https://commons.wikimedia.org/wiki/File:Colossal%20bust%20of%20Ramesses%20II%20in%20the%20British%20Museum.jpg)
-- 레오나르도 다 빈치 — Public domain (by Attributed to Francesco Melzi) — [Commons](https://commons.wikimedia.org/wiki/File:Francesco%20Melzi%20-%20Portrait%20of%20Leonardo.png)
-- 레오나르도 피보나치 — Public domain (by Unknown) — [Commons](https://commons.wikimedia.org/wiki/File:Fibonacci5.jpg)
-- 로널드 레이건 — Public domain (by Michael Evans) — [Commons](https://commons.wikimedia.org/wiki/File:Ronald%20Reagan%201981%20presidential%20portrait.jpg)
-- 로버트 오펜하이머 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Oppenheimer%20%28cropped%29.jpg)
-- 루트비히 판 베토벤 — Public domain (by Joseph Karl Stieler) — [Commons](https://commons.wikimedia.org/wiki/File:Beethoven.jpg)
-- 마르코 폴로 — Public domain (by Salviati) — [Commons](https://commons.wikimedia.org/wiki/File:Marco%20Polo%20Mosaic%20from%20Palazzo%20Tursi.jpg)
-- 마리 퀴리 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Marie%20Curie%20%281900%29%20%28cropped%29.jpg)
-- 마쓰오 바쇼 — Public domain (by unknown) — [Commons](https://commons.wikimedia.org/wiki/File:Basho%20by%20Buson.jpg)
-- 마크리너스 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:MacrinusAE.jpg)
-- 마틴 루터 킹 2세 — Public domain (by Yoichi Okamoto) — [Commons](https://commons.wikimedia.org/wiki/File:Martin%20Luther%20King%2C%20Jr.%20and%20Lyndon%20Johnson%20%28cropped%29.jpg)
-- 마틴 밴 뷰런 — Public domain (by Mathew Benjamin Brady / Levin Corbin Handy) — [Commons](https://commons.wikimedia.org/wiki/File:Martin%20Van%20Buren.jpg)
-- 마하트마 간디 — Public domain (by Elliott &amp; Fry) — [Commons](https://commons.wikimedia.org/wiki/File:Mahatma-Gandhi%2C%20studio%2C%201931.jpg)
-- 마흐무트 2세 — Public domain (by Henry Guillaume Schlesinger) — [Commons](https://commons.wikimedia.org/wiki/File:Mahmud%20II.jpg)
-- 만모한 싱 — GODL-India (by Prime Minister's Office) — [Commons](https://commons.wikimedia.org/wiki/File:Official%20Portrait%20of%20the%20Prime%20Minister%20Dr.%20Manmohan%20Singh.jpg)
-- 맬컴 엑스 — Public domain (by Marion S. Trikosko) — [Commons](https://commons.wikimedia.org/wiki/File:Malcolm%20X%20in%201964.jpg)
-- 메넬리크 2세 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Menelik%20II%20-%204.jpg)
-- 메흐메트 2세 — Public domain (by Painter Nakkash Osman (active 1559-96), work created in 1579) — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20of%20Mehmet%20II%20%28cropped%29.%20Human%20Physiognomy%20Concerning%20the%20Personal%20Dispositions%20of%20the%20Ottomans%2C%201579%20%28TSMK%20H.1563%29.jpg)
-- 메흐메트 6세 — Public domain (by George Grantham Bain) — [Commons](https://commons.wikimedia.org/wiki/File:Sultan%20Mehmed%20VI%20of%20the%20Ottoman%20Empire.jpg)
-- 무라트 2세 — Public domain (by 1584-1588 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Murad%20II.%20H%C3%BCnername%2C%20folio%20143b.%20TSMK%20Hazine%201523%20%28created%201584-1588%29.jpg)
-- 무하마드 알리 — Public domain (by Ira Rosenberg) — [Commons](https://commons.wikimedia.org/wiki/File:Muhammad%20Ali%20NYWTS.jpg)
-- 무하마드 알리 진나 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Jinnah1945c.jpg)
-- 미켈란젤로 부오나로티 — Public domain (by Attributed to Daniele da Volterra) — [Commons](https://commons.wikimedia.org/wiki/File:Michelangelo%20Daniele%20da%20Volterra%20%28dettaglio%29.jpg)
-- 미하일 고르바초프 — CC BY-SA 4.0 (by Leo Medvedev/Лев Леонидович Медведев) — [Commons](https://commons.wikimedia.org/wiki/File:GorbachevMS.jpg)
-- 바스카라 2세 — CC BY-SA 4.0 (by Marcelo Uva) — [Commons](https://commons.wikimedia.org/wiki/File:Bhaskara%20Akaria.jpg)
-- 바실리우스 2세 — Public domain (by from the Middle Ages, unknown) — [Commons](https://commons.wikimedia.org/wiki/File:Basilios%20II.jpg)
-- 박정희 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — [Commons](https://commons.wikimedia.org/wiki/File:Park%20Chung%20Hee%20%28%EB%B0%95%EC%A0%95%ED%9D%AC%29%20Presidential%20Portrait.jpg)
-- 발라브바이 파텔 — Public domain (by Government of India work) — [Commons](https://commons.wikimedia.org/wiki/File:Sardar%20patel%20%28cropped%29.jpg)
-- 볼프강 아마데우스 모차르트 — Public domain (by Barbara Krafft) — [Commons](https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart%201.jpg)
-- 비루니 — CC BY 4.0 (by Iraqi Polymath Muntadher Saleh) — [Commons](https://commons.wikimedia.org/wiki/File:Al-Biruni.jpg)
-- 빈센트 반 고흐 — CC BY-SA 4.0 (by Vincent van Gogh) — [Commons](https://commons.wikimedia.org/wiki/File:Self-portrait%20-%20Vincent%20van%20Gogh.jpg)
-- 사마천 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Si%20maqian.jpg)
-- 살라딘 — CC BY-SA 2.5 (by Classical Numismatic Group (CNG)) — [Commons](https://commons.wikimedia.org/wiki/File:Al-Nasir%20I%20Salah%20al-Din%20Yusuf%20%28Saladin%29.%20AH%20564-589%20%281169-1193%20CE%29%20%C3%86%20Dirham%20%2830.1mm%2C%2013.28%20g%2C%206h%29.%20Without%20mint-name.%20Dated%20AH%20586%20%28AD%201190-91%29.%20Sultan%20sitting%20facing%2C%20cross-legged%2C%20on%20high-backed%20throne%20%28obverse%29.jpg)
-- 살바도르 달리 — Public domain (by Van Vechten, Carl, 1880-1964.) — [Commons](https://commons.wikimedia.org/wiki/File:Salvador%20Dal%C3%AD%201939.jpg)
-- 샤 자한 — Public domain (by 1707-12 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Shah%20Jahan%2C%20in%20The%20Rulers%20of%20the%20Mughal%20Dynasty%20from%20Babur%20to%20Awrangzeb%2C%20with%20their%20Ancestor%20Timur%20MSS%20874%2C%20India%2C%20circa%201707%E2%80%9312.%20Khalili%20Collection.jpg)
-- 셀림 1세 — Public domain (by Shukri Bitlisi, 1524) — [Commons](https://commons.wikimedia.org/wiki/File:Sultan%20Selim%20I%20enthroned%2C%20in%20Istanbul%20in%201514.%20Sel%C4%ABm-n%C4%81ma%2C%20by%20%C5%9E%C5%ABkr%C4%AB-i%20Bitlis%C4%AB%2C%201524%20%28National%20Library%20of%20Israel%2C%20Ms.%20Yah.%20Ar.%201116%29.jpg)
-- 셀림 2세 — Public domain (by Nakkaş Osman, Şemâ'ilnâme, 1579, Istanbul, Topkapı Sarayı Müzesi, Н. 1563.) — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20of%20Selim%20II%20by%20Nakka%C5%9F%20Osman%2C%20%C5%9Eem%C3%A2%27iln%C3%A2me%2C%201579%2C%20Istanbul%2C%20Topkap%C4%B1%20Saray%C4%B1%20M%C3%BCzesi%2C%20%D0%9D.%201563.jpg)
-- 셉티미우스 세베루스 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Septimius%20Severus%20Glyptothek%20Munich%20357%20cropped.jpg)
-- 소크라테스 — Public domain (by Copy of Lysippos (?)) — [Commons](https://commons.wikimedia.org/wiki/File:Socrates%20Louvre.jpg)
-- 손무 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:%E5%90%B4%E5%8F%B8%E9%A9%AC%E5%AD%99%E6%AD%A6.jpg)
-- 쉴레이만 1세 — Public domain (by Circle of Titian) — [Commons](https://commons.wikimedia.org/wiki/File:EmperorSuleiman.jpg)
-- 스티브 잡스 — CC BY-SA 3.0 (by MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-CROP.jpg made by Matt Yohe) — [Commons](https://commons.wikimedia.org/wiki/File:Steve%20Jobs%20Headshot%202010-CROP2.jpg)
-- 스티븐 호킹 — Public domain (by NASA) — [Commons](https://commons.wikimedia.org/wiki/File:Stephen%20Hawking.StarChild.jpg)
-- 아르키메데스 — Public domain (by Domenico Fetti) — [Commons](https://commons.wikimedia.org/wiki/File:Retrato%20de%20un%20erudito%20%28%C2%BFArqu%C3%ADmedes%3F%29%2C%20por%20Domenico%20Fetti.jpg)
-- 아리스토텔레스 — Public domain (by After Lysippos) — [Commons](https://commons.wikimedia.org/wiki/File:Aristotle%20Altemps%20Inv8575.jpg)
-- 아소카 — CC BY 2.0 (by Photo Dharma from Sadao, Thailand) — [Commons](https://commons.wikimedia.org/wiki/File:Ashoka%27s%20visit%20to%20the%20Ramagrama%20stupa%20Sanchi%20Stupa%201%20Southern%20gateway.jpg)
-- 아우구스투스 — CC BY-SA 4.0 (by С. И. Сосновский) — [Commons](https://commons.wikimedia.org/wiki/File:Statue%20of%20the%20Emperor%20Octavian%20Augustus%20as%20Jupiter%20%286%29.png)
-- 아우랑제브 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Aurangzeb%20%28r.%201658-1707%29.jpg%20%28Cropped%29.jpg)
-- 아이작 뉴턴 — Public domain (by James Thronill after Sir Godfrey Kneller) — [Commons](https://commons.wikimedia.org/wiki/File:GodfreyKneller-IsaacNewton-1689.jpg)
-- 악바르 — Public domain (by 1605 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Contemporary%20seated%20portrait%20of%20Akbar%2C%201605.jpg)
-- 알렉산드로스 대왕 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Alexander%20the%20Great%20mosaic%20%28cropped%29.jpg)
-- 알베르 카뮈 — Public domain (by Photograph by United Press International) — [Commons](https://commons.wikimedia.org/wiki/File:Albert%20Camus%2C%20gagnant%20de%20prix%20Nobel%2C%20portrait%20en%20buste%2C%20pos%C3%A9%20au%20bureau%2C%20faisant%20face%20%C3%A0%20gauche%2C%20cigarette%20de%20tabagisme.jpg)
-- 알베르트 아인슈타인 — Public domain (by Ferdinand Schmutzer / Adam Cuerden) — [Commons](https://commons.wikimedia.org/wiki/File:Einstein%201921%20by%20F%20Schmutzer%20-%20restoration.jpg)
-- 압둘 칼람 — GODL-India (by Government of India) — [Commons](https://commons.wikimedia.org/wiki/File:A.%20P.%20J.%20Abdul%20Kalam.jpg)
-- 압뒬하미트 2세 — CC BY-SA 4.0 (by Thelebnene) — [Commons](https://commons.wikimedia.org/wiki/File:Sultan%20Abdul%20Hamid%20II%20in%201899.jpg)
-- 앙투안 드 생텍쥐페리 — Public domain (by Distributed by Agence France-Presse) — [Commons](https://commons.wikimedia.org/wiki/File:11exupery-inline1-500.jpg)
-- 애덤 스미스 — Public domain (by Etching created by Cadell and Davies (1811), John Horsburgh (1828) or R.C. Bell (1872).) — [Commons](https://commons.wikimedia.org/wiki/File:AdamSmith.jpg)
-- 앤드루 잭슨 — Public domain (by Ralph Eleaser Whiteside Earl) — [Commons](https://commons.wikimedia.org/wiki/File:Andrew%20jackson%20head.jpg)
-- 야세르 아라파트 — CC BY 4.0 (by Gideon Markowiz) — [Commons](https://commons.wikimedia.org/wiki/File:Leader%20of%20the%20PLO%2C%20Yasser%20Arafat%2C%201996%20Dan%20Hadani%20Archive.jpg)
-- 에드거 앨런 포 — Public domain (by Unknown authorUnknown author; Restored by Yann Forget and Adam Cuerden) — [Commons](https://commons.wikimedia.org/wiki/File:Edgar%20Allan%20Poe%2C%20circa%201849%2C%20restored%2C%20squared%20off.jpg)
-- 에라토스테네스 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Eratosthenes.jpg)
-- 에이브러햄 링컨 — Public domain (by Alexander Gardner) — [Commons](https://commons.wikimedia.org/wiki/File:Abraham%20Lincoln%20O-77%20matte%20collodion%20print.jpg)
-- 엘리자베스 1세 — Public domain (by Unidentified painter) — [Commons](https://commons.wikimedia.org/wiki/File:Darnley%20stage%203.jpg)
-- 엘리자베스 2세 — OGL 3 (by Original: Joel Rouse/ Ministry of DefenceDerivative: nagualdesign) — [Commons](https://commons.wikimedia.org/wiki/File:Queen%20Elizabeth%20II%20in%20March%202015.jpg)
-- 오마르 하이얌 — CC BY-SA 3.0 (by The original uploader was Atilin at French Wikipedia.) — [Commons](https://commons.wikimedia.org/wiki/File:Omar%20Khayyam2.JPG)
+- Alauddin Khalji — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Portrait%20of%20Sultan%20%27Ala-ud-Din%2C%20Padshah%20of%20Delhi.jpg
+- Ibrahim Lodi — Public domain (by c.1590 artist) — https://commons.wikimedia.org/wiki/File:Ibrahim%20Lodi%20at%20the%20Battle%20of%20Panipat%20%281526%29.jpg
+- J. R. R. 톨킨 — Public domain (by Unknown photo studio commissioned by Tolkien's students 1925/6 (private communication from Catherine McIlwaine, Tolkien Archivist, Bodleian Library)) — https://commons.wikimedia.org/wiki/File:J.%20R.%20R.%20Tolkien%2C%20ca.%201925.jpg
+- T. S. 엘리엇 — Public domain (by Thomas Stearns Eliot with his sister and his cousin by Lady Ottoline Morrell.jpg: Lady Ottoline Morrell (1873–1938)
+derivative work: Octave.H) — https://commons.wikimedia.org/wiki/File:Thomas%20Stearns%20Eliot%20by%20Lady%20Ottoline%20Morrell%20%281934%29.jpg
+- 가말 압델 나세르 — Public domain (by Press) — https://commons.wikimedia.org/wiki/File:Official%20Portrait%20-%20Gamal%20Abdel%20Nasser.jpg
+- 가브리엘 가르시아 마르케스 — CC BY-SA 4.0 (by Gorup de Besanez) — https://commons.wikimedia.org/wiki/File:Gabriel%20Garc%C3%ADa%20M%C3%A1rquez%2002.jpg
+- 가쓰시카 호쿠사이 — CC0 (by missing name) — https://commons.wikimedia.org/wiki/File:Hokusai%20as%20an%20old%20man.jpg
+- 가잘리 — CC0 (by ShafiNotes) — https://commons.wikimedia.org/wiki/File:Al%20Ghazali.png
+- 갈릴레오 갈릴레이 — Public domain (by Justus Sustermans) — https://commons.wikimedia.org/wiki/File:Galileo.arp.300pix.jpg
+- 고려 광종 —  — 
+- 고려 정종 —  — 
+- 고려 태조 — Attribution (by [2]) — https://commons.wikimedia.org/wiki/File:WangGeon.jpg
+- 고트프리트 빌헬름 라이프니츠 — Public domain (by Christoph Bernhard Francke) — https://commons.wikimedia.org/wiki/File:Christoph%20Bernhard%20Francke%20-%20Bildnis%20des%20Philosophen%20Leibniz%20%28ca.%201695%29.jpg
+- 공자 — Public domain (by Anonymous Chinese painter of the Western Han period) — https://commons.wikimedia.org/wiki/File:Confucius%2C%20fresco%20from%20a%20Western%20Han%20tomb%20of%20Dongping%20County%2C%20Shandong%20province%2C%20China.jpg
+- 구로사와 아키라 — Public domain (by 映画の友 (Eiga no tomo)) — https://commons.wikimedia.org/wiki/File:Akirakurosawa-onthesetof7samurai-1953-page88.jpg
+- 기황후 — CC0 (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Empress%20Gi.jpg
+- 김대중 — KOGL Type 1 (by 대한민국 국가기록원) — https://commons.wikimedia.org/wiki/File:Kim%20Dae-jung%20presidential%20portrait.jpg
+- 김영삼 — KOGL Type 1 (by 대한민국 국가기록원) — https://commons.wikimedia.org/wiki/File:Kim%20Young-sam%20presidential%20portrait.jpg
+- 김형직 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:%E9%87%91%E4%BA%A8%E7%A8%B7%201.jpg
+- 나폴레옹 보나파르트 — Public domain (by Jacques-Louis David) — https://commons.wikimedia.org/wiki/File:Jacques-Louis%20David%20-%20The%20Emperor%20Napoleon%20in%20His%20Study%20at%20the%20Tuileries%20-%20Google%20Art%20Project.jpg
+- 네부카드네자르 2세 — Public domain (by User Hedning on sv.wikipedia) — https://commons.wikimedia.org/wiki/File:Nebukadnessar%20II.jpg
+- 넬슨 만델라 — CC BY-SA 2.0 (by Kingkongphoto &amp; www.celebrity-photos.com from Laurel) — https://commons.wikimedia.org/wiki/File:Nelson%20Mandela%201994.jpg
+- 노무현 — KOGL Type 1 (by 대한민국 국가기록원) — https://commons.wikimedia.org/wiki/File:Roh%20Moo-hyun%20presidential%20portrait.jpg
+- 노자 — Public domain (by Zhang Lu) — https://commons.wikimedia.org/wiki/File:Zhang%20Lu-Laozi%20Riding%20an%20Ox%20%28cropped%29.jpg
+- 노태우 — Public domain (by CHERIE A. THURLBY) — https://commons.wikimedia.org/wiki/File:Roh%20Tae-woo%20-%20cropped%2C%201989-Mar-13.jpg
+- 니콜라 테슬라 — Public domain (by Napoleon Sarony) — https://commons.wikimedia.org/wiki/File:Tesla%20circa%201890.jpeg
+- 니콜라우스 코페르니쿠스 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Nikolaus%20Kopernikus%20MOT.jpg
+- 닐 암스트롱 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Neil%20Armstrong%20pose.jpg
+- 단군 — Public domain (by Chae Yong-sin (1850-1941)) — https://commons.wikimedia.org/wiki/File:Portrait%20of%20Dangun.jpg
+- 단테 알리기에리 — Public domain (by Sandro Botticelli) — https://commons.wikimedia.org/wiki/File:Portrait%20de%20Dante.jpg
+- 대한제국 고종 — Public domain (by This photo was taken in 1907.) — https://commons.wikimedia.org/wiki/File:Gojong%20of%20the%20Korean%20Empire%2002.jpg
+- 대한제국 순종 — Public domain (by Photography by 岩田鼎) — https://commons.wikimedia.org/wiki/File:Sunjong%20of%20the%20Korean%20Empire.jpg
+- 덩샤오핑 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Deng%20Xiaoping%20and%20Jimmy%20Carter%20at%20the%20arrival%20ceremony%20for%20the%20Vice%20Premier%20of%20China.%20-%20NARA%20-%20183157-restored%28cropped%29.jpg
+- 데이비드 린치 — CC BY 2.0 (by Alan Light) — https://commons.wikimedia.org/wiki/File:David%20Lynch%20at%20the%201990%20Emmy%20Awards.jpg
+- 동명성왕 — CC BY 2.0 (by yeowatzup) — https://commons.wikimedia.org/wiki/File:Tomb%20of%20King%20Tongmyong%2C%20Pyongyang%2C%20North%20Korea.jpg
+- 두보 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Dufu.jpg
+- 라마스와미 벵카타라만 — CC BY 2.5 (by Jaisingh rathore at English Wikipedia) — https://commons.wikimedia.org/wiki/File:R%20Venkataraman.jpg
+- 라마크리슈나 — Public domain (by Abinash Chandra Dna) — https://commons.wikimedia.org/wiki/File:Ramakrishna.jpg
+- 라빈드라나트 타고르 — Public domain (by Generalstabens litografiska anstalt) — https://commons.wikimedia.org/wiki/File:Rabindranath%20Tagore%20in%201909.jpg
+- 라지아 술타나 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Equestrian%20miniature%20painting%20of%20Razia%20Sultana%2C%20circa%2018th%20century.jpg
+- 람세스 2세 — CC BY-SA 4.0 (by Unknown artistUnknown artist) — https://commons.wikimedia.org/wiki/File:Colossal%20bust%20of%20Ramesses%20II%20in%20the%20British%20Museum.jpg
+- 레오나르도 다 빈치 — Public domain (by Attributed to Francesco Melzi) — https://commons.wikimedia.org/wiki/File:Francesco%20Melzi%20-%20Portrait%20of%20Leonardo.png
+- 레오나르도 피보나치 — Public domain (by Unknown) — https://commons.wikimedia.org/wiki/File:Fibonacci5.jpg
+- 레오니트 브레즈네프 — CC0 (by Vladimir Musaelyan) — https://commons.wikimedia.org/wiki/File:Leonid%20Brezjnev%2C%20leider%20van%20de%20Sovjet-Unie%2C%20Bestanddeelnr%20925-6564.jpg
+- 로널드 레이건 — Public domain (by Michael Evans) — https://commons.wikimedia.org/wiki/File:Ronald%20Reagan%201981%20presidential%20portrait.jpg
+- 로버트 맥나마라 — Public domain (by DoD photo by Oscar Porter, U.S. Army.) — https://commons.wikimedia.org/wiki/File:Robert%20McNamara%20official%20portrait.jpg
+- 로버트 오펜하이머 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Oppenheimer%20%28cropped%29.jpg
+- 루이 14세 — Public domain (by Hyacinthe Rigaud) — https://commons.wikimedia.org/wiki/File:Louis%20XIV%20of%20France.jpg
+- 루트비히 판 베토벤 — Public domain (by Joseph Karl Stieler) — https://commons.wikimedia.org/wiki/File:Beethoven.jpg
+- 르네 데카르트 — Public domain (by After Frans Hals) — https://commons.wikimedia.org/wiki/File:Frans%20Hals%20-%20Portret%20van%20Ren%C3%A9%20Descartes.jpg
+- 리처드 1세 — Public domain (by Matthew Paris) — https://commons.wikimedia.org/wiki/File:Richard%20I%20of%20England%20in%20the%20Brief%20Abridgement%20of%20the%20Chronicles%20of%20England.jpg
+- 리처드 닉슨 — Public domain (by Department of Defense. Department of the Army. Office of the Deputy Chief of Staff for Operations. U.S. Army Audiovisual Center.	 (ca. 1974 - 05/15/1984)) — https://commons.wikimedia.org/wiki/File:Richard%20Nixon%20presidential%20portrait.jpg
+- 마거릿 대처 — Copyrighted free use (by derivative work by Begoon) — https://commons.wikimedia.org/wiki/File:Margaret%20Thatcher%20stock%20portrait%20%28cropped%29.jpg
+- 마르코 폴로 — Public domain (by Salviati) — https://commons.wikimedia.org/wiki/File:Marco%20Polo%20Mosaic%20from%20Palazzo%20Tursi.jpg
+- 마리 퀴리 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Marie%20Curie%20%281900%29%20%28cropped%29.jpg
+- 마쓰오 바쇼 — Public domain (by unknown) — https://commons.wikimedia.org/wiki/File:Basho%20by%20Buson.jpg
+- 마크리너스 — Public domain — https://commons.wikimedia.org/wiki/File:MacrinusAE.jpg
+- 마틴 루터 킹 2세 — Public domain (by Yoichi Okamoto) — https://commons.wikimedia.org/wiki/File:Martin%20Luther%20King%2C%20Jr.%20and%20Lyndon%20Johnson%20%28cropped%29.jpg
+- 마틴 밴 뷰런 — Public domain (by Mathew Benjamin Brady / Levin Corbin Handy) — https://commons.wikimedia.org/wiki/File:Martin%20Van%20Buren.jpg
+- 마하트마 간디 — Public domain (by Elliott &amp; Fry) — https://commons.wikimedia.org/wiki/File:Mahatma-Gandhi%2C%20studio%2C%201931.jpg
+- 마흐무트 2세 — Public domain (by Henry Guillaume Schlesinger) — https://commons.wikimedia.org/wiki/File:Mahmud%20II.jpg
+- 만모한 싱 — GODL-India (by Prime Minister's Office) — https://commons.wikimedia.org/wiki/File:Official%20Portrait%20of%20the%20Prime%20Minister%20Dr.%20Manmohan%20Singh.jpg
+- 맬컴 엑스 — Public domain (by Marion S. Trikosko) — https://commons.wikimedia.org/wiki/File:Malcolm%20X%20in%201964.jpg
+- 메넬리크 2세 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Menelik%20II%20-%204.jpg
+- 메흐메트 2세 — Public domain (by Painter Nakkash Osman (active 1559-96), work created in 1579) — https://commons.wikimedia.org/wiki/File:Portrait%20of%20Mehmet%20II%20%28cropped%29.%20Human%20Physiognomy%20Concerning%20the%20Personal%20Dispositions%20of%20the%20Ottomans%2C%201579%20%28TSMK%20H.1563%29.jpg
+- 메흐메트 6세 — Public domain (by George Grantham Bain) — https://commons.wikimedia.org/wiki/File:Sultan%20Mehmed%20VI%20of%20the%20Ottoman%20Empire.jpg
+- 명성황후 —  — 
+- 무라트 2세 — Public domain (by 1584-1588 artist) — https://commons.wikimedia.org/wiki/File:Murad%20II.%20H%C3%BCnername%2C%20folio%20143b.%20TSMK%20Hazine%201523%20%28created%201584-1588%29.jpg
+- 무라트 3세 — Public domain (by 1592 artist) — https://commons.wikimedia.org/wiki/File:The%20reception%20of%20the%20Persian%20ambassador%20Maksud%20by%20Sultan%20Murad%20III%20%28detail%29%20and%20his%20entourage%20%2824b%29.%20Manuscript%20miniature%20ms.%20TSMK%20B.200%20%E2%80%9CSehinsahname%E2%80%9D.jpg
+- 무하마드 알리 — Public domain (by Ira Rosenberg) — https://commons.wikimedia.org/wiki/File:Muhammad%20Ali%20NYWTS.jpg
+- 무하마드 알리 진나 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Jinnah1945c.jpg
+- 무하마드 이크발 — Public domain (by Amrita Sher-Gil) — https://commons.wikimedia.org/wiki/File:Iqbal%202.jpg
+- 묵돌선우 —  — 
+- 미켈란젤로 부오나로티 — Public domain (by Attributed to Daniele da Volterra) — https://commons.wikimedia.org/wiki/File:Michelangelo%20Daniele%20da%20Volterra%20%28dettaglio%29.jpg
+- 미하일 고르바초프 — CC BY-SA 4.0 (by Leo Medvedev/Лев Леонидович Медведев) — https://commons.wikimedia.org/wiki/File:GorbachevMS.jpg
+- 바스카라 2세 — CC BY-SA 4.0 (by Marcelo Uva) — https://commons.wikimedia.org/wiki/File:Bhaskara%20Akaria.jpg
+- 바스쿠 다 가마 — CC BY 3.0 (by Sailko) — https://commons.wikimedia.org/wiki/File:Ignoto%20portoghese%2C%20ritratto%20di%20un%20cavaliere%20dell%27ordine%20di%20cristo%2C%201525-50%20ca.%2002.jpg
+- 바실리우스 2세 — Public domain (by from the Middle Ages, unknown) — https://commons.wikimedia.org/wiki/File:Basilios%20II.jpg
+- 바예지드 1세 — Public domain (by 1460 artist) — https://commons.wikimedia.org/wiki/File:The%20accession%20of%20Sultan%20Bayezid%20I%20%28enthroned%29.%20Ahmed%C3%AE%2C%20Iskendername%2C%20VBNM%2C%20circa%201460.%2C%20Cod.%20Or.%20XC%20%2857%29%2C%20y.%20240b.jpg
+- 박정희 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — https://commons.wikimedia.org/wiki/File:Park%20Chung%20Hee%20%28%EB%B0%95%EC%A0%95%ED%9D%AC%29%20Presidential%20Portrait.jpg
+- 발라브바이 파텔 — Public domain (by Government of India work) — https://commons.wikimedia.org/wiki/File:Sardar%20patel%20%28cropped%29.jpg
+- 보두앵 4세 — Public domain (by Guillermo de Tiro) — https://commons.wikimedia.org/wiki/File:Balduino%20IV%20de%20Jerusal%C3%A9n.png
+- 보리스 옐친 — CC BY 4.0 (by Presidential Press and Information Office) — https://commons.wikimedia.org/wiki/File:%D0%91%D0%BE%D1%80%D0%B8%D1%81%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D0%B8%D1%87%20%D0%95%D0%BB%D1%8C%D1%86%D0%B8%D0%BD-1.jpg
+- 볼프강 아마데우스 모차르트 — Public domain (by Barbara Krafft) — https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart%201.jpg
+- 브라마굽타 —  — 
+- 블레즈 파스칼 — CC BY-SA 4.0 (by Gérard Edelinck) — https://commons.wikimedia.org/wiki/File:FR-631136102%20GRA%206025%20Portrait%20de%20Blaise%20Pascal%20par%20Edelinck%20%28cropped%29.jpg
+- 비루니 — CC BY 4.0 (by Iraqi Polymath Muntadher Saleh) — https://commons.wikimedia.org/wiki/File:Al-Biruni.jpg
+- 빈센트 반 고흐 — CC BY-SA 4.0 (by Vincent van Gogh) — https://commons.wikimedia.org/wiki/File:Self-portrait%20-%20Vincent%20van%20Gogh.jpg
+- 빔라오 람지 암베드카르 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Dr.%20Bhimrao%20Ambedkar.jpg
+- 사마천 — Public domain — https://commons.wikimedia.org/wiki/File:Si%20maqian.jpg
+- 살라딘 — CC BY-SA 2.5 (by Classical Numismatic Group (CNG)) — https://commons.wikimedia.org/wiki/File:Al-Nasir%20I%20Salah%20al-Din%20Yusuf%20%28Saladin%29.%20AH%20564-589%20%281169-1193%20CE%29%20%C3%86%20Dirham%20%2830.1mm%2C%2013.28%20g%2C%206h%29.%20Without%20mint-name.%20Dated%20AH%20586%20%28AD%201190-91%29.%20Sultan%20sitting%20facing%2C%20cross-legged%2C%20on%20high-backed%20throne%20%28obverse%29.jpg
+- 살바도르 달리 — Public domain (by Van Vechten, Carl, 1880-1964.) — https://commons.wikimedia.org/wiki/File:Salvador%20Dal%C3%AD%201939.jpg
+- 샤 자한 — Public domain (by 1707-12 artist) — https://commons.wikimedia.org/wiki/File:Shah%20Jahan%2C%20in%20The%20Rulers%20of%20the%20Mughal%20Dynasty%20from%20Babur%20to%20Awrangzeb%2C%20with%20their%20Ancestor%20Timur%20MSS%20874%2C%20India%2C%20circa%201707%E2%80%9312.%20Khalili%20Collection.jpg
+- 세베루스 알렉산데르 — CC BY 4.0 (by Jean-Pol GRANDMONT) — https://commons.wikimedia.org/wiki/File:0%20Alexandre%20S%C3%A9v%C3%A8re%20-%20MR%20408%20-%20Louvre%20%281b%29.JPG
+- 셀림 1세 — Public domain (by Shukri Bitlisi, 1524) — https://commons.wikimedia.org/wiki/File:Sultan%20Selim%20I%20enthroned%2C%20in%20Istanbul%20in%201514.%20Sel%C4%ABm-n%C4%81ma%2C%20by%20%C5%9E%C5%ABkr%C4%AB-i%20Bitlis%C4%AB%2C%201524%20%28National%20Library%20of%20Israel%2C%20Ms.%20Yah.%20Ar.%201116%29.jpg
+- 셀림 2세 — Public domain (by Nakkaş Osman, Şemâ'ilnâme, 1579, Istanbul, Topkapı Sarayı Müzesi, Н. 1563.) — https://commons.wikimedia.org/wiki/File:Portrait%20of%20Selim%20II%20by%20Nakka%C5%9F%20Osman%2C%20%C5%9Eem%C3%A2%27iln%C3%A2me%2C%201579%2C%20Istanbul%2C%20Topkap%C4%B1%20Saray%C4%B1%20M%C3%BCzesi%2C%20%D0%9D.%201563.jpg
+- 셉티미우스 세베루스 — Public domain — https://commons.wikimedia.org/wiki/File:Septimius%20Severus%20Glyptothek%20Munich%20357%20cropped.jpg
+- 소크라테스 — Public domain (by Copy of Lysippos (?)) — https://commons.wikimedia.org/wiki/File:Socrates%20Louvre.jpg
+- 소포클레스 — CC BY-SA 3.0 (by user:shakko) — https://commons.wikimedia.org/wiki/File:Sophocles%20pushkin.jpg
+- 손무 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:%E5%90%B4%E5%8F%B8%E9%A9%AC%E5%AD%99%E6%AD%A6.jpg
+- 쉴레이만 1세 — Public domain (by Circle of Titian) — https://commons.wikimedia.org/wiki/File:EmperorSuleiman.jpg
+- 스티브 잡스 — CC BY-SA 3.0 (by MetalGearLiquid, based on File:Steve_Jobs_Headshot_2010-CROP.jpg made by Matt Yohe) — https://commons.wikimedia.org/wiki/File:Steve%20Jobs%20Headshot%202010-CROP2.jpg
+- 스티븐 호킹 — Public domain (by NASA) — https://commons.wikimedia.org/wiki/File:Stephen%20Hawking.StarChild.jpg
+- 스피타메네스 —  — 
+- 시노페의 디오게네스 — CC BY 3.0 (by Diogenes-statue-Sinop.JPG: Tony f
+derivative work: Singinglemon (talk)) — https://commons.wikimedia.org/wiki/File:Diogenes-statue-Sinop-enhanced.jpg
+- 시몬 드 보부아르 — CC BY-SA 3.0 (by Moshe Milner) — https://commons.wikimedia.org/wiki/File:Simone%20de%20Beauvoir2.png
+- 실비오 베를루스코니 — CC BY 2.0 (by European People’s Party) — https://commons.wikimedia.org/wiki/File:Silvio%20Berlusconi%202018.jpg
+- 아르키메데스 — Public domain (by Domenico Fetti) — https://commons.wikimedia.org/wiki/File:Retrato%20de%20un%20erudito%20%28%C2%BFArqu%C3%ADmedes%3F%29%2C%20por%20Domenico%20Fetti.jpg
+- 아리스토텔레스 — Public domain (by After Lysippos) — https://commons.wikimedia.org/wiki/File:Aristotle%20Altemps%20Inv8575.jpg
+- 아리엘 샤론 — CC BY-SA 3.0 (by Avi Ohayon) — https://commons.wikimedia.org/wiki/File:Ariel%20Sharon%20official%20portrait%202001.webp
+- 아소카 — CC BY 2.0 (by Photo Dharma from Sadao, Thailand) — https://commons.wikimedia.org/wiki/File:Ashoka%27s%20visit%20to%20the%20Ramagrama%20stupa%20Sanchi%20Stupa%201%20Southern%20gateway.jpg
+- 아스트리드 린드그렌 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Astrid%20Lindgren%20%28cropped%29.jpg
+- 아우구스투스 — CC BY-SA 4.0 (by С. И. Сосновский) — https://commons.wikimedia.org/wiki/File:Statue%20of%20the%20Emperor%20Octavian%20Augustus%20as%20Jupiter%20%286%29.png
+- 아우랑제브 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Aurangzeb%20%28r.%201658-1707%29.jpg%20%28Cropped%29.jpg
+- 아이작 뉴턴 — Public domain (by James Thronill after Sir Godfrey Kneller) — https://commons.wikimedia.org/wiki/File:GodfreyKneller-IsaacNewton-1689.jpg
+- 아풀레이우스 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Apuleuis.jpg
+- 아흐메드 1세 — CC0 (by 17th century artist) — https://commons.wikimedia.org/wiki/File:Portrait%20of%20Sultan%20Ahmet%20I%20%28r.%201603%E2%80%9317%29%20%28cropped%29.jpg
+- 악바르 — Public domain (by 1605 artist) — https://commons.wikimedia.org/wiki/File:Contemporary%20seated%20portrait%20of%20Akbar%2C%201605.jpg
+- 알렉산드로스 대왕 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Alexander%20the%20Great%20mosaic%20%28cropped%29.jpg
+- 알베르 카뮈 — Public domain (by Photograph by United Press International) — https://commons.wikimedia.org/wiki/File:Albert%20Camus%2C%20gagnant%20de%20prix%20Nobel%2C%20portrait%20en%20buste%2C%20pos%C3%A9%20au%20bureau%2C%20faisant%20face%20%C3%A0%20gauche%2C%20cigarette%20de%20tabagisme.jpg
+- 알베르트 아인슈타인 — Public domain (by Ferdinand Schmutzer / Adam Cuerden) — https://commons.wikimedia.org/wiki/File:Einstein%201921%20by%20F%20Schmutzer%20-%20restoration.jpg
+- 압둘 칼람 — GODL-India (by Government of India) — https://commons.wikimedia.org/wiki/File:A.%20P.%20J.%20Abdul%20Kalam.jpg
+- 압둘라 빈 압둘 아지즈 — Public domain (by Cherie A. Thurlby) — https://commons.wikimedia.org/wiki/File:King%20Abdullah%20bin%20Abdul%20al-Saud%20January%202007.jpg
+- 압둘아지즈 알사우드 — Public domain (by Lcxzdf56 (talk · contribs)) — https://commons.wikimedia.org/wiki/File:Ibn%20Saud.png
+- 압뒬하미트 2세 — CC BY-SA 4.0 (by Thelebnene) — https://commons.wikimedia.org/wiki/File:Sultan%20Abdul%20Hamid%20II%20in%201899.jpg
+- 앙투안 드 생텍쥐페리 — Public domain (by Distributed by Agence France-Presse) — https://commons.wikimedia.org/wiki/File:11exupery-inline1-500.jpg
+- 애덤 스미스 — Public domain (by Etching created by Cadell and Davies (1811), John Horsburgh (1828) or R.C. Bell (1872).) — https://commons.wikimedia.org/wiki/File:AdamSmith.jpg
+- 애리스토틀 오나시스 — CC BY-SA 3.0 nl (by Pieter Jongerhuis) — https://commons.wikimedia.org/wiki/File:Aristotle%20Onassis%201967cr.jpg
+- 앤드루 잭슨 — Public domain (by Ralph Eleaser Whiteside Earl) — https://commons.wikimedia.org/wiki/File:Andrew%20jackson%20head.jpg
+- 앤디 워홀 — Public domain (by Bernard Gotfryd) — https://commons.wikimedia.org/wiki/File:Andy%20Warhol%20at%20the%20Jewish%20Museum%20%28by%20Bernard%20Gotfryd%29%20%E2%80%93%20LOC.jpg
+- 앨런 튜링 — Public domain (by Elliott &amp; Fry) — https://commons.wikimedia.org/wiki/File:Alan%20Turing%20%281951%29%20%28crop%29.jpg
+- 야세르 아라파트 — CC BY 4.0 (by Gideon Markowiz) — https://commons.wikimedia.org/wiki/File:Leader%20of%20the%20PLO%2C%20Yasser%20Arafat%2C%201996%20Dan%20Hadani%20Archive.jpg
+- 에드거 앨런 포 — Public domain (by Unknown authorUnknown author; Restored by Yann Forget and Adam Cuerden) — https://commons.wikimedia.org/wiki/File:Edgar%20Allan%20Poe%2C%20circa%201849%2C%20restored%2C%20squared%20off.jpg
+- 에라토스테네스 — Public domain — https://commons.wikimedia.org/wiki/File:Eratosthenes.jpg
+- 에우클레이데스 — Public domain (by Justus van Gent) — https://commons.wikimedia.org/wiki/File:Euklid2.jpg
+- 에이브러햄 링컨 — Public domain (by Alexander Gardner) — https://commons.wikimedia.org/wiki/File:Abraham%20Lincoln%20O-77%20matte%20collodion%20print.jpg
+- 엘리너 루스벨트 — CC BY 2.0 (by FDR Presidential Library &amp; Museum) — https://commons.wikimedia.org/wiki/File:Eleanor%20Roosevelt%20at%20the%20United%20Nations%2C%20circa%201946-1947%20%283x4%20cropped%29.jpg
+- 엘리자베스 1세 — Public domain (by Unidentified painter) — https://commons.wikimedia.org/wiki/File:Darnley%20stage%203.jpg
+- 엘리자베스 2세 — OGL 3 (by Original: Joel Rouse/ Ministry of DefenceDerivative: nagualdesign) — https://commons.wikimedia.org/wiki/File:Queen%20Elizabeth%20II%20in%20March%202015.jpg
+- 오마르 무크타르 — Public domain (by Italian colonial administration of Libya [1]) — https://commons.wikimedia.org/wiki/File:Omar%20Mukhtar%2013.jpg
+- 오마르 하이얌 — CC BY-SA 3.0 (by The original uploader was Atilin at French Wikipedia.) — https://commons.wikimedia.org/wiki/File:Omar%20Khayyam2.JPG
 - 오스만 1세 — Public domain (by Original: Bilinmiyor
-Derivative: باسم) — [Commons](https://commons.wikimedia.org/wiki/File:Sultan%20Gazi%20%CA%BBUthm%C4%81n%20Han%20I%20-%20%D8%A7%D9%84%D8%B3%D9%8F%D9%84%D8%B7%D8%A7%D9%86%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B2%D9%8A%20%D8%B9%D9%8F%D8%AB%D9%85%D8%A7%D9%86%20%D8%AE%D8%A7%D9%86%20%D8%A7%D9%84%D8%A3%D9%88%D9%8E%D9%91%D9%84.png)
-- 요하네스 구텐베르크 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Gutenberg.jpg)
-- 우마르 — CC BY-SA 3.0 (by Petermaleh) — [Commons](https://commons.wikimedia.org/wiki/File:Rashidun%20Caliphs%20Umar%20ibn%20Al-Khatt%C4%81b%20-%20%D8%B9%D9%8F%D9%85%D8%B1%20%D8%A8%D9%86%20%D8%A7%D9%84%D8%AE%D8%B7%D9%91%D8%A7%D8%A8%20%D8%AB%D8%A7%D9%86%D9%8A%20%D8%A7%D9%84%D8%AE%D9%84%D9%81%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%A7%D8%B4%D8%AF%D9%8A%D9%86.svg)
-- 우스만 이븐 아판 — Public domain (by عبدالعزيز علي) — [Commons](https://commons.wikimedia.org/wiki/File:The%20third%20caliph%20Uthman.png)
-- 윌리엄 매킨리 — Public domain (by photographer) — [Commons](https://commons.wikimedia.org/wiki/File:William%20mckinley.jpg)
+Derivative: باسم) — https://commons.wikimedia.org/wiki/File:Sultan%20Gazi%20%CA%BBUthm%C4%81n%20Han%20I%20-%20%D8%A7%D9%84%D8%B3%D9%8F%D9%84%D8%B7%D8%A7%D9%86%20%D8%A7%D9%84%D8%BA%D8%A7%D8%B2%D9%8A%20%D8%B9%D9%8F%D8%AB%D9%85%D8%A7%D9%86%20%D8%AE%D8%A7%D9%86%20%D8%A7%D9%84%D8%A3%D9%88%D9%8E%D9%91%D9%84.png
+- 오스카르 쉰들러 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Schindler%2C%20Oskar.jpg
+- 왕가리 마타아 — CC BY-SA 2.0 (by Kingkongphoto &amp; www.celebrity-photos.com from Laurel  Maryland, USA) — https://commons.wikimedia.org/wiki/File:Wangari%20Matthai%202001%20%28cropped%29.jpg
+- 요하네스 구텐베르크 — Public domain — https://commons.wikimedia.org/wiki/File:Gutenberg.jpg
+- 요한 볼프강 폰 괴테 — Public domain (by Joseph Karl Stieler) — https://commons.wikimedia.org/wiki/File:Goethe%20%28Stieler%201828%29.jpg
+- 요한 제바스티안 바흐 — Public domain (by Elias Gottlob Haussmann) — https://commons.wikimedia.org/wiki/File:Johann%20Sebastian%20Bach.png
+- 우마르 — CC BY-SA 3.0 (by Petermaleh) — https://commons.wikimedia.org/wiki/File:Rashidun%20Caliphs%20Umar%20ibn%20Al-Khatt%C4%81b%20-%20%D8%B9%D9%8F%D9%85%D8%B1%20%D8%A8%D9%86%20%D8%A7%D9%84%D8%AE%D8%B7%D9%91%D8%A7%D8%A8%20%D8%AB%D8%A7%D9%86%D9%8A%20%D8%A7%D9%84%D8%AE%D9%84%D9%81%D8%A7%D8%A1%20%D8%A7%D9%84%D8%B1%D8%A7%D8%B4%D8%AF%D9%8A%D9%86.svg
+- 우스만 이븐 아판 — Public domain (by عبدالعزيز علي) — https://commons.wikimedia.org/wiki/File:The%20third%20caliph%20Uthman.png
+- 월트 디즈니 — Public domain (by Boy Scouts of America) — https://commons.wikimedia.org/wiki/File:Walt%20Disney%201946.JPG
+- 윌리엄 매킨리 — Public domain (by photographer) — https://commons.wikimedia.org/wiki/File:William%20mckinley.jpg
+- 윌리엄 셰익스피어 — Public domain (by Attributed to John Taylor) — https://commons.wikimedia.org/wiki/File:Shakespeare.jpg
 - 유리 가가린 — CC BY 4.0 (by В. Жихаренко / ТАСС
 
-Обработка: Roman Kubanskiy) — [Commons](https://commons.wikimedia.org/wiki/File:Yuri%20Gagarin%20portrait.png)
-- 윤보선 — Public domain (by 공보처 홍보국 사진담당관) — [Commons](https://commons.wikimedia.org/wiki/File:%EC%9C%A4%EB%B3%B4%EC%84%A0%20%EB%8C%80%ED%86%B5%EB%A0%B9%20%EC%A1%B4%EC%98%812%20%28cropped%29.jpg)
-- 율리시스 S. 그랜트 — Public domain (by Henry Ulke) — [Commons](https://commons.wikimedia.org/wiki/File:Ugrant.jpeg)
-- 율리우스 카이사르 — Public domain (by Ángel M. Felicísimo from Mérida, España) — [Commons](https://commons.wikimedia.org/wiki/File:Retrato%20de%20Julio%20C%C3%A9sar%20%2826724093101%29%20%28cropped%29.jpg)
-- 이마누엘 칸트 — Public domain (by Becker) — [Commons](https://commons.wikimedia.org/wiki/File:Immanuel%20Kant%20-%20Gemaelde%202.jpg)
-- 이병철 — Public domain (by A crop by Emir of Wikipedia by an image from Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Lee%20Byung-chul%20%28crop%29.jpg)
-- 이븐 시나 — Public domain (by Adam Jones from Kelowna, BC, Canada) — [Commons](https://commons.wikimedia.org/wiki/File:Avicenna%20Portrait%20on%20Silver%20Vase%20-%20Museum%20at%20BuAli%20Sina%20%28Avicenna%29%20Mausoleum%20-%20Hamadan%20-%20Western%20Iran%20%287423560860%29.jpg)
-- 이순신 — KOGL Type 1 (by Unknown, War Memorial of Korea) — [Commons](https://commons.wikimedia.org/wiki/File:Bust%20of%20Yi%20Sun-sin%2001.jpg)
-- 이승만 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Rhee%20Syng-Man%20in%201948.jpg)
-- 인디라 간디 — Public domain (by U.S. News &amp; World Report photographer Warren K. Leffler) — [Commons](https://commons.wikimedia.org/wiki/File:Indira%20Gandhi%201966%20%28cropped%29.jpg)
-- 자우디투 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Zewditu%20Empress.PNG)
-- 장제스 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Chiang%20Kai-shek%EF%BC%88%E8%94%A3%E4%B8%AD%E6%AD%A3%EF%BC%89.jpg)
-- 장폴 사르트르 — CC BY 3.0 (by User:T1980) — [Commons](https://commons.wikimedia.org/wiki/File:Jean%20Paul%20Sartre%201967.jpg)
-- 전두환 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — [Commons](https://commons.wikimedia.org/wiki/File:Chun%20Doo-hwan%20%28%EC%A0%84%EB%91%90%ED%99%98%29%20Presidential%20Portrait.jpg)
-- 조선 선조 — Public domain (by 朝鮮画师) — [Commons](https://commons.wikimedia.org/wiki/File:%E6%9C%9D%E9%AE%AE%E5%AE%A3%E7%A5%96.jpg)
-- 조선 세조 — Public domain (by 김은호) — [Commons](https://commons.wikimedia.org/wiki/File:%EC%84%B8%EC%A1%B0%20%EC%96%B4%EC%A7%84%20%EC%B4%88%EB%B3%B8.jpg)
-- 조선 숙종 — Public domain (by 河應達) — [Commons](https://commons.wikimedia.org/wiki/File:Sukjong%20of%20Joseon.png)
-- 조선 연산군 — CC BY-SA 4.0 (by Валерия Кореева) — [Commons](https://commons.wikimedia.org/wiki/File:%D0%81%D0%BD%D1%81%D0%B0%D0%BD%20%D0%B3%D1%83%D0%BD%20%D0%92%D0%B0%D0%BD%20%D0%A7%D0%BE%D1%81%D0%BE%D0%BD%D0%B0%20Yeonsangun%20of%20Jeoson.jpg)
-- 조선 영조 — Public domain (by Chae Yong-sin / Jo Seokjin) — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20of%20King%20Yeongjo%20-%20Chae%20Yong%20Shin%20%28%E8%94%A1%E9%BE%8D%E8%87%A3%201850-1941%29%20Cho%20Seok-jin%20%28%E8%B6%99%E9%8C%AB%E6%99%89%201853-1920%29%20et%20%28cropped%29.jpg)
-- 조선 정조 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:King%20JeongJo%20of%20Joseon.jpg)
-- 조선 태조 — Public domain (by Jo Jung-muk(?-?), Pak Gijun(?-?), Baek Eunbae(1820-?), Yu Suk(1827-1873)) — [Commons](https://commons.wikimedia.org/wiki/File:King%20Taejo%20Yi%2002.jpg)
-- 조지 오웰 — CC BY 2.0 (by Cassowary Colorizations) — [Commons](https://commons.wikimedia.org/wiki/File:George%20Orwell%2C%20c.%201940%20%2841928180381%29.jpg)
-- 주치 — CC BY-SA 3.0 (by Me) — [Commons](https://commons.wikimedia.org/wiki/File:Juchi%20Khan.JPG)
-- 지미 카터 — Public domain (by Department of Defense. Department of the Navy. Naval Photographic Center) — [Commons](https://commons.wikimedia.org/wiki/File:JimmyCarterPortrait2.jpg)
-- 진 시황제 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Qinshihuangdi3.jpg)
+Обработка: Roman Kubanskiy) — https://commons.wikimedia.org/wiki/File:Yuri%20Gagarin%20portrait.png
+- 유리명왕 —  — 
+- 윤보선 — Public domain (by 공보처 홍보국 사진담당관) — https://commons.wikimedia.org/wiki/File:%EC%9C%A4%EB%B3%B4%EC%84%A0%20%EB%8C%80%ED%86%B5%EB%A0%B9%20%EC%A1%B4%EC%98%812%20%28cropped%29.jpg
+- 율리시스 S. 그랜트 — Public domain (by Henry Ulke) — https://commons.wikimedia.org/wiki/File:Ugrant.jpeg
+- 율리우스 카이사르 — Public domain (by Ángel M. Felicísimo from Mérida, España) — https://commons.wikimedia.org/wiki/File:Retrato%20de%20Julio%20C%C3%A9sar%20%2826724093101%29%20%28cropped%29.jpg
+- 이건희 — CC BY-SA 2.0 (by Republic of  Korea) — https://commons.wikimedia.org/wiki/File:Lee%20Kun-Hee.jpg
+- 이마누엘 칸트 — Public domain (by Becker) — https://commons.wikimedia.org/wiki/File:Immanuel%20Kant%20-%20Gemaelde%202.jpg
+- 이백 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:%E6%9D%8E%E7%99%BD.png
+- 이병철 — Public domain (by A crop by Emir of Wikipedia by an image from Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Lee%20Byung-chul%20%28crop%29.jpg
+- 이븐 시나 — Public domain (by Adam Jones from Kelowna, BC, Canada) — https://commons.wikimedia.org/wiki/File:Avicenna%20Portrait%20on%20Silver%20Vase%20-%20Museum%20at%20BuAli%20Sina%20%28Avicenna%29%20Mausoleum%20-%20Hamadan%20-%20Western%20Iran%20%287423560860%29.jpg
+- 이순신 — KOGL Type 1 (by Unknown, War Memorial of Korea) — https://commons.wikimedia.org/wiki/File:Bust%20of%20Yi%20Sun-sin%2001.jpg
+- 이승만 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Rhee%20Syng-Man%20in%201948.jpg
+- 이츠하크 라빈 — CC BY-SA 3.0 (by Yaakov Saar) — https://commons.wikimedia.org/wiki/File:Flickr%20-%20Israel%20Defense%20Forces%20-%20Life%20of%20Lt.%20Gen.%20Yitzhak%20Rabin%2C%207th%20IDF%20Chief%20of%20Staff%20in%20photos%20%2811%29.jpg
+- 인데르 쿠마르 구지랄 — CC BY-SA 3.0 (by Biswarup Ganguly) — https://commons.wikimedia.org/wiki/File:Inder%20Kumar%20Gujral%20071.jpg
+- 인디라 간디 — Public domain (by U.S. News &amp; World Report photographer Warren K. Leffler) — https://commons.wikimedia.org/wiki/File:Indira%20Gandhi%201966%20%28cropped%29.jpg
+- 잉그바르 캄프라트 — Copyrighted free use — https://commons.wikimedia.org/wiki/File:Ingvar%20Kamprad%20%28cropped%29.jpg
+- 자우디투 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Zewditu%20Empress.PNG
+- 잠셋지 타타 — Public domain (by hochgeladen in en-Wiki von Chirags) — https://commons.wikimedia.org/wiki/File:JNTata.jpg
+- 장자 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Zhuangzi.png
+- 장자크 루소 — Public domain (by Maurice Quentin de La Tour) — https://commons.wikimedia.org/wiki/File:Jean-Jacques%20Rousseau%20%28painted%20portrait%29.jpg
+- 장제스 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Chiang%20Kai-shek%EF%BC%88%E8%94%A3%E4%B8%AD%E6%AD%A3%EF%BC%89.jpg
+- 장폴 사르트르 — CC BY 3.0 (by User:T1980) — https://commons.wikimedia.org/wiki/File:Jean%20Paul%20Sartre%201967.jpg
+- 전두환 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — https://commons.wikimedia.org/wiki/File:Chun%20Doo-hwan%20%28%EC%A0%84%EB%91%90%ED%99%98%29%20Presidential%20Portrait.jpg
+- 정주영 — Public domain (by Technical Sergeant Renee` Sitler) — https://commons.wikimedia.org/wiki/File:Chung%20Ju-yung.jpg
+- 정화 — CC BY-SA 4.0 (by Marcin Konsek) — https://commons.wikimedia.org/wiki/File:2016%20Malakka%2C%20Stadhuys%20%2809%29.jpg
+- 제임스 K. 포크 — Public domain (by George Peter Alexander Healy) — https://commons.wikimedia.org/wiki/File:JamesKnoxPolk.jpg
+- 조선 문종 —  — 
+- 조선 선조 — Public domain (by 朝鮮画师) — https://commons.wikimedia.org/wiki/File:%E6%9C%9D%E9%AE%AE%E5%AE%A3%E7%A5%96.jpg
+- 조선 성종 —  — 
+- 조선 세조 — Public domain (by 김은호) — https://commons.wikimedia.org/wiki/File:%EC%84%B8%EC%A1%B0%20%EC%96%B4%EC%A7%84%20%EC%B4%88%EB%B3%B8.jpg
+- 조선 세종 — South Korean currency (by Bank of Korea) — https://commons.wikimedia.org/wiki/File:10000%20won%20banknote%20%28cropped%29.jpg
+- 조선 숙종 — Public domain (by 河應達) — https://commons.wikimedia.org/wiki/File:Sukjong%20of%20Joseon.png
+- 조선 순조 — CC BY-SA 4.0 (by AnonymousUnknown author) — https://commons.wikimedia.org/wiki/File:%EC%88%9C%EC%A1%B0%EC%96%B4%EC%A7%84.jpg
+- 조선 연산군 — CC BY-SA 4.0 (by Валерия Кореева) — https://commons.wikimedia.org/wiki/File:%D0%81%D0%BD%D1%81%D0%B0%D0%BD%20%D0%B3%D1%83%D0%BD%20%D0%92%D0%B0%D0%BD%20%D0%A7%D0%BE%D1%81%D0%BE%D0%BD%D0%B0%20Yeonsangun%20of%20Jeoson.jpg
+- 조선 영조 — Public domain (by Chae Yong-sin / Jo Seokjin) — https://commons.wikimedia.org/wiki/File:Portrait%20of%20King%20Yeongjo%20-%20Chae%20Yong%20Shin%20%28%E8%94%A1%E9%BE%8D%E8%87%A3%201850-1941%29%20Cho%20Seok-jin%20%28%E8%B6%99%E9%8C%AB%E6%99%89%201853-1920%29%20et%20%28cropped%29.jpg
+- 조선 예종 —  — 
+- 조선 인조 —  — 
+- 조선 정조 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:King%20JeongJo%20of%20Joseon.jpg
+- 조선 정종 —  — 
+- 조선 중종 —  — 
+- 조선 철종 — CC BY-SA 3.0 (by 利用者:Eggmoon) — https://commons.wikimedia.org/wiki/File:Cheoljong2.jpg
+- 조선 태조 — Public domain (by Jo Jung-muk(?-?), Pak Gijun(?-?), Baek Eunbae(1820-?), Yu Suk(1827-1873)) — https://commons.wikimedia.org/wiki/File:King%20Taejo%20Yi%2002.jpg
+- 조지 6세 — Public domain (by Matson Photo Service) — https://commons.wikimedia.org/wiki/File:King%20George%20VI%20LOC%20matpc.14736%20A%20%28cropped%29.jpg
+- 조지 오웰 — CC BY 2.0 (by Cassowary Colorizations) — https://commons.wikimedia.org/wiki/File:George%20Orwell%2C%20c.%201940%20%2841928180381%29.jpg
+- 조지 워싱턴 — Public domain (by Gilbert Stuart) — https://commons.wikimedia.org/wiki/File:Gilbert%20Stuart%20Williamstown%20Portrait%20of%20George%20Washington.jpg
+- 존 — Public domain (by British  – School Details on Google Art Project) — https://commons.wikimedia.org/wiki/File:British%20-%20King%20John%20-%20Google%20Art%20Project.jpg
+- 존 D. 록펠러 — Public domain — https://commons.wikimedia.org/wiki/File:John-D-Rockefeller-sen.jpg
+- 존 F. 케네디 — Public domain (by Cecil W. Stoughton) — https://commons.wikimedia.org/wiki/File:John%20F.%20Kennedy%2C%20White%20House%20color%20photo%20portrait.jpg
+- 존 포브스 내시 — CC BY-SA 3.0 (by Peter Badge / Typos1) — https://commons.wikimedia.org/wiki/File:John%20Forbes%20Nash%2C%20Jr.%20by%20Peter%20Badge.jpg
+- 주치 — CC BY-SA 3.0 (by Me) — https://commons.wikimedia.org/wiki/File:Juchi%20Khan.JPG
+- 지그문트 프로이트 — Public domain (by Max Halberstadt) — https://commons.wikimedia.org/wiki/File:Sigmund%20Freud%2C%20by%20Max%20Halberstadt%20%28cropped%29.jpg
+- 지미 카터 — Public domain (by Department of Defense. Department of the Navy. Naval Photographic Center) — https://commons.wikimedia.org/wiki/File:JimmyCarterPortrait2.jpg
+- 진 시황제 — Public domain — https://commons.wikimedia.org/wiki/File:Qinshihuangdi3.jpg
+- 찰스 다윈 — Public domain (by Herbert Rose Barraud) — https://commons.wikimedia.org/wiki/File:Charles%20Darwin%20portrait.jpg
+- 최규하 — CC BY-SA 2.0 (by Korea.net / Korean Culture and Information Service) — https://commons.wikimedia.org/wiki/File:Presidents%20of%20the%20Republic%20Of%20Korea%20%284261836786%29%20Choi.jpg
+- 최영의 — Public domain (by 日本スポーツ出版社) — https://commons.wikimedia.org/wiki/File:Masutatsu%20Oyama%20karate.jpg
+- 최홍희 — CC BY-SA 4.0 (by Mehran Eisazadeh) — https://commons.wikimedia.org/wiki/File:Choi%20Hong%20Hi%201970.jpg
 - 카롤루스 대제 — Public domain (by Charlemagne. Autorité émettrice de monnaie
 
-indéterminé. Atelier monétaire. Émetteur) — [Commons](https://commons.wikimedia.org/wiki/File:Charlemagne%20denier%20Mayence%20812%20814.jpg)
-- 칼리다사 — CC BY-SA 4.0 (by NehalDaveND) — [Commons](https://commons.wikimedia.org/wiki/File:Kalidas.jpg)
-- 칼릴 지브란 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Kahlil%20Gibran%201913.jpg)
-- 콰리즈미 — CC BY-SA 4.0 (by Muntadher Saleh) — [Commons](https://commons.wikimedia.org/wiki/File:Al-Khwarizmi.jpg)
-- 쿠빌라이 칸 — Public domain (by Araniko) — [Commons](https://commons.wikimedia.org/wiki/File:YuanEmperorAlbumKhubilaiPortrait.jpg)
-- 크리스토퍼 콜럼버스 — Public domain (by Ridolfo del Ghirlandaio) — [Commons](https://commons.wikimedia.org/wiki/File:Ridolfo%20del%20Ghirlandaio%20-%20Ritratto%20di%20Cristoforo%20Colombo%20%281520%29.jpg)
-- 크세르크세스 1세 — CC BY 3.0 (by Darafsh) — [Commons](https://commons.wikimedia.org/wiki/File:National%20Museum%20of%20Iran%20Darafsh%20%28784%29.JPG)
-- 클레오파트라 7세 — Public domain (by Louis le Grand) — [Commons](https://commons.wikimedia.org/wiki/File:Kleopatra-VII.-Altes-Museum-Berlin1.jpg)
+indéterminé. Atelier monétaire. Émetteur) — https://commons.wikimedia.org/wiki/File:Charlemagne%20denier%20Mayence%20812%20814.jpg
+- 카를 마르크스 — Public domain (by John Jabez Edwin Mayall) — https://commons.wikimedia.org/wiki/File:Karl%20Marx%20001%20restored.jpg
+- 카를 프리드리히 가우스 — Public domain (by Gottlieb Biermann / After Christian Albrecht Jensen) — https://commons.wikimedia.org/wiki/File:Carl%20Friedrich%20Gauss.jpg
+- 칼리다사 — CC BY-SA 4.0 (by NehalDaveND) — https://commons.wikimedia.org/wiki/File:Kalidas.jpg
+- 칼릴 지브란 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Kahlil%20Gibran%201913.jpg
+- 코체릴 라만 나라야난 — Public domain (by US EMBASSY NEW DELHI) — https://commons.wikimedia.org/wiki/File:President%20Clinton%20with%20Indian%20president%20K.%20R.%20Narayanan%20%28cropped%29.jpg
+- 코피 아난 — Public domain (by US Mission in Geneva) — https://commons.wikimedia.org/wiki/File:Kofi%20Annan%202012%20%28cropped%29.jpg
+- 콤모두스 — Public domain — https://commons.wikimedia.org/wiki/File:Commodus%20Musei%20Capitolini%20MC1120.jpg
+- 콰리즈미 — CC BY-SA 4.0 (by Muntadher Saleh) — https://commons.wikimedia.org/wiki/File:Al-Khwarizmi.jpg
+- 쿠빌라이 칸 — Public domain (by Araniko) — https://commons.wikimedia.org/wiki/File:YuanEmperorAlbumKhubilaiPortrait.jpg
+- 크누드 대왕 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Knut%20der%20Gro%C3%9Fe%20cropped.jpg
+- 크리스토퍼 콜럼버스 — Public domain (by Ridolfo del Ghirlandaio) — https://commons.wikimedia.org/wiki/File:Ridolfo%20del%20Ghirlandaio%20-%20Ritratto%20di%20Cristoforo%20Colombo%20%281520%29.jpg
+- 크세르크세스 1세 — CC BY 3.0 (by Darafsh) — https://commons.wikimedia.org/wiki/File:National%20Museum%20of%20Iran%20Darafsh%20%28784%29.JPG
+- 클레오파트라 7세 — Public domain (by Louis le Grand) — https://commons.wikimedia.org/wiki/File:Kleopatra-VII.-Altes-Museum-Berlin1.jpg
 - 키루스 2세 보졸그 — Public domain (by Charles Francis Horne
 
-Clarence Cook) — [Commons](https://commons.wikimedia.org/wiki/File:Great%20Men%20and%20Famous%20Women%20Volume%201%20-%20Cyrus%20the%20Great.png)
-- 토마스 아퀴나스 — Public domain (by Carlo Crivelli) — [Commons](https://commons.wikimedia.org/wiki/File:St-thomas-aquinasFXD.jpg)
-- 토머스 에디슨 — Public domain (by Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke) — [Commons](https://commons.wikimedia.org/wiki/File:Thomas%20Edison2-crop.jpg)
-- 토머스 제퍼슨 — Public domain (by Rembrandt Peale) — [Commons](https://commons.wikimedia.org/wiki/File:Official%20Presidential%20portrait%20of%20Thomas%20Jefferson%20%28by%20Rembrandt%20Peale%2C%201800%29%28cropped%29.jpg)
-- 토미리스 — Public domain (by Robinet Testard) — [Commons](https://commons.wikimedia.org/wiki/File:Tomyris%20BnF%20Fran%C3%A7ais%20599%20fol.%2043v.jpg)
-- 티무르 — Public domain (by 1405-1409 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Timur%20seated%20%28earliest%20known%20portrait%29%2C%20Timurid%20genealogy%2C%201405-1409%2C%20Samarkand%20%28TSMK%2C%20H2152%29.jpg)
-- 파니니 — CC BY-SA 4.0 (by Srinithi111) — [Commons](https://commons.wikimedia.org/wiki/File:Grammarian%20Panini.png)
-- 파라비 — CC BY-SA 4.0 (by Iraninhk) — [Commons](https://commons.wikimedia.org/wiki/File:Farabi.jpg)
-- 파탄잘리 — GODL-India (by Post of India) — [Commons](https://commons.wikimedia.org/wiki/File:Stamp%20of%20India%20-%202009%20-%20Colnect%20159916%20-%20Maharshi%20Patanjali.jpeg)
-- 포루스 — CC0 (by User PHGCOM) — [Commons](https://commons.wikimedia.org/wiki/File:Porus%20alexander%20coin.png)
-- 표도르 도스토옙스키 — Public domain (by Vasily Perov) — [Commons](https://commons.wikimedia.org/wiki/File:Vasily%20Perov%20-%20%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%20%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20-%20Google%20Art%20Project.jpg)
-- 프레데리크 쇼팽 — Public domain (by Maria Wodzińska) — [Commons](https://commons.wikimedia.org/wiki/File:Chopin%2C%20by%20Wodzinska.JPG)
-- 프리다 칼로 — Public domain (by Guillermo Kahlo) — [Commons](https://commons.wikimedia.org/wiki/File:Frida%20Kahlo%2C%20by%20Guillermo%20Kahlo%20%28cropped%29.jpg)
-- 플라톤 — CC BY 2.5 (by Marie-Lan Nguyen) — [Commons](https://commons.wikimedia.org/wiki/File:Plato%20Silanion%20Musei%20Capitolini%20MC1377.jpg)
-- 피타고라스 — CC BY-SA 3.0 (by The original uploader was Galilea at German Wikipedia.) — [Commons](https://commons.wikimedia.org/wiki/File:Kapitolinischer%20Pythagoras.jpg)
-- 한니발 바르카 — Public domain (by Fratelli Alinari) — [Commons](https://commons.wikimedia.org/wiki/File:Mommsen%20p265.jpg)
-- 함무라비 — CC BY 3.0 (by Mbzt) — [Commons](https://commons.wikimedia.org/wiki/File:F0182%20Louvre%20Code%20Hammourabi%20Bas-relief%20Sb8%20rwk.jpg)
-- 헨리 8세 — Public domain (by Hans Holbein the Younger) — [Commons](https://commons.wikimedia.org/wiki/File:Hans%20Holbein%2C%20the%20Younger%2C%20Around%201497-1543%20-%20Portrait%20of%20Henry%20VIII%20of%20England%20-%20Google%20Art%20Project.jpg)
-- 헨리 키신저 — Public domain (by U.S. Department of State from United States) — [Commons](https://commons.wikimedia.org/wiki/File:Henry%20A.%20Kissinger%2C%20U.S.%20Secretary%20of%20State%2C%201973-1977.jpg)
-- 호메로스 — CC BY-SA 4.0 (by NikonZ7II) — [Commons](https://commons.wikimedia.org/wiki/File:Homer%20bust%2C%20Farnese%20collection%20%28Naples%29.jpg)
-- 황셴판 — Public domain (by Unknown authorUnknown author) — [Commons](https://commons.wikimedia.org/wiki/File:Huang%20Xianfan%20Graduation%20Photo.jpg)
-- 훌라구 — Public domain (by Circa 1340 artist) — [Commons](https://commons.wikimedia.org/wiki/File:Representation%20of%20Hulagu%20Khan%20%281217-1265%29%20Persian%20miniature%20taken%20from%20Jami%20al-tawarikh%20%28Jami%20al-tawarikh%29%20or%20Universal%20History%20by%20historian%20Rashid%20al-din%20%28al%20din%29%20%281247-1318%29%20Around%201430.%20Paris%2C%20B.N%20%28portrait%29.jpg)
-
-### 초상 (재확보 — 옛 퍼블릭도메인 초상으로 교체)
-- 조선 세종 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:Portrait%20of%20King%20Sejong%201965.jpg)
-- 고려 태조 — Public domain — [Commons](https://commons.wikimedia.org/wiki/File:왕건%20좌상.jpg)
+Clarence Cook) — https://commons.wikimedia.org/wiki/File:Great%20Men%20and%20Famous%20Women%20Volume%201%20-%20Cyrus%20the%20Great.png
+- 탈레스 — Public domain (by Wilhelm Meyer) — https://commons.wikimedia.org/wiki/File:Illustrerad%20Verldshistoria%20band%20I%20Ill%20107.svg
+- 태종 —  — 
+- 텐징 노르가이 — Public domain (by SAS Scandinavian Airlines) — https://commons.wikimedia.org/wiki/File:Tenzing%20Norgay%20%28cropped%29.jpg
+- 토니 모리슨 — CC BY-SA 2.0 (by John Mathew Smith (celebrity-photos.com)) — https://commons.wikimedia.org/wiki/File:Toni%20Morrison.jpg
+- 토마스 아퀴나스 — Public domain (by Carlo Crivelli) — https://commons.wikimedia.org/wiki/File:St-thomas-aquinasFXD.jpg
+- 토머스 에디슨 — Public domain (by Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke) — https://commons.wikimedia.org/wiki/File:Thomas%20Edison2-crop.jpg
+- 토머스 제퍼슨 — Public domain (by Rembrandt Peale) — https://commons.wikimedia.org/wiki/File:Official%20Presidential%20portrait%20of%20Thomas%20Jefferson%20%28by%20Rembrandt%20Peale%2C%201800%29%28cropped%29.jpg
+- 토미리스 — Public domain (by Robinet Testard) — https://commons.wikimedia.org/wiki/File:Tomyris%20BnF%20Fran%C3%A7ais%20599%20fol.%2043v.jpg
+- 툴시다스 — Public domain (by Mohan, 1949) — https://commons.wikimedia.org/wiki/File:Goswami%20Tulsidas%20Awadhi%20Hindi%20Poet.jpg
+- 티무르 — Public domain (by 1405-1409 artist) — https://commons.wikimedia.org/wiki/File:Timur%20seated%20%28earliest%20known%20portrait%29%2C%20Timurid%20genealogy%2C%201405-1409%2C%20Samarkand%20%28TSMK%2C%20H2152%29.jpg
+- 파니니 — CC BY-SA 4.0 (by Srinithi111) — https://commons.wikimedia.org/wiki/File:Grammarian%20Panini.png
+- 파라비 — CC BY-SA 4.0 (by Iraninhk) — https://commons.wikimedia.org/wiki/File:Farabi.jpg
+- 파블로 피카소 — Public domain (by Argentina. Revista Vea y Lea) — https://commons.wikimedia.org/wiki/File:Pablo%20picasso%201.jpg
+- 파탄잘리 — GODL-India (by Post of India) — https://commons.wikimedia.org/wiki/File:Stamp%20of%20India%20-%202009%20-%20Colnect%20159916%20-%20Maharshi%20Patanjali.jpeg
+- 페루치오 람보르기니 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Ferruccio%20lamborghini.jpg
+- 페르디난드 마젤란 — Public domain (by Unknown artistUnknown artist) — https://commons.wikimedia.org/wiki/File:Retrato%20de%20Hernando%20de%20Magallanes.jpg
+- 포루스 — CC0 (by User PHGCOM) — https://commons.wikimedia.org/wiki/File:Porus%20alexander%20coin.png
+- 표도르 도스토옙스키 — Public domain (by Vasily Perov) — https://commons.wikimedia.org/wiki/File:Vasily%20Perov%20-%20%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%20%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20-%20Google%20Art%20Project.jpg
+- 푸이 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:%E6%BA%A5%E4%BB%AA.jpg
+- 프란체스코 페트라르카 — Public domain (by Altichiero) — https://commons.wikimedia.org/wiki/File:Altichiero%2C%20ritratto%20di%20Francesco%20Petrarca.jpg
+- 프란츠 요제프 1세 — Public domain (by Carl Pietzner) — https://commons.wikimedia.org/wiki/File:Franz%20Joseph%20I%20of%20Austria.1910%20%28cropped%29.jpg
+- 프랭클린 D. 루스벨트 — CC BY 2.0 (by Leon Perskie) — https://commons.wikimedia.org/wiki/File:FDR%201944%20Color%20Portrait.jpg
+- 프레데리크 쇼팽 — Public domain (by Maria Wodzińska) — https://commons.wikimedia.org/wiki/File:Chopin%2C%20by%20Wodzinska.JPG
+- 프리다 칼로 — Public domain (by Guillermo Kahlo) — https://commons.wikimedia.org/wiki/File:Frida%20Kahlo%2C%20by%20Guillermo%20Kahlo%20%28cropped%29.jpg
+- 플라톤 — CC BY 2.5 (by Marie-Lan Nguyen) — https://commons.wikimedia.org/wiki/File:Plato%20Silanion%20Musei%20Capitolini%20MC1377.jpg
+- 피타고라스 — CC BY-SA 3.0 (by The original uploader was Galilea at German Wikipedia.) — https://commons.wikimedia.org/wiki/File:Kapitolinischer%20Pythagoras.jpg
+- 하워드 휴스 — Public domain (by Acme Newspictures) — https://commons.wikimedia.org/wiki/File:Howard%20Hughes%201938%20%28cropped%29.jpg
+- 한니발 바르카 — Public domain (by Fratelli Alinari) — https://commons.wikimedia.org/wiki/File:Mommsen%20p265.jpg
+- 함무라비 — CC BY 3.0 (by Mbzt) — https://commons.wikimedia.org/wiki/File:F0182%20Louvre%20Code%20Hammourabi%20Bas-relief%20Sb8%20rwk.jpg
+- 헤라클레이토스 — CC BY-SA 4.0 (by Didier Descouens) — https://commons.wikimedia.org/wiki/File:Ca%27%20Rezzonico%20-%20Eraclito%201705%20-%20Giuseppe%20Torretti.jpg
+- 헤로도토스 — CC0 — https://commons.wikimedia.org/wiki/File:Marble%20bust%20of%20Herodotos%20MET%20DT11742%20%28cropped%29.jpg
+- 헨리 8세 — Public domain (by Hans Holbein the Younger) — https://commons.wikimedia.org/wiki/File:Hans%20Holbein%2C%20the%20Younger%2C%20Around%201497-1543%20-%20Portrait%20of%20Henry%20VIII%20of%20England%20-%20Google%20Art%20Project.jpg
+- 헨리 키신저 — Public domain (by U.S. Department of State from United States) — https://commons.wikimedia.org/wiki/File:Henry%20A.%20Kissinger%2C%20U.S.%20Secretary%20of%20State%2C%201973-1977.jpg
+- 혁거세 거서간 —  — 
+- 호메로스 — CC BY-SA 4.0 (by NikonZ7II) — https://commons.wikimedia.org/wiki/File:Homer%20bust%2C%20Farnese%20collection%20%28Naples%29.jpg
+- 황셴판 — Public domain (by Unknown authorUnknown author) — https://commons.wikimedia.org/wiki/File:Huang%20Xianfan%20Graduation%20Photo.jpg
+- 후세인 1세 — Public domain (by Helene C. Stikkel - First uploader was Wikifreund at de.wikipedia) — https://commons.wikimedia.org/wiki/File:HusseinJordanien.jpg
+- 훌라구 — Public domain (by Circa 1340 artist) — https://commons.wikimedia.org/wiki/File:Representation%20of%20Hulagu%20Khan%20%281217-1265%29%20Persian%20miniature%20taken%20from%20Jami%20al-tawarikh%20%28Jami%20al-tawarikh%29%20or%20Universal%20History%20by%20historian%20Rashid%20al-din%20%28al%20din%29%20%281247-1318%29%20Around%201430.%20Paris%2C%20B.N%20%28portrait%29.jpg
+- 히포크라테스 — Public domain (by Paulus Pontius / After Peter Paul Rubens) — https://commons.wikimedia.org/wiki/File:Hippocrates%20rubens.jpg

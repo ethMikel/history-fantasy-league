@@ -32,7 +32,12 @@ DENYLIST |= {
     'Muhammad Zia-ul-Haq', 'Fidel Castro',  # 현대 독재/권위주의
     'Bernie Madoff',  # 폰지 사기꾼
     'Sung Jae-gi', 'Ivana Trump',  # 논란·저가치 (기업가 부스트 부작용)
+    'Josef Mengele',  # 나치 생체실험 (원 DENYLIST 누락분)
+    'Pablo Escobar',  # 마약왕
+    'Choe Yong-gon',  # 북한
+    'Anne Frank',  # 홀로코스트 희생 아동 — 전투 스탯 드래프트는 톤 부적절
 }
+EXCLUDE_OCC |= {'MAFIOSO', 'PIRATE'}  # 범죄자 직업 추가 차단
 EXCLUDE_OCC = {'RELIGIOUS FIGURE', 'COMPANION', 'CELEBRITY', 'PORNOGRAPHIC ACTOR',
                'EXTREMIST', 'CRIMINAL', 'SOCCER PLAYER', 'RACING DRIVER', 'COACH',
                'ACTOR', 'SINGER', 'MUSICIAN', 'CHEF', 'MODEL', 'BASKETBALL PLAYER'}

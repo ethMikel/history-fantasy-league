@@ -348,18 +348,6 @@
   "flag": "MODERN_POLITICS"
  },
  {
-  "wd_id": "Q187447",
-  "name_en": "Pablo Escobar",
-  "hpi": 85.0,
-  "fame": 85.0,
-  "occupation": "MAFIOSO",
-  "birthyear": 1949,
-  "country": "Colombia",
-  "civ": "AM",
-  "era": "CON",
-  "flag": ""
- },
- {
   "wd_id": "Q8704",
   "name_en": "Walt Disney",
   "hpi": 84.6,
@@ -984,18 +972,6 @@
   "flag": "MODERN_POLITICS"
  },
  {
-  "wd_id": "Q379667",
-  "name_en": "Choe Yong-gon",
-  "hpi": 70.5,
-  "fame": 85.5,
-  "occupation": "POLITICIAN",
-  "birthyear": 1900,
-  "country": "North Korea",
-  "civ": "EA",
-  "era": "CON",
-  "flag": "MODERN_POLITICS"
- },
- {
   "wd_id": "Q356335",
   "name_en": "Choi Hong Hi",
   "hpi": 69.8,
@@ -1560,18 +1536,6 @@
   "flag": "MODERN_POLITICS"
  },
  {
-  "wd_id": "Q4583",
-  "name_en": "Anne Frank",
-  "hpi": 85.3,
-  "fame": 85.3,
-  "occupation": "WRITER",
-  "birthyear": 1929,
-  "country": "Germany",
-  "civ": "EU",
-  "era": "CON",
-  "flag": ""
- },
- {
   "wd_id": "Q216932",
   "name_en": "Ingvar Kamprad",
   "hpi": 79.2,
@@ -1615,18 +1579,6 @@
   "occupation": "WRITER",
   "birthyear": 1908,
   "country": "France",
-  "civ": "EU",
-  "era": "CON",
-  "flag": ""
- },
- {
-  "wd_id": "Q57109",
-  "name_en": "Josef Mengele",
-  "hpi": 84.3,
-  "fame": 84.3,
-  "occupation": "PHYSICIAN",
-  "birthyear": 1911,
-  "country": "Germany",
   "civ": "EU",
   "era": "CON",
   "flag": ""
