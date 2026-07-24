@@ -31,6 +31,14 @@
   --danger: var(--red-400);
   --shadow: rgb(0 0 0 / 55%);
 
+  /* 능력치 값 밴드 — 파워 히트맵(낮음→높음). 적성 점수 한눈에 티어 파악 */
+  --band-elite: #f2c94c; /* 80+ 최상급 */
+  --band-high:  #e8913a; /* 70대 */
+  --band-good:  #6fca5a; /* 60대 */
+  --band-mid:   #56b8c9; /* 50대 */
+  --band-low:   #8a8fb0; /* 40대 */
+  --band-poor:  #5a5568; /* 40 미만 */
+
   /* 스페이싱: 4px 배수만 */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px;
 

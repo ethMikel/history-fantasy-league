@@ -161,19 +161,37 @@
 .slot-empty { font-size: var(--fs-sm); color: var(--ink-500); }
 .slot-fit { display: flex; align-items: center; gap: var(--sp-2); }
 .slot-fit-num { font-size: var(--fs-lg); font-weight: bold; }
-.slot-fit-num[data-grade='good'] { color: var(--green-400); }
-.slot-fit-num[data-grade='mid'] { color: var(--gold-400); }
-.slot-fit-num[data-grade='bad'] { color: var(--ink-500); }
+/* 능력치 값 밴드 (파워 히트맵) — 적성 점수 40/50/60/70/80대 색 구분 (동현 #3) */
+[data-band='b80'] { color: var(--band-elite); }
+[data-band='b70'] { color: var(--band-high); }
+[data-band='b60'] { color: var(--band-good); }
+[data-band='b50'] { color: var(--band-mid); }
+[data-band='b40'] { color: var(--band-low); }
+[data-band='b0']  { color: var(--band-poor); }
 .slot-fit-hint { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
 .mini-portrait { flex-shrink: 0; border: 1px solid var(--ink-500); background: var(--ink-900); image-rendering: pixelated; object-fit: cover; }
 .mini-portrait-blank { display: inline-flex; align-items: center; justify-content: center; font-size: var(--fs-sm); color: var(--text-dim); }
+/* 초상 없는 인물 = 흉상 실루엣 (맨 글자 대신) */
+.char-portrait-blank .icon, .mini-portrait-blank .icon { width: 64%; height: 64%; color: var(--paper-300); opacity: 0.75; }
 
 .spin-area { display: flex; flex-direction: column; gap: var(--sp-3); align-items: center; }
-.spin-cta { padding: var(--sp-8) 0; }
-.spin-label { font-size: var(--fs-md); color: var(--accent); }
+.spin-cta { padding: var(--sp-6) 0; display: flex; flex-direction: column; align-items: center; gap: var(--sp-3); }
+.spin-explain { font-size: var(--fs-sm); color: var(--text-dim); text-align: center; line-height: 1.6; margin: 0; }
+.spin-explain b { color: var(--accent); }
+/* 이번 칸 배너 — (지역×시대) 셀을 명시해 "스핀=칸 추첨"을 각인 */
+.cell-banner { width: 100%; display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap;
+  background: var(--panel); border-left: 4px solid var(--accent); padding: var(--sp-2) var(--sp-3); }
+.cell-tag { font-size: 11px; color: var(--ink-900); background: var(--accent); padding: 1px var(--sp-2); font-weight: bold; }
+.cell-name { font-size: var(--fs-lg); color: var(--accent); font-weight: bold; }
+.cell-sub { font-size: var(--fs-sm); color: var(--text-dim); margin-left: auto; }
 .candidate-list { display: flex; flex-direction: column; gap: var(--sp-2); width: 100%; }
+.respin-caption { font-size: var(--fs-sm); color: var(--text-dim); align-self: flex-start; }
 .respin-row { display: flex; gap: var(--sp-2); }
+.btn-respin em { font-style: normal; color: var(--accent); }
 .hint { font-size: var(--fs-sm); color: var(--text-dim); }
+/* 특수 슬롯 역할 힌트 (대통령·특임) — "무임소 뭔지 모름" 해소 */
+.slot-empty { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.slot-role { font-style: normal; font-size: 10px; color: var(--accent); margin-top: 2px; line-height: 1.3; opacity: 0.85; }
 
 /* near-miss 칩 — 이 셀에 있었지만 놓친 거물 (정직한 near-miss, 재도전 자극) */
 .near-miss-chip {

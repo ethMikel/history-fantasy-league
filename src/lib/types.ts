@@ -41,7 +41,7 @@ export const SLOTS: SlotDef[] = [
   { id: 'foreign', name: '외교부 장관', mainAxis: 'dip', subAxis: 'cul' },
   { id: 'science', name: '과학기술부 장관', mainAxis: 'sci', subAxis: 'dom' },
   { id: 'culture', name: '문화부 장관', mainAxis: 'cul', subAxis: 'dip' },
-  { id: 'flex', name: '무임소 장관', mainAxis: null, subAxis: null },
+  { id: 'flex', name: '특임 장관', mainAxis: null, subAxis: null },
 ]
 
 export type Cabinet = Record<SlotId, Character>

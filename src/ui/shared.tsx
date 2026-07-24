@@ -4,9 +4,12 @@ import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type D
 import { leadershipIndex, slotScore, signatureAxis } from '../lib/simulate'
 import { crisisProgress } from '../lib/progress'
 import { cardBlurb } from '../lib/blurb'
-import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon } from './icons'
+import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon, BustIcon } from './icons'
 
 export const ovr = (c: Character) => Math.round(AXES.reduce((s, a) => s + c.stats[a], 0) / 6)
+
+// 능력치 값 밴드 (파워 히트맵) — 적성 점수를 40/50/60/70/80대별 색으로 한눈에 (동현 #3)
+export const scoreBand = (v: number) => v >= 80 ? 'b80' : v >= 70 ? 'b70' : v >= 60 ? 'b60' : v >= 50 ? 'b50' : v >= 40 ? 'b40' : 'b0'
 
 // 슬롯 짧은 라벨 (카드 적성 표기용)
 export const SLOT_SHORT: Record<SlotId, string> = {
@@ -61,7 +64,7 @@ export function MiniPortrait({ c, size = 32 }: { c: Character; size?: number }) 
          style={{ width: size, height: size }}
          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
   ) : (
-    <span className="mini-portrait mini-portrait-blank" style={{ width: size, height: size }}>{c.name[0]}</span>
+    <span className="mini-portrait mini-portrait-blank" style={{ width: size, height: size }}><BustIcon /></span>
   )
 }
 
@@ -81,11 +84,11 @@ export function CharCard({ c, selected, onClick, compact }: {
           <img className="char-portrait pixelated" src={portraitUrl(c.portrait)} alt={c.name}
                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }} />
         ) : (
-          <span className="char-portrait char-portrait-blank">{c.name[0]}</span>
+          <span className="char-portrait char-portrait-blank"><BustIcon /></span>
         )}
         <span className="char-name">{c.name}</span>
         <span className="char-fit">
-          <b className="char-fit-score" style={{ color: TIER_COLOR[c.tier] }}>{fit.score}</b>
+          <b className="char-fit-score" data-band={scoreBand(fit.score)}>{fit.score}</b>
           <span className="char-fit-label">{SLOT_SHORT[fit.slot.id]}적성</span>
         </span>
       </div>

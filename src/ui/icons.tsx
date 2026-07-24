@@ -71,6 +71,14 @@ export const RetryIcon = (p: P) => (
   </Svg>
 )
 
+// 초상 없는 인물 폴백 (태종·광종 등) — 맨 글자 대신 흉상 실루엣
+export const BustIcon = (p: P) => (
+  <Svg {...p}>
+    <circle cx="8" cy="5.4" r="3.1" />
+    <path d="M1.8 15.5 C1.8 10.5 4.6 9 8 9 C11.4 9 14.2 10.5 14.2 15.5 Z" />
+  </Svg>
+)
+
 export const CameraIcon = (p: P) => (
   <Svg {...p}>
     <path d="M1 4 H4 L5 2.5 H11 L12 4 H15 V13 H1 Z" />
