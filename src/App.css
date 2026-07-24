@@ -195,17 +195,19 @@
 .cell-tag { font-size: 11px; color: var(--ink-900); background: var(--accent); padding: 1px var(--sp-2); font-weight: bold; }
 .cell-sub { font-size: var(--fs-sm); color: var(--text-dim); margin-left: auto; }
 /* 대륙 그림 + 지역 + 시대(연도범위 숫자 배지) — 동현 요청 */
-.region-era { display: inline-flex; align-items: center; gap: 5px; }
-.re-cont { width: 1.15em; height: 1.15em; color: var(--accent); flex-shrink: 0; }
+.region-era { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.re-group { display: inline-flex; align-items: center; gap: 4px; }
+.re-ico { width: 1.05em; height: 1.05em; color: var(--accent); flex-shrink: 0; }
 .re-civ { color: var(--accent); font-weight: bold; }
 .re-era { color: var(--text); }
-.re-range { font-size: 0.82em; color: var(--ink-900); background: var(--paper-300); padding: 0 4px; font-variant-numeric: tabular-nums; }
+.re-range { font-size: 0.78em; line-height: 1.4; color: var(--ink-900); background: var(--paper-300); padding: 0 5px; font-variant-numeric: tabular-nums; }
 .cell-banner .region-era { font-size: var(--fs-lg); }
-/* 카드 meta 안에서는 compact */
-.region-era.compact { gap: 4px; }
+/* 카드 meta 안에서는 compact (색 죽여 이름·스탯에 시선 양보) */
+.region-era.compact { gap: 8px; }
+.region-era.compact .re-ico { color: var(--text-dim); }
 .region-era.compact .re-civ { color: var(--text-dim); font-weight: normal; }
 .region-era.compact .re-era { color: var(--text-dim); }
-.region-era.compact .re-range { font-size: 0.9em; }
+.region-era.compact .re-range { font-size: 0.85em; }
 .char-tier { color: var(--text-dim); }
 .candidate-list { display: flex; flex-direction: column; gap: var(--sp-2); width: 100%; }
 .respin-caption { font-size: var(--fs-sm); color: var(--text-dim); align-self: flex-start; }

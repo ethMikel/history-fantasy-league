@@ -150,6 +150,10 @@ export function ContinentIcon({ civ, ...p }: P & { civ: string }) {
     </Svg>
   )
 }
+// 시대 아이콘 (모래시계) — 대륙 아이콘과 짝을 이뤄 "(대륙)지역 (시대)근대" 정렬 (동현 #4)
+export const EraIcon = (p: P) => (
+  <Svg {...p}><path d="M3 2 H13 V3 H12 V5 L9 8 L12 11 V13 H13 V14 H3 V13 H4 V11 L7 8 L4 5 V3 H3 Z" /></Svg>
+)
 // 시대 → 세기 범위 (era_of: ANC<500 / MED<1400 / EARLY<1700 / MOD<1900 / CON≥1900)
 export const eraRange = (era: string): string =>
   ({ '고대': '~5C', '중세': '5–14C', '근세': '15–17C', '근대': '18–19C', '현대': '20C~' } as Record<string, string>)[era] ?? ''

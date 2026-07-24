@@ -4,20 +4,23 @@ import { AXES, AXIS_LABEL, SLOTS, type Axis, type Character, type Crisis, type D
 import { leadershipIndex, slotScore, signatureAxis } from '../lib/simulate'
 import { crisisProgress } from '../lib/progress'
 import { cardBlurb } from '../lib/blurb'
-import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon, BustIcon, ContinentIcon, eraRange } from './icons'
+import { CrisisAxisIcon, BoltIcon, CheckIcon, CrossIcon, BustIcon, ContinentIcon, EraIcon, eraRange } from './icons'
 
-// 대륙 그림 아이콘 + 지역 + 시대(연도범위) — 스핀 배너·카드 공용 (동현: 지역=그림, 시대=숫자)
+// (대륙 아이콘)지역 · (시대 아이콘)시대 연도범위 — 아이콘·라벨 쌍으로 정렬 (동현 #4)
 export function RegionEra({ civ, era, compact }: { civ: string; era: string; compact?: boolean }) {
   const range = eraRange(era)
   return (
     <span className={`region-era${compact ? ' compact' : ''}`}>
-      <ContinentIcon civ={civ} className="re-cont" />
-      <span className="re-civ">{civ}</span>
+      <span className="re-group">
+        <ContinentIcon civ={civ} className="re-ico" />
+        <span className="re-civ">{civ}</span>
+      </span>
       {era && (
-        <>
+        <span className="re-group">
+          <EraIcon className="re-ico" />
           <span className="re-era">{era}</span>
           {range && <span className="re-range">{range}</span>}
-        </>
+        </span>
       )}
     </span>
   )
