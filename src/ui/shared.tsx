@@ -63,13 +63,16 @@ export function fitScore(slot: SlotDef, c: Character): number {
 
 // 카드 얼굴 = 베스트 슬롯 기준 점수 + 본직 라벨 (FIFA "본직 OVR" 문법)
 export function bestFit(c: Character): { slot: SlotDef; score: number } {
-  let best = { slot: SLOTS[0], score: -1 }
-  for (const s of SLOTS) {
-    if (s.id === 'flex') continue // 만능석은 본직이 아님
-    const v = fitScore(s, c)
-    if (v > best.score) best = { slot: s, score: v }
-  }
-  return best
+  return topSlotFits(c, 1)[0]
+}
+
+// 멀티슬롯 적성 — 한 인물이 여러 자리에 얼마나 맞는지 (동현 #3-A: 배치가 "선택"이 되게).
+// 만능석 제외, 적성 내림차순 top n. bestFit도 이걸 재사용.
+export function topSlotFits(c: Character, n = 3): { slot: SlotDef; score: number }[] {
+  return SLOTS.filter((s) => s.id !== 'flex')
+    .map((s) => ({ slot: s, score: fitScore(s, c) }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, n)
 }
 
 export const AXIS_VAR: Record<Axis, string> = {
@@ -139,9 +142,20 @@ export function CharCard({ c, selected, onClick, compact }: {
       </div>
       {cardBlurb(c) && <div className="char-blurb">{cardBlurb(c)}</div>}
       {!compact && (
-        <div className="char-stats">
-          {AXES.map((a) => <StatBar key={a} axis={a} value={c.stats[a]} />)}
-        </div>
+        <>
+          <div className="fit-slots" title="이 인물이 어느 자리에 얼마나 맞는지 — 배치를 고민해보세요">
+            <span className="fs-label">자리별 적성</span>
+            {topSlotFits(c, 3).map(({ slot, score }) => (
+              <span className="fs-item" key={slot.id}>
+                <span className="fs-name">{SLOT_SHORT[slot.id]}</span>
+                <b data-band={scoreBand(score)}>{score}</b>
+              </span>
+            ))}
+          </div>
+          <div className="char-stats">
+            {AXES.map((a) => <StatBar key={a} axis={a} value={c.stats[a]} />)}
+          </div>
+        </>
       )}
     </button>
   )

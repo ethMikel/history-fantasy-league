@@ -249,6 +249,12 @@
   margin-bottom: var(--sp-2); border-left: 3px solid var(--ink-500); padding-left: var(--sp-2);
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
 }
+/* 자리별 적성 (동현 #3-A) — 한 인물이 여러 슬롯에 얼마나 맞는지 = 배치 고민 유도 */
+.fit-slots { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-2); font-size: 11px; }
+.fs-label { color: var(--text-dim); }
+.fs-item { display: inline-flex; align-items: center; gap: 3px; background: var(--ink-900); padding: 1px 6px; }
+.fs-name { color: var(--text-dim); }
+.fs-item b { font-variant-numeric: tabular-nums; }
 .char-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px var(--sp-3); }
 .statbar { display: flex; align-items: center; gap: var(--sp-1); font-size: 11px; }
 .statbar-label { width: 28px; }
