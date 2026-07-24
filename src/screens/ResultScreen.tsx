@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { BALANCE as B } from '../lib/balance'
 import { SLOTS, type Character, type SlotId } from '../lib/types'
 import { MiniPortrait, fitScore, SupportGraph } from '../ui/shared'
 import { nextGoal } from '../lib/simulate'
 import { play } from '../lib/sfx'
-import { record, top } from '../game/localScores'
+import { record, updateNick, leaderboard, rankOf } from '../game/localScores'
 import { shareResult } from '../game/shareCard'
 import { CrownIcon, RetryIcon, CameraIcon } from '../ui/icons'
 import type { Action, GameState } from '../game/gameState'
@@ -17,12 +17,14 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
   const r = state.result!
   const support = [B.SUPPORT_START, ...r.timeline.map((e) => e.supportAfter)]
 
-  // 이번 판을 로컬 기록에 저장 (마운트 시 1회) → 순위·신기록 + 역대 TOP
+  // 이번 판을 로컬 기록에 저장 (마운트 시 1회) → 명예의 전당 등재
   const [meta] = useState(() => record({
     seed: state.seed, years: r.years, grade: r.grade, cleared: r.cleared, allClear: r.allClear,
     cabinet: SLOTS.map((s) => state.slots[s.id]!.name),
   }))
-  const [board] = useState(() => top(5))
+  const [nick, setNick] = useState('') // 아케이드 이름 입력
+  const board = useMemo(() => leaderboard(10), [nick]) // 닉 변경 시 재계산(저장 후)
+  const myRank = useMemo(() => rankOf(meta.ts), [meta.ts])
   const [sharing, setSharing] = useState(false)
   const [shareMsg, setShareMsg] = useState('')
   const goal = nextGoal(r) // 목표구배/near-miss — "한 끗" 근접치로 재도전 유도
@@ -55,29 +57,39 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
       {/* 목표구배/near-miss — 다음 목표까지 "한 끗" (재도전 압력) */}
       {goal && <div className={`near-miss hard-shadow${goal.hot ? ' hot' : ''}`}>{goal.text}</div>}
 
-      {/* 이번 판 순위 + 신기록 — "내 최고 깨기" retry 훅 */}
+      {/* 명예의 전당 순위 + 신기록 — retry 훅 */}
       <div className="rank-strip hard-shadow">
         {meta.isBest
-          ? <span className="rank-best">🎉 개인 신기록! 역대 {meta.rank}위 / {meta.total}판</span>
-          : <span className="rank-normal">이번 판 역대 <b>{meta.rank}위</b> / {meta.total}판</span>}
+          ? <span className="rank-best">🎉 개인 신기록! 명예의 전당 {myRank.rank}위 / {myRank.total}</span>
+          : <span className="rank-normal">명예의 전당 <b>{myRank.rank}위</b> / {myRank.total}</span>}
       </div>
 
       <SupportGraph series={support} total={support.length} />
 
-      {/* 내 역대 기록 TOP 5 (로컬) — Phase 3에서 전역 리더보드로 확장 */}
-      {board.length > 1 && (
-        <div className="local-board hard-shadow gilt">
-          <div className="board-title">내 역대 기록</div>
-          {board.map((b, i) => (
-            <div key={b.ts} className="board-row">
-              <span className="board-rank">{i + 1}</span>
-              <span className="board-grade">{b.allClear ? '🏆' : ''}{b.grade}</span>
-              <span className="board-years">{b.years}년</span>
-              <span className="board-cab">{b.cabinet[0]} 정권</span>
+      {/* 명예의 전당 — 시드 고득점 + 내 기록 병합 (오락실 리더보드) */}
+      <div className="hall-of-fame hard-shadow gilt">
+        <div className="hof-title">명예의 전당</div>
+        <label className="hof-nick-row">
+          <span className="hof-nick-label">이름을 남겨라</span>
+          <input className="hof-nick-input" value={nick} maxLength={12} placeholder="무명의 지도자"
+                 onChange={(e) => { const v = e.target.value; updateNick(meta.ts, v); setNick(v) }} />
+        </label>
+        {board.map((b, i) => {
+          const me = b.isMine && b.ts === meta.ts
+          return (
+            <div key={b.seeded ? 's' + i : b.ts} className={`hof-row${me ? ' me' : ''}`}>
+              <span className="hof-rank" data-medal={i < 3 ? i + 1 : undefined}>{i + 1}</span>
+              <span className="hof-grade" data-g={b.grade}>{b.grade}</span>
+              <span className="hof-nick">{me ? (nick || '무명의 지도자') : (b.nick || '무명')}</span>
+              <span className="hof-cab">{b.cabinet[0]} 정권</span>
+              <span className="hof-years">{b.years}년</span>
             </div>
-          ))}
-        </div>
-      )}
+          )
+        })}
+        {myRank.rank > 10 && (
+          <div className="hof-myrank">⋯ 너의 순위 <b>{myRank.rank}</b> / {myRank.total}</div>
+        )}
+      </div>
 
       <div className="result-cabinet">
         {SLOTS.map((s) => {

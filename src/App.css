@@ -304,13 +304,37 @@
 .rank-best { font-size: var(--fs-md); color: var(--gold-400); font-weight: bold; }
 .rank-normal { font-size: var(--fs-md); color: var(--text-dim); }
 .rank-normal b { color: var(--text); font-size: var(--fs-lg); }
-.local-board { width: 100%; background: var(--panel); padding: var(--sp-3); }
-.board-title { font-size: var(--fs-sm); color: var(--text-dim); margin-bottom: var(--sp-2); }
-.board-row { display: flex; align-items: center; gap: var(--sp-3); font-size: var(--fs-sm); padding: 2px 0; border-bottom: 1px solid var(--ink-700); }
-.board-rank { width: 20px; color: var(--text-dim); }
-.board-grade { width: 40px; font-weight: bold; }
-.board-years { width: 56px; color: var(--accent); }
-.board-cab { flex: 1; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* ── 명예의 전당 (아케이드 리더보드: 시드 고득점 + 내 기록) ── */
+.hall-of-fame { width: 100%; background: var(--panel); padding: var(--sp-4) var(--sp-3) var(--sp-3); }
+.hof-title { font-size: var(--fs-lg); color: var(--accent); text-align: center; letter-spacing: 2px; margin-bottom: var(--sp-3); }
+.hof-nick-row { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-3); padding-bottom: var(--sp-3); border-bottom: 2px solid var(--ink-500); }
+.hof-nick-label { font-size: var(--fs-sm); color: var(--text-dim); white-space: nowrap; }
+.hof-nick-input {
+  flex: 1; min-width: 0; font: inherit; font-size: var(--fs-md); color: var(--accent);
+  background: var(--ink-900); border: 2px solid var(--gold-400); border-radius: 0;
+  padding: var(--sp-2) var(--sp-3); outline: none;
+}
+.hof-nick-input::placeholder { color: var(--ink-500); }
+.hof-nick-input:focus { box-shadow: 2px 2px 0 var(--shadow); }
+.hof-row { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); padding: var(--sp-1); border-bottom: 1px solid var(--ink-700); }
+.hof-row.me { background: rgb(217 164 65 / 14%); outline: 2px solid var(--gold-400); animation: hofMe 0.5s ease-out; }
+@keyframes hofMe { from { transform: scale(0.97); opacity: 0.3; } }
+.hof-rank { width: 26px; flex: 0 0 26px; text-align: center; color: var(--text-dim); font-weight: bold; font-variant-numeric: tabular-nums; }
+.hof-rank[data-medal] { color: var(--ink-900); }
+.hof-rank[data-medal='1'] { background: var(--gold-400); }
+.hof-rank[data-medal='2'] { background: #c9c9d6; }
+.hof-rank[data-medal='3'] { background: #c08457; }
+.hof-grade { width: 20px; flex: 0 0 20px; text-align: center; font-weight: bold; }
+.hof-grade[data-g='S'] { color: var(--gold-400); }
+.hof-grade[data-g='A'] { color: var(--stat-diplomacy); }
+.hof-grade[data-g='B'] { color: var(--stat-domestic); }
+.hof-grade[data-g='C'] { color: var(--paper-300); }
+.hof-grade[data-g='D'] { color: var(--ink-500); }
+.hof-nick { flex: 1 1 40%; min-width: 0; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hof-cab { flex: 1 1 36%; min-width: 0; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+.hof-years { width: 48px; flex: 0 0 48px; text-align: right; color: var(--accent); font-variant-numeric: tabular-nums; }
+.hof-myrank { margin-top: var(--sp-2); text-align: center; font-size: var(--fs-sm); color: var(--text-dim); }
+.hof-myrank b { color: var(--accent); }
 /* 국운 그래프 — 크래시/주식차트 긴장감 (관전의 서사 코어). 구간색: 안정=초록 / 흔들림=금 / 위태=적 */
 .support-graph { background: var(--panel); padding: var(--sp-3); width: 100%; --graph-c: var(--accent); }
 .support-graph.zone-up { --graph-c: var(--green-400); }
