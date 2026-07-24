@@ -18,9 +18,9 @@
 .atlas-veil {
   position: absolute; inset: 0;
   background:
-    repeating-linear-gradient(0deg, rgba(232,181,58,.03) 0 1px, transparent 1px 46px),
-    repeating-linear-gradient(90deg, rgba(232,181,58,.03) 0 1px, transparent 1px 46px),
-    radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, rgba(20,18,31,.82) 100%);
+    repeating-linear-gradient(0deg, rgba(217,164,65,.035) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(217,164,65,.035) 0 1px, transparent 1px 46px),
+    radial-gradient(ellipse 90% 80% at 50% 45%, transparent 40%, rgba(23,19,15,.86) 100%);
 }
 /* 콘텐츠는 배경 위로 */
 .app-root > *:not(.atlas-bg) { position: relative; z-index: 1; }
@@ -32,6 +32,22 @@
   border: 2px solid var(--ink-500); border-radius: 0; padding: var(--sp-1) var(--sp-2); cursor: pointer;
 }
 .mute-btn:active { transform: translate(1px, 1px); }
+
+/* ── 금박 이중 프레임 (흑금 태피스트리 시그니처) ──
+   서사 패널에만 적용: 위기 카드·국운 그래프·결과 패널. char-card는 tier 색언어 보존을 위해 제외. */
+.gilt { position: relative; }
+.gilt::before {
+  content: ""; position: absolute; inset: 4px; pointer-events: none;
+  border: 2px solid var(--gold-line);
+}
+.gilt::after {
+  content: ""; position: absolute; inset: 2px; pointer-events: none;
+  background:
+    radial-gradient(var(--gold-400) 45%, transparent 48%) left 2px top 2px / 7px 7px no-repeat,
+    radial-gradient(var(--gold-400) 45%, transparent 48%) right 2px top 2px / 7px 7px no-repeat,
+    radial-gradient(var(--gold-400) 45%, transparent 48%) left 2px bottom 2px / 7px 7px no-repeat,
+    radial-gradient(var(--gold-400) 45%, transparent 48%) right 2px bottom 2px / 7px 7px no-repeat;
+}
 
 /* ── 공통 버튼 ── */
 .btn-primary {
@@ -277,8 +293,8 @@
 .graph-svg {
   width: 100%; height: 120px; display: block;
   background:
-    repeating-linear-gradient(0deg, rgba(232,181,58,.06) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgba(232,181,58,.06) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(0deg, rgba(217,164,65,.07) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(217,164,65,.07) 0 1px, transparent 1px 40px),
     var(--ink-900);
 }
 /* 현재 국운 위치 픽셀 마커 (자라는 선 끝) */

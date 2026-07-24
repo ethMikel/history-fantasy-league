@@ -108,7 +108,7 @@ const CRISIS_ICON: Record<Axis, string> = {
 // 구체적 이벤트명(헤드라인) + 서술형 예고(증상). 축 색은 왼쪽 보더로만 힌트 (처방 은닉 원칙)
 export function CrisisBanner({ crisis }: { crisis: Crisis }) {
   return (
-    <div className="crisis-chip hard-shadow" style={{ borderColor: AXIS_VAR[crisis.axis] }}>
+    <div className="crisis-chip hard-shadow gilt" style={{ borderColor: AXIS_VAR[crisis.axis] }}>
       <div className="crisis-top">
         <span className="crisis-icon">{CRISIS_ICON[crisis.axis]}</span>
         <span className="crisis-name">{crisis.title}</span>
@@ -128,7 +128,7 @@ export function SupportGraph({ series, total }: { series: number[]; total: numbe
   const lastX = series.length ? ((series.length - 1) / (n - 1)) * 100 : 0
   const lastY = 100 - cur
   return (
-    <div className="support-graph hard-shadow">
+    <div className="support-graph hard-shadow gilt">
       <div className="graph-head">
         <span className="graph-title">국운 그래프</span>
         <span className="graph-cur">{cur}</span>

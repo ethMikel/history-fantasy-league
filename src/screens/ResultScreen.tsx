@@ -31,7 +31,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
   return (
     <div className="result-screen">
       {/* 우승 여부 = 1차 목표 (retry 동기) */}
-      <div className={`result-verdict hard-shadow ${r.allClear ? 'win' : 'lose'}`}>
+      <div className={`result-verdict hard-shadow gilt ${r.allClear ? 'win' : 'lose'}`}>
         {r.allClear ? (
           <>
             <span className="win-crown">🏆</span>
@@ -65,7 +65,7 @@ export function ResultScreen({ state, dispatch }: { state: GameState; dispatch: 
 
       {/* 내 역대 기록 TOP 5 (로컬) — Phase 3에서 전역 리더보드로 확장 */}
       {board.length > 1 && (
-        <div className="local-board hard-shadow">
+        <div className="local-board hard-shadow gilt">
           <div className="board-title">내 역대 기록</div>
           {board.map((b, i) => (
             <div key={b.ts} className="board-row">
